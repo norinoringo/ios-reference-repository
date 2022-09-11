@@ -14,3 +14,15 @@ iOSのリファレンス実装をまとめたサンプルアプリです。
     - View
     - Repository
     - UseCase
+
+### gitignoreするもの
+- Pods/*
+- *.xcworkspace
+
+### 導入するライブラリ
+- SwiftLint
+- R.Swift
+- RxSwift
+- Alamofire
+- AlamofireImage
+- SwiftyUserDefaults(要検討)
