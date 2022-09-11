@@ -14,6 +14,8 @@
     - storyboardの設定
         - Custom ClassにViewControllerを指定
         - "is Initial View Controller"にチェック
+ - TopViewの実装
+    - "is Initial View Controller"にチェック
  */
 
 import Foundation
@@ -23,5 +25,19 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Splash画面表示")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        gotoTop()
+    }
+}
+
+extension SplashViewController {
+    private func gotoTop() {
+        if let nextVC = R.storyboard.top.instantiateInitialViewController() {
+            nextVC.modalPresentationStyle = .fullScreen
+            self.present(nextVC, animated: true)
+        }
     }
 }
