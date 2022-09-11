@@ -13,6 +13,9 @@
 		8618B4AD28CC45DC004810C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4AC28CC45DC004810C3 /* Assets.xcassets */; };
 		8618B4BA28CD9B55004810C3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4B928CD9B55004810C3 /* Splash.storyboard */; };
 		8618B4BC28CD9B6B004810C3 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4BB28CD9B6B004810C3 /* SplashViewController.swift */; };
+		8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4BF28CDA8C2004810C3 /* TopViewController.swift */; };
+		8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4C128CDA8FB004810C3 /* Top.storyboard */; };
+		8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4C428CDAAB4004810C3 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		8618B4B128CC45DC004810C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8618B4B928CD9B55004810C3 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		8618B4BB28CD9B6B004810C3 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		8618B4BF28CDA8C2004810C3 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		8618B4C128CDA8FB004810C3 /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
+		8618B4C428CDAAB4004810C3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		8AB65B9723C24FBE6B3CD2E3 /* Pods-iOSReferenceRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSReferenceRepository.debug.xcconfig"; path = "Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		A9FCD5B60BA46D61F31D9954 /* Pods_iOSReferenceRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSReferenceRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B280A647610E831338EC5047 /* Pods-iOSReferenceRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSReferenceRepository.release.xcconfig"; path = "Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +86,7 @@
 			children = (
 				8618B4B728CD9B08004810C3 /* AppManager */,
 				8618B4B828CD9B28004810C3 /* SplashView */,
+				8618B4BD28CDA89F004810C3 /* TopView */,
 			);
 			path = iOSReferenceRepository;
 			sourceTree = "<group>";
@@ -89,6 +96,7 @@
 			children = (
 				8618B4B128CC45DC004810C3 /* Info.plist */,
 				8618B4A328CC45D9004810C3 /* AppDelegate.swift */,
+				8618B4C428CDAAB4004810C3 /* R.generated.swift */,
 				8618B4A528CC45D9004810C3 /* SceneDelegate.swift */,
 				8618B4AC28CC45DC004810C3 /* Assets.xcassets */,
 			);
@@ -104,6 +112,15 @@
 			path = SplashView;
 			sourceTree = "<group>";
 		};
+		8618B4BD28CDA89F004810C3 /* TopView */ = {
+			isa = PBXGroup;
+			children = (
+				8618B4BF28CDA8C2004810C3 /* TopViewController.swift */,
+				8618B4C128CDA8FB004810C3 /* Top.storyboard */,
+			);
+			path = TopView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,6 +133,7 @@
 				8618B49D28CC45D9004810C3 /* Frameworks */,
 				8618B49E28CC45D9004810C3 /* Resources */,
 				5BE2420EAD229FD6D87415D2 /* [CP] Embed Pods Frameworks */,
+				8618B4C328CDA9CA004810C3 /* R.Swift Run Script */,
 			);
 			buildRules = (
 			);
@@ -166,6 +184,7 @@
 			files = (
 				8618B4AD28CC45DC004810C3 /* Assets.xcassets in Resources */,
 				8618B4BA28CD9B55004810C3 /* Splash.storyboard in Resources */,
+				8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +207,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8618B4C328CDA9CA004810C3 /* R.Swift Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "R.Swift Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$SRCROOT/R.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
 		91D81C6DC5E83DB704275E74 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -218,7 +257,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */,
 				8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */,
+				8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,
 				8618B4BC28CD9B6B004810C3 /* SplashViewController.swift in Sources */,
 			);
