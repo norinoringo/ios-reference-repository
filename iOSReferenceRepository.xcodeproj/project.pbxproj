@@ -10,7 +10,6 @@
 		1743F3A07AEDFBB02AFD4928 /* Pods_iOSReferenceRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FCD5B60BA46D61F31D9954 /* Pods_iOSReferenceRepository.framework */; };
 		8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4A328CC45D9004810C3 /* AppDelegate.swift */; };
 		8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4A528CC45D9004810C3 /* SceneDelegate.swift */; };
-		8618B4A828CC45D9004810C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4A728CC45D9004810C3 /* ViewController.swift */; };
 		8618B4AD28CC45DC004810C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4AC28CC45DC004810C3 /* Assets.xcassets */; };
 		8618B4BA28CD9B55004810C3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4B928CD9B55004810C3 /* Splash.storyboard */; };
 		8618B4BC28CD9B6B004810C3 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4BB28CD9B6B004810C3 /* SplashViewController.swift */; };
@@ -20,7 +19,6 @@
 		8618B4A028CC45D9004810C3 /* iOSReferenceRepository.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSReferenceRepository.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8618B4A328CC45D9004810C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8618B4A528CC45D9004810C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8618B4A728CC45D9004810C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8618B4AC28CC45DC004810C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8618B4B128CC45DC004810C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8618B4B928CD9B55004810C3 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				8618B4B728CD9B08004810C3 /* AppManager */,
-				8618B4A728CC45D9004810C3 /* ViewController.swift */,
 				8618B4B828CD9B28004810C3 /* SplashView */,
 			);
 			path = iOSReferenceRepository;
@@ -221,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8618B4A828CC45D9004810C3 /* ViewController.swift in Sources */,
 				8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,
 				8618B4BC28CD9B6B004810C3 /* SplashViewController.swift in Sources */,
