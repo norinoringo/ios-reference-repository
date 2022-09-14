@@ -16,6 +16,7 @@
         - "is Initial View Controller"にチェック
  - TopViewの実装
     - "is Initial View Controller"にチェック
+    - "Embed in"からNavigation Controllerを追加
  */
 
 import Foundation
