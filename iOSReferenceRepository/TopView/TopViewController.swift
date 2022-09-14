@@ -12,10 +12,12 @@
     - TableViewCellを追加
  - ViewController
     - UITableViewDataSource Protocolを継承
-    - func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {}
-    - func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {}
-    - tableView.dataSource = self
- */
+        - func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {}
+        - func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {}
+            - let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
+        - tableView.dataSource = self
+*/
+
 
 import Foundation
 import UIKit
@@ -83,9 +85,7 @@ extension TopViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = tableData[indexPath.section].cells[indexPath.row].rawValue
-        return cell
+        return initCell(indexPath: indexPath)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -94,6 +94,13 @@ extension TopViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return tableData[section].section.rawValue
+    }
+
+    private func initCell(indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = tableData[indexPath.section].cells[indexPath.row].rawValue
+        cell.accessoryType = .disclosureIndicator
+        return cell
     }
 }
 
