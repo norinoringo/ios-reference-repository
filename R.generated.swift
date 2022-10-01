@@ -183,8 +183,8 @@ struct R: Rswift.Validatable {
   struct nib {
     /// Nib `BottomView`.
     static let bottomView = _R.nib._BottomView()
-    /// Nib `CollectionVIewCell`.
-    static let collectionVIewCell = _R.nib._CollectionVIewCell()
+    /// Nib `CollectionViewCell`.
+    static let collectionViewCell = _R.nib._CollectionViewCell()
     /// Nib `UpperView`.
     static let upperView = _R.nib._UpperView()
 
@@ -197,10 +197,10 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UINib(name: "CollectionVIewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.collectionVIewCell) instead")
-    static func collectionVIewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.collectionVIewCell)
+    /// `UINib(name: "CollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.collectionViewCell) instead")
+    static func collectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.collectionViewCell)
     }
     #endif
 
@@ -216,8 +216,8 @@ struct R: Rswift.Validatable {
       return R.nib.bottomView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
-    static func collectionVIewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
-      return R.nib.collectionVIewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionViewCell
+    static func collectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
+      return R.nib.collectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionViewCell
     }
 
     static func upperView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -268,9 +268,9 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _CollectionVIewCell: Rswift.NibResourceType {
+    struct _CollectionViewCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
-      let name = "CollectionVIewCell"
+      let name = "CollectionViewCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionViewCell

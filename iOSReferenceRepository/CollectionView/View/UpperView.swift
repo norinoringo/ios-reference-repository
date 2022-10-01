@@ -13,10 +13,19 @@ class UpperView: UIView {
     // コードから生成したときに通る初期化処理
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initView()
     }
 
     // InterfaceBulderで配置した場合に通る初期化処理
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        initView()
+    }
+
+    private func initView() {
+        let view = UINib(nibName: "UpperView", bundle: nil).instantiate(withOwner: self, options: nil).first as! UIView
+        view.frame = bounds
+        addSubview(view)
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 }

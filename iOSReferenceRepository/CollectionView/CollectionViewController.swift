@@ -11,8 +11,6 @@ import UIKit
 
 class CollectionViewController:  UIViewController {
 
-    //TODO: [UICollectionView]CustomUICollecrtionViewCellが表示されない
-
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
 
