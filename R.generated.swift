@@ -89,12 +89,21 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
+    /// Storyboard `CollectionView`.
+    static let collectionView = _R.storyboard.collectionView()
     /// Storyboard `Splash`.
     static let splash = _R.storyboard.splash()
     /// Storyboard `Top`.
     static let top = _R.storyboard.top()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "CollectionView", bundle: ...)`
+    static func collectionView(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.collectionView)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Splash", bundle: ...)`
@@ -170,6 +179,54 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  struct nib {
+    /// Nib `BottomView`.
+    static let bottomView = _R.nib._BottomView()
+    /// Nib `CollectionVIewCell`.
+    static let collectionVIewCell = _R.nib._CollectionVIewCell()
+    /// Nib `UpperView`.
+    static let upperView = _R.nib._UpperView()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "BottomView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.bottomView) instead")
+    static func bottomView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bottomView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "CollectionVIewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.collectionVIewCell) instead")
+    static func collectionVIewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.collectionVIewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "UpperView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.upperView) instead")
+    static func upperView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.upperView)
+    }
+    #endif
+
+    static func bottomView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.bottomView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func collectionVIewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CollectionViewCell? {
+      return R.nib.collectionVIewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CollectionViewCell
+    }
+
+    static func upperView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.upperView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -191,8 +248,54 @@ struct _R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
+  struct nib {
+    struct _BottomView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BottomView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _CollectionVIewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "CollectionVIewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CollectionViewCell
+      }
+
+      func secondView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[1] as? UIKit.UICollectionViewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _UpperView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "UpperView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
+
+  #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      #if os(iOS) || os(tvOS)
+      try collectionView.validate()
+      #endif
       #if os(iOS) || os(tvOS)
       try splash.validate()
       #endif
@@ -200,6 +303,26 @@ struct _R: Rswift.Validatable {
       try top.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct collectionView: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let collectionView = StoryboardViewControllerResource<CollectionViewController>(identifier: "CollectionView")
+      let name = "CollectionView"
+
+      func collectionView(_: Void = ()) -> CollectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: collectionView)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.collectionView().collectionView() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'collectionView' could not be loaded from storyboard 'CollectionView' as 'CollectionViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct splash: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

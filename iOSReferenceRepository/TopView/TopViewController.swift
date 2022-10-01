@@ -56,6 +56,7 @@ class TopViewController: UIViewController {
 extension TopViewController {
     func initTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     func initTableData() {
@@ -101,6 +102,22 @@ extension TopViewController: UITableViewDataSource {
         cell.textLabel?.text = tableData[indexPath.section].cells[indexPath.row].rawValue
         cell.accessoryType = .disclosureIndicator
         return cell
+    }
+}
+
+extension TopViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let cell = tableData[indexPath.section].cells[indexPath.row]
+        switch cell {
+        case .CollectionView:
+            let nextVC = R.storyboard.collectionView().instantiateViewController(withIdentifier: "CollectionView") as! CollectionViewController
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        case .TableView:
+            return
+        case .未定:
+            return
+        }
     }
 }
 
