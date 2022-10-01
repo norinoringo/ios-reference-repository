@@ -22,7 +22,7 @@
 		8618B4FE28E74820004810C3 /* CollectionVIewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4FD28E74820004810C3 /* CollectionVIewCell.xib */; };
 		8618B50028E748BC004810C3 /* UpperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4FF28E748BC004810C3 /* UpperView.swift */; };
 		8618B50228E7B561004810C3 /* CollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8618B50128E7B561004810C3 /* CollectionView.storyboard */; };
-		8618B50528E7B5A7004810C3 /* CollexctionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B50428E7B5A7004810C3 /* CollexctionViewCell.swift */; };
+		8618B50528E7B5A7004810C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B50428E7B5A7004810C3 /* CollectionViewCell.swift */; };
 		8618B50728E7B5EF004810C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B50628E7B5EF004810C3 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,7 @@
 		8618B4FD28E74820004810C3 /* CollectionVIewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionVIewCell.xib; sourceTree = "<group>"; };
 		8618B4FF28E748BC004810C3 /* UpperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperView.swift; sourceTree = "<group>"; };
 		8618B50128E7B561004810C3 /* CollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectionView.storyboard; sourceTree = "<group>"; };
-		8618B50428E7B5A7004810C3 /* CollexctionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollexctionViewCell.swift; sourceTree = "<group>"; };
+		8618B50428E7B5A7004810C3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		8618B50628E7B5EF004810C3 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		8AB65B9723C24FBE6B3CD2E3 /* Pods-iOSReferenceRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSReferenceRepository.debug.xcconfig"; path = "Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		A9FCD5B60BA46D61F31D9954 /* Pods_iOSReferenceRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSReferenceRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,7 +156,7 @@
 				8618B4FB28E7454E004810C3 /* UpperView.xib */,
 				8618B4FF28E748BC004810C3 /* UpperView.swift */,
 				8618B4FD28E74820004810C3 /* CollectionVIewCell.xib */,
-				8618B50428E7B5A7004810C3 /* CollexctionViewCell.swift */,
+				8618B50428E7B5A7004810C3 /* CollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 				8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */,
 				8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */,
 				8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */,
-				8618B50528E7B5A7004810C3 /* CollexctionViewCell.swift in Sources */,
+				8618B50528E7B5A7004810C3 /* CollectionViewCell.swift in Sources */,
 				8618B50028E748BC004810C3 /* UpperView.swift in Sources */,
 				8618B4F828E73C7B004810C3 /* BottomView.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,

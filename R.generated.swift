@@ -216,13 +216,21 @@ struct R: Rswift.Validatable {
       return R.nib.bottomView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
-    static func collectionVIewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CollectionViewCell? {
-      return R.nib.collectionVIewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CollectionViewCell
+    static func collectionVIewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
+      return R.nib.collectionVIewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionViewCell
     }
 
     static func upperView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.upperView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `Cell`.
+    static let cell: Rswift.ReuseIdentifier<CollectionViewCell> = Rswift.ReuseIdentifier(identifier: "Cell")
 
     fileprivate init() {}
   }
@@ -264,12 +272,8 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "CollectionVIewCell"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CollectionViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CollectionViewCell
-      }
-
-      func secondView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[1] as? UIKit.UICollectionViewCell
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionViewCell
       }
 
       fileprivate init() {}

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
+    
     // コードから生成したときに通る初期化処理
     override init(frame: CGRect) {
         super.init(frame: frame)
