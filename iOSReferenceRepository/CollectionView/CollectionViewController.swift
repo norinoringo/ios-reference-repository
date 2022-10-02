@@ -5,6 +5,25 @@
 //  Created by hisanori on 2022/10/01.
 //  
 
+/*
+
+UICollectionViewの実装
+- Prootocol継承
+ - UIViewController(UICollectionViewControllerを継承するとエラーになる？)
+ - UICollectionViewDataSource
+ - UICollectionViewDelegate
+
+- UICollectionViewDataSource
+ - func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { }
+ - func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell { }
+
+- ViewDidLoad時
+ - collectionView.datasource = self
+ - collectionView.delegate = self
+ - UICollectionViewCellをregister
+    - collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCell")
+
+ */
 
 import Foundation
 import UIKit
@@ -48,6 +67,7 @@ extension CollectionViewController {
     }
 
     private func initCellSize() {
-        collectionViewFlowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
+        // TODO: UICollectionView_Cellのサイズが自動調整されない
+        collectionViewFlowLayout.estimatedItemSize = CGSize(width: 300, height: 500)
     }
 }

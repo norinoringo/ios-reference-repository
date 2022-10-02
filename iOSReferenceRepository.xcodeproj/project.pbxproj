@@ -151,12 +151,12 @@
 		8618B50328E7B585004810C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8618B4CE28E7301F004810C3 /* BottomView.xib */,
 				8618B4F728E73C7B004810C3 /* BottomView.swift */,
-				8618B4FB28E7454E004810C3 /* UpperView.xib */,
-				8618B4FF28E748BC004810C3 /* UpperView.swift */,
-				8618B4FD28E74820004810C3 /* CollectionViewCell.xib */,
+				8618B4CE28E7301F004810C3 /* BottomView.xib */,
 				8618B50428E7B5A7004810C3 /* CollectionViewCell.swift */,
+				8618B4FD28E74820004810C3 /* CollectionViewCell.xib */,
+				8618B4FF28E748BC004810C3 /* UpperView.swift */,
+				8618B4FB28E7454E004810C3 /* UpperView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
