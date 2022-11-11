@@ -170,6 +170,48 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  struct nib {
+    /// Nib `TopViewCell`.
+    static let topViewCell = _R.nib._TopViewCell()
+    /// Nib `TopViewHeader`.
+    static let topViewHeader = _R.nib._TopViewHeader()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "TopViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.topViewCell) instead")
+    static func topViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.topViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "TopViewHeader", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.topViewHeader) instead")
+    static func topViewHeader(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.topViewHeader)
+    }
+    #endif
+
+    static func topViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewCell? {
+      return R.nib.topViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewCell
+    }
+
+    static func topViewHeader(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewHeader? {
+      return R.nib.topViewHeader.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewHeader
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `TopViewCell`.
+    static let topViewCell: Rswift.ReuseIdentifier<TopViewCell> = Rswift.ReuseIdentifier(identifier: "TopViewCell")
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -189,6 +231,37 @@ struct _R: Rswift.Validatable {
     try storyboard.validate()
     #endif
   }
+
+  #if os(iOS) || os(tvOS)
+  struct nib {
+    struct _TopViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = TopViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "TopViewCell"
+      let name = "TopViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _TopViewHeader: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "TopViewHeader"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewHeader? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewHeader
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
 
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {

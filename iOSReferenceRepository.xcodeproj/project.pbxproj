@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1743F3A07AEDFBB02AFD4928 /* Pods_iOSReferenceRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FCD5B60BA46D61F31D9954 /* Pods_iOSReferenceRepository.framework */; };
+		860B302A291E9FCC00628191 /* TopViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860B3029291E9FCC00628191 /* TopViewHeader.xib */; };
+		860B302C291EA09100628191 /* TopViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860B302B291EA09100628191 /* TopViewHeader.swift */; };
 		8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4A328CC45D9004810C3 /* AppDelegate.swift */; };
 		8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4A528CC45D9004810C3 /* SceneDelegate.swift */; };
 		8618B4AD28CC45DC004810C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4AC28CC45DC004810C3 /* Assets.xcassets */; };
@@ -16,9 +18,13 @@
 		8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4BF28CDA8C2004810C3 /* TopViewController.swift */; };
 		8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4C128CDA8FB004810C3 /* Top.storyboard */; };
 		8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4C428CDAAB4004810C3 /* R.generated.swift */; };
+		86809125291E90B900531ABC /* TopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86809124291E90B900531ABC /* TopViewCell.xib */; };
+		86809127291E922B00531ABC /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86809126291E922B00531ABC /* TopViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		860B3029291E9FCC00628191 /* TopViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewHeader.xib; sourceTree = "<group>"; };
+		860B302B291EA09100628191 /* TopViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewHeader.swift; sourceTree = "<group>"; };
 		8618B4A028CC45D9004810C3 /* iOSReferenceRepository.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSReferenceRepository.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8618B4A328CC45D9004810C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8618B4A528CC45D9004810C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +35,8 @@
 		8618B4BF28CDA8C2004810C3 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		8618B4C128CDA8FB004810C3 /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
 		8618B4C428CDAAB4004810C3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		86809124291E90B900531ABC /* TopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewCell.xib; sourceTree = "<group>"; };
+		86809126291E922B00531ABC /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
 		8AB65B9723C24FBE6B3CD2E3 /* Pods-iOSReferenceRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSReferenceRepository.debug.xcconfig"; path = "Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		A9FCD5B60BA46D61F31D9954 /* Pods_iOSReferenceRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSReferenceRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B280A647610E831338EC5047 /* Pods-iOSReferenceRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSReferenceRepository.release.xcconfig"; path = "Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,10 +123,22 @@
 		8618B4BD28CDA89F004810C3 /* TopView */ = {
 			isa = PBXGroup;
 			children = (
+				86809123291E90A800531ABC /* View */,
 				8618B4BF28CDA8C2004810C3 /* TopViewController.swift */,
 				8618B4C128CDA8FB004810C3 /* Top.storyboard */,
 			);
 			path = TopView;
+			sourceTree = "<group>";
+		};
+		86809123291E90A800531ABC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86809126291E922B00531ABC /* TopViewCell.swift */,
+				86809124291E90B900531ABC /* TopViewCell.xib */,
+				860B302B291EA09100628191 /* TopViewHeader.swift */,
+				860B3029291E9FCC00628191 /* TopViewHeader.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +204,8 @@
 			files = (
 				8618B4AD28CC45DC004810C3 /* Assets.xcassets in Resources */,
 				8618B4BA28CD9B55004810C3 /* Splash.storyboard in Resources */,
+				86809125291E90B900531ABC /* TopViewCell.xib in Resources */,
+				860B302A291E9FCC00628191 /* TopViewHeader.xib in Resources */,
 				8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,9 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */,
+				860B302C291EA09100628191 /* TopViewHeader.swift in Sources */,
 				8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */,
 				8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,
+				86809127291E922B00531ABC /* TopViewCell.swift in Sources */,
 				8618B4BC28CD9B6B004810C3 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
