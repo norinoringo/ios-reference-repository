@@ -5,21 +5,6 @@
 //  Created by hisanori on 2022/09/11.
 //  
 
-/*
- TableViewの実装
- - .storyboard
- - ViewControllerにTableViewを追加
- - TableViewCellを追加
- - ViewController
- - UITableViewDataSource Protocolを継承
- - func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {}
- - func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {}
- - let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
- - tableView.dataSource = self
- */
-
-
-import Foundation
 import UIKit
 
 class TopViewController: UIViewController {
@@ -75,7 +60,7 @@ extension TopViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.register(UINib(nibName: "TopViewCell", bundle: nil), forCellReuseIdentifier: "TopViewCell")
         tableView.register(UINib(nibName: "TopViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier:"TopViewHeader" )
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableData.count
     }
