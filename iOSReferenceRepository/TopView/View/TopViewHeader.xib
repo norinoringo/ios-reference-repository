@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WGY-mD-HXC" customClass="TopViewHeader" customModule="iOSReferenceRepository" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhM-Px-7HQ" userLabel="Section Title">
+                    <rect key="frame" x="12" y="12" width="390" height="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="NhM-Px-7HQ" firstAttribute="leading" secondItem="WGY-mD-HXC" secondAttribute="leading" constant="12" id="0Ij-Gl-3lI"/>
+                <constraint firstAttribute="bottom" secondItem="NhM-Px-7HQ" secondAttribute="bottom" constant="12" id="IOL-1o-yPO"/>
+                <constraint firstItem="NhM-Px-7HQ" firstAttribute="top" secondItem="WGY-mD-HXC" secondAttribute="top" constant="12" id="Sib-vh-gD1"/>
+                <constraint firstAttribute="trailing" secondItem="NhM-Px-7HQ" secondAttribute="trailing" constant="12" id="cZO-WJ-ZLm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="sectionTitleLabel" destination="NhM-Px-7HQ" id="y1C-sC-STe"/>
+            </connections>
+            <point key="canvasLocation" x="33" y="51"/>
+        </view>
+    </objects>
+</document>

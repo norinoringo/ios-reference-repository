@@ -5,28 +5,13 @@
 //  Created by hisanori on 2022/09/11.
 //  
 
-/*
- TableViewの実装
- - .storyboard
-    - ViewControllerにTableViewを追加
-    - TableViewCellを追加
- - ViewController
-    - UITableViewDataSource Protocolを継承
-        - func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {}
-        - func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {}
-            - let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
-        - tableView.dataSource = self
-*/
-
-
-import Foundation
 import UIKit
 
 class TopViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    typealias TableData = (section :Section, cells: [Cell])
+    typealias TableData = (section: Section, cells: [Cell])
     private var tableData: [TableData] = []
 
     enum Section: String {
@@ -40,6 +25,7 @@ class TopViewController: UIViewController {
         case TableView
         case CollectionView
         // RxSwift
+        case GitHubSample
         // SwiftUI
         case 未定
     }
@@ -47,59 +33,51 @@ class TopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Top画面の表示")
-
         initTableView()
-        initTableData()
     }
 }
 
 extension TopViewController {
+
     func initTableView() {
-        tableView.dataSource = self
+        register()
+        initTableData()
     }
 
     func initTableData() {
         let swiftData: TableData = (Section.Swift, [Cell.TableView, Cell.CollectionView])
-        let rxswiftData: TableData = (Section.RxSwift, [Cell.未定])
+        let rxswiftData: TableData = (Section.RxSwift, [Cell.GitHubSample])
         let swiftuiData: TableData = (Section.SwiftUI, [Cell.未定])
-
         tableData.append(swiftData)
         tableData.append(rxswiftData)
         tableData.append(swiftuiData)
     }
 }
 
+extension TopViewController: UITableViewDataSource, UITableViewDelegate {
 
-extension TopViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return tableData[0].cells.count
-        } else if section == 1 {
-            return tableData[1].cells.count
-        } else if section == 2 {
-            return tableData[2].cells.count
-        } else {
-            return 0
-        }
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return initCell(indexPath: indexPath)
+    func register() {
+        tableView.register(UINib(nibName: "TopViewCell", bundle: nil), forCellReuseIdentifier: "TopViewCell")
+        tableView.register(UINib(nibName: "TopViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier:"TopViewHeader" )
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableData.count
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return tableData[section].section.rawValue
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData[section].cells.count
     }
 
-    private func initCell(indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = tableData[indexPath.section].cells[indexPath.row].rawValue
-        cell.accessoryType = .disclosureIndicator
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TopViewHeader") as! TopViewHeader
+        header.configure(sectionTitle: tableData[section].section.rawValue)
+        return header
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TopViewCell", for: indexPath) as! TopViewCell
+        cell.configure(title: tableData[indexPath.section].cells[indexPath.row].rawValue)
         return cell
     }
 }
