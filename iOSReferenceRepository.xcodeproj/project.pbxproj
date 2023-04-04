@@ -118,12 +118,12 @@
 		8618B4A228CC45D9004810C3 /* iOSReferenceRepository */ = {
 			isa = PBXGroup;
 			children = (
-				865A100129CE713D007D9567 /* UIKit */,
 				8618B4B728CD9B08004810C3 /* AppManager */,
 				861D33E329BAB8C70095FE85 /* AsyncView */,
 				8618B4B828CD9B28004810C3 /* SplashView */,
 				8618B4BD28CDA89F004810C3 /* TopView */,
 				865A0FFB29BBF8C4007D9567 /* MyPlayground.playground */,
+				865A100129CE713D007D9567 /* UIKit */,
 			);
 			path = iOSReferenceRepository;
 			sourceTree = "<group>";
