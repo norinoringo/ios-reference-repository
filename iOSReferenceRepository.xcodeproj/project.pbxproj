@@ -18,8 +18,14 @@
 		8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4BF28CDA8C2004810C3 /* TopViewController.swift */; };
 		8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4C128CDA8FB004810C3 /* Top.storyboard */; };
 		8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4C428CDAAB4004810C3 /* R.generated.swift */; };
+		865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */; };
+		865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A100329CE7159007D9567 /* ScrollViewController.swift */; };
+		865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A100529CE7199007D9567 /* ScrollView.storyboard */; };
+		865A100A29D11669007D9567 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865A100929D11669007D9567 /* RxSwift.framework */; };
+		865A100C29D1166F007D9567 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865A100B29D1166F007D9567 /* RxCocoa.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		86809125291E90B900531ABC /* TopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86809124291E90B900531ABC /* TopViewCell.xib */; };
 		86809127291E922B00531ABC /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86809126291E922B00531ABC /* TopViewCell.swift */; };
+		869DCEC829DA49680000A1DD /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DCEC729DA49680000A1DD /* TopViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +41,17 @@
 		8618B4BF28CDA8C2004810C3 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		8618B4C128CDA8FB004810C3 /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
 		8618B4C428CDAAB4004810C3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		865A0FFB29BBF8C4007D9567 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		865A0FFC29BC3FE5007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		865A100329CE7159007D9567 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		865A100529CE7199007D9567 /* ScrollView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScrollView.storyboard; sourceTree = "<group>"; };
+		865A100729D11558007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		865A100929D11669007D9567 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		865A100B29D1166F007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86809124291E90B900531ABC /* TopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewCell.xib; sourceTree = "<group>"; };
 		86809126291E922B00531ABC /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
+		869DCEC729DA49680000A1DD /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		8AB65B9723C24FBE6B3CD2E3 /* Pods-iOSReferenceRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSReferenceRepository.debug.xcconfig"; path = "Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository.debug.xcconfig"; sourceTree = "<group>"; };
 		A9FCD5B60BA46D61F31D9954 /* Pods_iOSReferenceRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSReferenceRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B280A647610E831338EC5047 /* Pods-iOSReferenceRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSReferenceRepository.release.xcconfig"; path = "Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865A100C29D1166F007D9567 /* RxCocoa.framework in Frameworks */,
+				865A100A29D11669007D9567 /* RxSwift.framework in Frameworks */,
 				1743F3A07AEDFBB02AFD4928 /* Pods_iOSReferenceRepository.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +74,10 @@
 		20F39CEE4AB04A3821159EDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				865A100B29D1166F007D9567 /* RxCocoa.framework */,
+				865A100929D11669007D9567 /* RxSwift.framework */,
+				865A100729D11558007D9567 /* RxCocoa.framework */,
+				865A0FFC29BC3FE5007D9567 /* RxCocoa.framework */,
 				A9FCD5B60BA46D61F31D9954 /* Pods_iOSReferenceRepository.framework */,
 			);
 			name = Frameworks;
@@ -75,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8618B4A228CC45D9004810C3 /* iOSReferenceRepository */,
+				865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */,
 				8618B4A128CC45D9004810C3 /* Products */,
 				26A75E6A7FEF49D2A283D3FC /* Pods */,
 				20F39CEE4AB04A3821159EDC /* Frameworks */,
@@ -95,6 +117,8 @@
 				8618B4B728CD9B08004810C3 /* AppManager */,
 				8618B4B828CD9B28004810C3 /* SplashView */,
 				8618B4BD28CDA89F004810C3 /* TopView */,
+				865A0FFB29BBF8C4007D9567 /* MyPlayground.playground */,
+				865A100129CE713D007D9567 /* UIKit */,
 			);
 			path = iOSReferenceRepository;
 			sourceTree = "<group>";
@@ -126,8 +150,26 @@
 				86809123291E90A800531ABC /* View */,
 				8618B4BF28CDA8C2004810C3 /* TopViewController.swift */,
 				8618B4C128CDA8FB004810C3 /* Top.storyboard */,
+				869DCEC729DA49680000A1DD /* TopViewModel.swift */,
 			);
 			path = TopView;
+			sourceTree = "<group>";
+		};
+		865A100129CE713D007D9567 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				865A100229CE7143007D9567 /* ScrollView */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		865A100229CE7143007D9567 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				865A100329CE7159007D9567 /* ScrollViewController.swift */,
+				865A100529CE7199007D9567 /* ScrollView.storyboard */,
+			);
+			path = ScrollView;
 			sourceTree = "<group>";
 		};
 		86809123291E90A800531ABC /* View */ = {
@@ -160,6 +202,8 @@
 			dependencies = (
 			);
 			name = iOSReferenceRepository;
+			packageProductDependencies = (
+			);
 			productName = iOSReferenceRepository;
 			productReference = 8618B4A028CC45D9004810C3 /* iOSReferenceRepository.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +232,8 @@
 				Base,
 			);
 			mainGroup = 8618B49728CC45D9004810C3;
+			packageReferences = (
+			);
 			productRefGroup = 8618B4A128CC45D9004810C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -207,6 +253,7 @@
 				86809125291E90B900531ABC /* TopViewCell.xib in Resources */,
 				860B302A291E9FCC00628191 /* TopViewHeader.xib in Resources */,
 				8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */,
+				865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */,
+				865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */,
+				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
 				860B302C291EA09100628191 /* TopViewHeader.swift in Sources */,
+				869DCEC829DA49680000A1DD /* TopViewModel.swift in Sources */,
 				8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */,
 				8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,

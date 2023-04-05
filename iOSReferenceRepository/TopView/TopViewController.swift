@@ -11,74 +11,76 @@ class TopViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    typealias TableData = (section: Section, cells: [Cell])
-    private var tableData: [TableData] = []
-
-    enum Section: String {
-        case Swift
-        case RxSwift
-        case SwiftUI
-    }
-
-    enum Cell: String {
-        // Swift
-        case TableView
-        case CollectionView
-        // RxSwift
-        case GitHubSample
-        // SwiftUI
-        case 未定
-    }
+    private let viewModel: TopViewModel = TopViewModel()
+    private var tableData: [TopViewModel.Data] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Top画面の表示")
-        initTableView()
+        setup()
     }
-}
 
-extension TopViewController {
-
-    func initTableView() {
+    func setup() {
+        initView()
         register()
-        initTableData()
     }
 
-    func initTableData() {
-        let swiftData: TableData = (Section.Swift, [Cell.TableView, Cell.CollectionView])
-        let rxswiftData: TableData = (Section.RxSwift, [Cell.GitHubSample])
-        let swiftuiData: TableData = (Section.SwiftUI, [Cell.未定])
-        tableData.append(swiftData)
-        tableData.append(rxswiftData)
-        tableData.append(swiftuiData)
+    private func initView() {
+        self.tableData = viewModel.tableData
     }
-}
 
-extension TopViewController: UITableViewDataSource, UITableViewDelegate {
-
-    func register() {
+    private func register() {
         tableView.register(UINib(nibName: "TopViewCell", bundle: nil), forCellReuseIdentifier: "TopViewCell")
         tableView.register(UINib(nibName: "TopViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier:"TopViewHeader" )
     }
+}
+
+extension TopViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableData.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData[section].cells.count
+        return tableData[section].rows.count
     }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TopViewCell", for: indexPath) as! TopViewCell
+        cell.configure(title: tableData[indexPath.section].rows[indexPath.row].rawValue)
+        return cell
+    }
+}
+
+extension TopViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TopViewHeader") as! TopViewHeader
         header.configure(sectionTitle: tableData[section].section.rawValue)
         return header
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TopViewCell", for: indexPath) as! TopViewCell
-        cell.configure(title: tableData[indexPath.section].cells[indexPath.row].rawValue)
-        return cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = tableData[indexPath.section]
+
+        switch section.section {
+        case .Swift:
+            switch section.rows {
+            default:
+                return
+            }
+        case .RxSwift:
+            return
+        case .UIKit:
+            switch section.rows[indexPath.row] {
+            case .UIScrollView:
+                self.navigationController?.pushViewController(ScrollViewController(), animated: true)
+            default:
+                return
+            }
+        case .SwiftUI:
+            return
+        case .RxCocoa:
+            return
+        }
     }
 }
-
