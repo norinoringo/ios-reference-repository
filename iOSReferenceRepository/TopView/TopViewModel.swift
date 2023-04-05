@@ -49,8 +49,6 @@ class TopViewModel {
 
     var tableData: [Data] = []
 
-
-
     init() {
         initTableData()
     }

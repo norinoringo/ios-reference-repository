@@ -21,11 +21,11 @@ class TopViewController: UIViewController {
     }
 
     func setup() {
-        initTableData()
+        initView()
         register()
     }
 
-    private func initTableData() {
+    private func initView() {
         self.tableData = viewModel.tableData
     }
 
@@ -57,5 +57,30 @@ extension TopViewController: UITableViewDelegate {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TopViewHeader") as! TopViewHeader
         header.configure(sectionTitle: tableData[section].section.rawValue)
         return header
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = tableData[indexPath.section]
+
+        switch section.section {
+        case .Swift:
+            switch section.rows {
+            default:
+                return
+            }
+        case .RxSwift:
+            return
+        case .UIKit:
+            switch section.rows[indexPath.row] {
+            case "UIScrollView":
+                self.navigationController?.pushViewController(ScrollViewController(), animated: true)
+            default:
+                return
+            }
+        case .SwiftUI:
+            return
+        case .RxCocoa:
+            return
+        }
     }
 }
