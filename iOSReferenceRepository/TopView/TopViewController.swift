@@ -47,7 +47,7 @@ extension TopViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TopViewCell", for: indexPath) as! TopViewCell
-        cell.configure(title: tableData[indexPath.section].rows[indexPath.row])
+        cell.configure(title: tableData[indexPath.section].rows[indexPath.row].rawValue)
         return cell
     }
 }
@@ -72,7 +72,7 @@ extension TopViewController: UITableViewDelegate {
             return
         case .UIKit:
             switch section.rows[indexPath.row] {
-            case "UIScrollView":
+            case .UIScrollView:
                 self.navigationController?.pushViewController(ScrollViewController(), animated: true)
             default:
                 return

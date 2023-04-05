@@ -19,33 +19,23 @@ class TopViewModel {
             case RxCocoa
         }
 
-        enum SwiftRow: CaseIterable {
-
-        }
-
-        enum RxSwiftRow: CaseIterable {
-
-        }
-
-        enum UIKitRow: CaseIterable {
+        enum Row: String {
+            // MARK: SwiftRow
+            // MARK: RxSwiftRow
+            // MARK: UIKitRow
             // View
             case UIScrollView
             case UITableView
             case UICollectionView
             // Component
             case UISlider
-        }
 
-        enum SwiftUIRow: CaseIterable {
-
-        }
-
-        enum RxCocoaRow: CaseIterable {
-
+            // MARK: SwiftUIRow
+            // MARK: RxCocoaRow
         }
     }
 
-    typealias Data = (section: TableData.Section, rows: [String])
+    typealias Data = (section: TableData.Section, rows: [TableData.Row])
 
     var tableData: [Data] = []
 
@@ -54,11 +44,15 @@ class TopViewModel {
     }
 
     private func initTableData() {
-        let swiftData: Data = (TableData.Section.Swift, TableData.SwiftRow.allCases.map { "\($0)" })
-        let rxSwiftData: Data = (TableData.Section.RxSwift, TableData.RxSwiftRow.allCases.map { "\($0)" })
-        let uikitData: Data = (TableData.Section.UIKit, TableData.UIKitRow.allCases.map { "\($0)" })
-        let swiftUIData: Data = (TableData.Section.SwiftUI, TableData.SwiftUIRow.allCases.map { "\($0)" })
-        let rxCocoaData: Data = (TableData.Section.RxCocoa, TableData.RxCocoaRow.allCases.map { "\($0)" })
+        let swiftData: Data = (TableData.Section.Swift, [])
+        let rxSwiftData: Data = (TableData.Section.RxSwift, [])
+        let uikitRows: [TableData.Row] = [.UIScrollView,
+                                          .UITableView,
+                                          .UICollectionView,
+                                          .UISlider]
+        let uikitData: Data = (TableData.Section.UIKit, uikitRows)
+        let swiftUIData: Data = (TableData.Section.SwiftUI, [])
+        let rxCocoaData: Data = (TableData.Section.RxCocoa, [])
         tableData.append(swiftData)
         tableData.append(rxSwiftData)
         tableData.append(uikitData)
