@@ -73,7 +73,11 @@ extension TopViewController: UITableViewDelegate {
         case .UIKit:
             switch section.rows[indexPath.row] {
             case .UIScrollView:
-                self.navigationController?.pushViewController(ScrollViewController(), animated: true)
+                let nextVC = R.storyboard.scrollView.instantiateInitialViewController()
+                guard let nextVC = nextVC else {
+                    return
+                }
+                self.navigationController?.pushViewController(nextVC, animated: true)
             default:
                 return
             }
