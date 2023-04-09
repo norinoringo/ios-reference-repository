@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1743F3A07AEDFBB02AFD4928 /* Pods_iOSReferenceRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FCD5B60BA46D61F31D9954 /* Pods_iOSReferenceRepository.framework */; };
+		8609B80529DF9ABA00453822 /* TestScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609B80429DF9ABA00453822 /* TestScrollView.swift */; };
 		860B302A291E9FCC00628191 /* TopViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860B3029291E9FCC00628191 /* TopViewHeader.xib */; };
 		860B302C291EA09100628191 /* TopViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860B302B291EA09100628191 /* TopViewHeader.swift */; };
 		8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4A328CC45D9004810C3 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8609B80429DF9ABA00453822 /* TestScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScrollView.swift; sourceTree = "<group>"; };
 		860B3029291E9FCC00628191 /* TopViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewHeader.xib; sourceTree = "<group>"; };
 		860B302B291EA09100628191 /* TopViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewHeader.swift; sourceTree = "<group>"; };
 		8618B4A028CC45D9004810C3 /* iOSReferenceRepository.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSReferenceRepository.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8609B80229DF9A8600453822 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				8609B80329DF9AA300453822 /* ScrollView */,
+			);
+			name = SwiftUI;
+			sourceTree = "<group>";
+		};
+		8609B80329DF9AA300453822 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				8609B80429DF9ABA00453822 /* TestScrollView.swift */,
+			);
+			name = ScrollView;
+			sourceTree = "<group>";
+		};
 		8618B49728CC45D9004810C3 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +137,7 @@
 				8618B4BD28CDA89F004810C3 /* TopView */,
 				865A0FFB29BBF8C4007D9567 /* MyPlayground.playground */,
 				865A100129CE713D007D9567 /* UIKit */,
+				8609B80229DF9A8600453822 /* SwiftUI */,
 			);
 			path = iOSReferenceRepository;
 			sourceTree = "<group>";
@@ -327,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */,
+				8609B80529DF9ABA00453822 /* TestScrollView.swift in Sources */,
 				865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */,
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
 				860B302C291EA09100628191 /* TopViewHeader.swift in Sources */,
