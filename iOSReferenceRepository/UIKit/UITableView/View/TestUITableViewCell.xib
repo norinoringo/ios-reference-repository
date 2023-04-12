@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="138" id="h9N-TA-NDL" customClass="TestUITableViewCell" customModule="iOSReferenceRepository" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="299" height="138"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h9N-TA-NDL" id="vAY-g0-0BO">
+                <rect key="frame" x="0.0" y="0.0" width="299" height="138"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="Kj3-HI-QV0">
+                        <rect key="frame" x="16" y="8" width="267" height="122"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wIa-3R-GjF">
+                                <rect key="frame" x="0.0" y="31" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="aLW-05-Fv9"/>
+                                    <constraint firstAttribute="width" constant="60" id="xUK-St-gGj"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Pfy-CS-zN1">
+                                <rect key="frame" x="131" y="38.666666666666671" width="136" height="44.666666666666671"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MT3-HZ-oN4">
+                                        <rect key="frame" x="0.0" y="0.0" width="74.333333333333329" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SubTitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nv4-jj-grL">
+                                        <rect key="frame" x="0.0" y="24.333333333333336" width="102.66666666666667" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Kj3-HI-QV0" secondAttribute="bottom" constant="8" id="6CO-V4-2jS"/>
+                    <constraint firstItem="Kj3-HI-QV0" firstAttribute="top" secondItem="vAY-g0-0BO" secondAttribute="top" constant="8" id="8ER-dU-gL9"/>
+                    <constraint firstAttribute="trailing" secondItem="Kj3-HI-QV0" secondAttribute="trailing" constant="16" id="Uh8-Wn-wjF"/>
+                    <constraint firstItem="Kj3-HI-QV0" firstAttribute="leading" secondItem="vAY-g0-0BO" secondAttribute="leading" constant="16" id="edW-Ht-Y7w"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="subTitleLabel" destination="nv4-jj-grL" id="wE2-Th-NCg"/>
+                <outlet property="thumbImageView" destination="wIa-3R-GjF" id="czX-Wu-MOF"/>
+                <outlet property="titleLabel" destination="MT3-HZ-oN4" id="QhX-t2-f7u"/>
+            </connections>
+            <point key="canvasLocation" x="-67.938931297709928" y="-69.014084507042256"/>
+        </tableViewCell>
+    </objects>
+</document>
