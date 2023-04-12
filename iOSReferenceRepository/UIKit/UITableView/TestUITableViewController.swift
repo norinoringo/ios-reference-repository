@@ -22,7 +22,7 @@ class TestUITableViewController: UIViewController {
 
     private func initView() {
         tableData = viewModel.makeTableData()
-        
+        // これだとクラッシュする
         // tableView.register(TestUITableViewCell.self, forCellReuseIdentifier: "testUITableViewCell")
         tableView.register(UINib(nibName: "TestUITableViewCell", bundle: nil), forCellReuseIdentifier: "testUITableViewCell")
     }
@@ -35,8 +35,10 @@ extension TestUITableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = tableData[indexPath.row]
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "testUITableViewCell", for: indexPath) as? TestUITableViewCell else {
+        // これだとクラッシュする
+        // let cell = TestUITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "testUITableViewCell",
+                                                       for: indexPath) as? TestUITableViewCell else {
             fatalError("The dequeued cell is not an instance of TestUITableViewCell.")
         }
         cell.configure(thumbImage: data.thumbImage,
@@ -44,11 +46,17 @@ extension TestUITableViewController: UITableViewDataSource {
                        subTitle: data.subTitle)
         return cell
     }
-
 }
 
 extension TestUITableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = tableData[indexPath.row]
 
+        let storyboard: UIStoryboard = UIStoryboard(name: "NextViewFromTableView", bundle: nil)
+        guard let nextVC = storyboard.instantiateViewController(withIdentifier: "nextViewFromTableView") as? NextViewControllerFromTableView else { return }
+        nextVC.data = data
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 

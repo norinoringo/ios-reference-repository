@@ -89,8 +89,10 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
+    /// Storyboard `NextViewFromTableView`.
+    static let nextViewFromTableView = _R.storyboard.nextViewFromTableView()
     /// Storyboard `ScrollView`.
     static let scrollView = _R.storyboard.scrollView()
     /// Storyboard `Splash`.
@@ -99,6 +101,13 @@ struct R: Rswift.Validatable {
     static let testUITableView = _R.storyboard.testUITableView()
     /// Storyboard `Top`.
     static let top = _R.storyboard.top()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "NextViewFromTableView", bundle: ...)`
+    static func nextViewFromTableView(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.nextViewFromTableView)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "ScrollView", bundle: ...)`
@@ -325,6 +334,9 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try nextViewFromTableView.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try scrollView.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -337,6 +349,28 @@ struct _R: Rswift.Validatable {
       try top.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct nextViewFromTableView: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = NextViewControllerFromTableView
+
+      let bundle = R.hostingBundle
+      let name = "NextViewFromTableView"
+      let nextViewFromTableView = StoryboardViewControllerResource<NextViewControllerFromTableView>(identifier: "nextViewFromTableView")
+
+      func nextViewFromTableView(_: Void = ()) -> NextViewControllerFromTableView? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: nextViewFromTableView)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.nextViewFromTableView().nextViewFromTableView() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'nextViewFromTableView' could not be loaded from storyboard 'NextViewFromTableView' as 'NextViewControllerFromTableView'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct scrollView: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

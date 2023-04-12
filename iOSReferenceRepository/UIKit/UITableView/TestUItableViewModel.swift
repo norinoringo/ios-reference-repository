@@ -34,7 +34,8 @@ class TestUITableViewModel {
 private extension String {
     func random() -> String {
         let base = "あいうえおかきくけこさしすせそ"
-        let randomStr = String((0..<100).map{ _ in
+        let length = Int.random(in: 0...100)
+        let randomStr = String((0..<length).map { _ in
             base.randomElement()!
         })
         return randomStr
