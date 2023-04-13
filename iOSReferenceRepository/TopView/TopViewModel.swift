@@ -32,6 +32,7 @@ class TopViewModel {
 
             // MARK: SwiftUIRow
             case ScrollView
+            case List
             // MARK: RxCocoaRow
         }
     }
@@ -54,7 +55,8 @@ class TopViewModel {
                                           .UISlider]
         let uikitData: Data = (TableData.Section.UIKit, uikitRows)
 
-        let swiftUIRows: [TableData.Row] = [.ScrollView]
+        let swiftUIRows: [TableData.Row] = [.ScrollView,
+                                            .List]
         let swiftUIData: Data = (TableData.Section.SwiftUI, swiftUIRows)
 
         let rxCocoaData: Data = (TableData.Section.RxCocoa, [])

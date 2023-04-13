@@ -28,6 +28,7 @@
 		86809125291E90B900531ABC /* TopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86809124291E90B900531ABC /* TopViewCell.xib */; };
 		86809127291E922B00531ABC /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86809126291E922B00531ABC /* TopViewCell.swift */; };
 		869DCEC829DA49680000A1DD /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DCEC729DA49680000A1DD /* TopViewModel.swift */; };
+		86D1200B29E8C66B001F59BD /* TestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1200A29E8C66B001F59BD /* TestListView.swift */; };
 		86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FAFD9F29E4E5FE00327F7F /* TestUITableViewController.swift */; };
 		86FAFDA229E623BD00327F7F /* TestUITableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86FAFDA129E623BC00327F7F /* TestUITableView.storyboard */; };
 		86FAFDA529E6247A00327F7F /* TestUITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86FAFDA429E6247A00327F7F /* TestUITableViewCell.xib */; };
@@ -62,6 +63,7 @@
 		86809124291E90B900531ABC /* TopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewCell.xib; sourceTree = "<group>"; };
 		86809126291E922B00531ABC /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
 		869DCEC729DA49680000A1DD /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
+		86D1200A29E8C66B001F59BD /* TestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListView.swift; sourceTree = "<group>"; };
 		86FAFD9F29E4E5FE00327F7F /* TestUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITableViewController.swift; sourceTree = "<group>"; };
 		86FAFDA129E623BC00327F7F /* TestUITableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUITableView.storyboard; sourceTree = "<group>"; };
 		86FAFDA429E6247A00327F7F /* TestUITableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestUITableViewCell.xib; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		8609B80229DF9A8600453822 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				86D1200929E7816E001F59BD /* List */,
 				8609B80329DF9AA300453822 /* ScrollView */,
 			);
 			name = SwiftUI;
@@ -228,6 +231,14 @@
 				860B3029291E9FCC00628191 /* TopViewHeader.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		86D1200929E7816E001F59BD /* List */ = {
+			isa = PBXGroup;
+			children = (
+				86D1200A29E8C66B001F59BD /* TestListView.swift */,
+			);
+			name = List;
 			sourceTree = "<group>";
 		};
 		86FAFDA329E6246500327F7F /* View */ = {
@@ -389,6 +400,7 @@
 				8609B80529DF9ABA00453822 /* TestScrollView.swift in Sources */,
 				865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */,
 				86FAFDA729E624AE00327F7F /* TestUITableViewCell.swift in Sources */,
+				86D1200B29E8C66B001F59BD /* TestListView.swift in Sources */,
 				86FAFDAB29E6CD8700327F7F /* NextViewControllerFromTableView.swift in Sources */,
 				86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */,
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
