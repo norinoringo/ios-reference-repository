@@ -16,7 +16,15 @@ class TestUITableViewCell: UITableViewCell {
     @IBOutlet weak var subTitleLabel: UILabel!
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         initView()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        thumbImageView.image = nil
+        titleLabel.text = nil
+        subTitleLabel.text = nil
     }
 
     private func initView() {

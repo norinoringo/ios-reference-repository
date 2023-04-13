@@ -18,7 +18,6 @@ class TestUITableViewModel {
 
     func makeTableData() -> [TableData] {
         var tableData: [TableData] = []
-        // FIXME: ここもっと良い書き方があるはず
         for _ in 1 ... 10 {
             let thumbImage = R.image.sarunori()!
             let title = String().random()

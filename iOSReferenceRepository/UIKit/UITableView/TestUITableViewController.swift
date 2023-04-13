@@ -22,7 +22,7 @@ class TestUITableViewController: UIViewController {
 
     private func initView() {
         tableData = viewModel.makeTableData()
-        // これだとクラッシュする
+        // tableView.register(AnyClass)だとクラッシュする。インスタンスを直接作成しているため、制約や接続が正しく反映されないのでUIパーツへのnilアクセスでクラッシュする。
         // tableView.register(TestUITableViewCell.self, forCellReuseIdentifier: "testUITableViewCell")
         tableView.register(UINib(nibName: "TestUITableViewCell", bundle: nil), forCellReuseIdentifier: "testUITableViewCell")
     }
@@ -35,7 +35,7 @@ extension TestUITableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = tableData[indexPath.row]
-        // これだとクラッシュする
+        // これだとクラッシュする。インスタンスを直接作成しているため、制約や接続が正しく反映されないのでUIパーツへのnilアクセスでクラッシュする。
         // let cell = TestUITableViewCell()
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "testUITableViewCell",
                                                        for: indexPath) as? TestUITableViewCell else {
