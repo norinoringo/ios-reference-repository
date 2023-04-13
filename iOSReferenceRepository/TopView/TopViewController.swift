@@ -78,6 +78,12 @@ extension TopViewController: UITableViewDelegate {
                     return
                 }
                 self.navigationController?.pushViewController(nextVC, animated: true)
+            case.UITableView:
+                let nextVC = R.storyboard.testUITableView().instantiateInitialViewController()
+                guard let nextVC = nextVC else {
+                    return
+                }
+                self.navigationController?.pushViewController(nextVC, animated: true)
             default:
                 return
             }
