@@ -10,21 +10,18 @@ import Foundation
 import SwiftUI
 
 struct NextListView: View {
-    let thumbImage: Image
-    let title: String
-    let subTitle: String
+    let data: TestListViewModel.ListData
 
     var body: some View {
-        TestListView.TestCell(thumbImage: thumbImage,
-                              titile: title,
-                              subTitle: subTitle)
+        TestListView.TestCell(data: data)
     }
 }
 
 struct NextListView_Previews: PreviewProvider {
     static var previews: some View {
-        NextListView(thumbImage: Image(uiImage: R.image.sarunori()!),
-                     title: "タイトル",
-                     subTitle: "サブタイトル")
+        let data = TestListViewModel.ListData(thumbImage: Image(uiImage: R.image.sarunori()!),
+                                              title: "タイトル",
+                                              subTitle: "サブタイトル")
+        NextListView(data: data)
     }
 }

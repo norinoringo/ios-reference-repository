@@ -18,9 +18,7 @@ struct TestListView: View {
                 List {
                     if let fetchedData = viewModel.fetchedData {
                         ForEach(fetchedData, id: \.self) { data in
-                            TestCell(thumbImage: data.thumbImage,
-                                     titile: data.title,
-                                     subTitle: data.subTitle)
+                            TestCell(data: data)
                             .onTapGesture {
                                 viewModel.didTapList(selectedData: data)
                             }
@@ -28,10 +26,9 @@ struct TestListView: View {
                     }
                 }
                 if let selectedData = viewModel.selectedData {
-                    NavigationLink(destination: NextListView(thumbImage: selectedData.thumbImage,
-                                                             title: selectedData.title,
-                                                             subTitle: selectedData.subTitle),
-                                   isActive: $viewModel.isShowNextListView, label: {})
+                    NavigationLink(destination: NextListView(data: selectedData),
+                                   isActive: $viewModel.isShowNextListView,
+                                   label: {})
                 }
             }.onAppear {
                 viewModel.fetchData()
@@ -42,20 +39,17 @@ struct TestListView: View {
 
 extension TestListView {
     struct TestCell: View {
-        
-        let thumbImage: Image
-        let titile: String
-        let subTitle: String
+        let data: TestListViewModel.ListData
 
         var body: some View {
             HStack {
-                thumbImage
+                data.thumbImage
                     .resizable()
                     .frame(width: 60, height: 60)
                 VStack(spacing: 6) {
-                    Text(titile)
+                    Text(data.title)
                         .font(.title)
-                    Text(subTitle)
+                    Text(data.subTitle)
                         .font(.body)
                         .italic()
                 }
