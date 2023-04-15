@@ -13,17 +13,25 @@ struct TestListView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                if let fetchedData = viewModel.fetchedData {
-                    ForEach(fetchedData, id: \.self) { data in
-                        NavigationLink(destination: NextListView(thumbImage: data.thumbImage,
-                                                                 title: data.title,
-                                                                 subTitle: data.subTitle)) {
+            // ここでZStackを使うことで、ListとNavigationLinkが同期できる
+            ZStack {
+                List {
+                    if let fetchedData = viewModel.fetchedData {
+                        ForEach(fetchedData, id: \.self) { data in
                             TestCell(thumbImage: data.thumbImage,
                                      titile: data.title,
                                      subTitle: data.subTitle)
+                            .onTapGesture {
+                                viewModel.didTapList(selectedData: data)
+                            }
                         }
                     }
+                }
+                if let selectedData = viewModel.selectedData {
+                    NavigationLink(destination: NextListView(thumbImage: selectedData.thumbImage,
+                                                             title: selectedData.title,
+                                                             subTitle: selectedData.subTitle),
+                                   isActive: $viewModel.isShowNextListView, label: {})
                 }
             }.onAppear {
                 viewModel.fetchData()
