@@ -6,6 +6,7 @@
 //  
 
 import UIKit
+import SwiftUI
 
 class TopViewController: UIViewController {
 
@@ -88,7 +89,14 @@ extension TopViewController: UITableViewDelegate {
                 return
             }
         case .SwiftUI:
-            return
+            switch section.rows[indexPath.row] {
+            case .List:
+                let vc = UIHostingController(rootView: TestListView())
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
+            default:
+                return
+            }
         case .RxCocoa:
             return
         }

@@ -9,38 +9,48 @@
 import SwiftUI
 
 struct TestListView: View {
-    let viewModel: TestUITableViewModel = TestUITableViewModel()
+    @ObservedObject var viewModel: TestListViewModel = TestListViewModel()
 
     var body: some View {
-        let data = viewModel.makeTableData()
-        List {
-            ForEach(0..<10) { i in
-                TestCell(thumbImage: Image(uiImage: data[i].thumbImage),
-                         titile: data[i].title,
-                         subTitle: data[i].subTitle)
+        NavigationView {
+            List {
+                if let fetchedData = viewModel.fetchedData {
+                    ForEach(fetchedData, id: \.self) { data in
+                        NavigationLink(destination: NextListView(thumbImage: data.thumbImage,
+                                                                 title: data.title,
+                                                                 subTitle: data.subTitle)) {
+                            TestCell(thumbImage: data.thumbImage,
+                                     titile: data.title,
+                                     subTitle: data.subTitle)
+                        }
+                    }
+                }
+            }.onAppear {
+                viewModel.fetchData()
             }
         }
     }
 }
 
+extension TestListView {
+    struct TestCell: View {
+        
+        let thumbImage: Image
+        let titile: String
+        let subTitle: String
 
-struct TestCell: View {
-
-    let thumbImage: Image
-    let titile: String
-    let subTitle: String
-
-    var body: some View {
-        HStack {
-            thumbImage
-                .resizable()
-                .frame(width: 60, height: 60)
-            VStack(spacing: 6) {
-                Text(titile)
-                    .font(.title)
-                Text(subTitle)
-                    .font(.body)
-                    .italic()
+        var body: some View {
+            HStack {
+                thumbImage
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                VStack(spacing: 6) {
+                    Text(titile)
+                        .font(.title)
+                    Text(subTitle)
+                        .font(.body)
+                        .italic()
+                }
             }
         }
     }
