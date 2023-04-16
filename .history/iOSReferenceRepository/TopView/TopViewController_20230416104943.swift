@@ -36,6 +36,27 @@ class TopViewController: UIViewController {
     }
 }
 
+<<<<<<< HEAD
+extension TopViewController {
+    func initTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+
+    func initTableData() {
+        let swiftData: TableData = (Section.Swift, [Cell.TableView, Cell.CollectionView])
+        let rxswiftData: TableData = (Section.RxSwift, [Cell.未定])
+        let swiftuiData: TableData = (Section.SwiftUI, [Cell.未定])
+
+        tableData.append(swiftData)
+        tableData.append(rxswiftData)
+        tableData.append(swiftuiData)
+    }
+}
+
+
+=======
+>>>>>>> develop
 extension TopViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,6 +75,18 @@ extension TopViewController: UITableViewDataSource {
 }
 
 extension TopViewController: UITableViewDelegate {
+<<<<<<< HEAD
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let cell = tableData[indexPath.section].cells[indexPath.row]
+        switch cell {
+        case .CollectionView:
+            let nextVC = R.storyboard.collectionView().instantiateViewController(withIdentifier: "CollectionView") as! CollectionViewController
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        case .TableView:
+            return
+        case .未定:
+=======
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TopViewHeader") as! TopViewHeader
         header.configure(sectionTitle: tableData[section].section.rawValue)
@@ -98,7 +131,12 @@ extension TopViewController: UITableViewDelegate {
                 return
             }
         case .RxCocoa:
+>>>>>>> develop
             return
         }
     }
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> develop

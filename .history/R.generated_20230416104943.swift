@@ -89,12 +89,19 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
+<<<<<<< HEAD
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  struct storyboard {
+    /// Storyboard `CollectionView`.
+    static let collectionView = _R.storyboard.collectionView()
+=======
   /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
     /// Storyboard `NextViewFromTableView`.
     static let nextViewFromTableView = _R.storyboard.nextViewFromTableView()
     /// Storyboard `ScrollView`.
     static let scrollView = _R.storyboard.scrollView()
+>>>>>>> develop
     /// Storyboard `Splash`.
     static let splash = _R.storyboard.splash()
     /// Storyboard `TestUITableView`.
@@ -103,6 +110,11 @@ struct R: Rswift.Validatable {
     static let top = _R.storyboard.top()
 
     #if os(iOS) || os(tvOS)
+<<<<<<< HEAD
+    /// `UIStoryboard(name: "CollectionView", bundle: ...)`
+    static func collectionView(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.collectionView)
+=======
     /// `UIStoryboard(name: "NextViewFromTableView", bundle: ...)`
     static func nextViewFromTableView(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.nextViewFromTableView)
@@ -113,6 +125,7 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "ScrollView", bundle: ...)`
     static func scrollView(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.scrollView)
+>>>>>>> develop
     }
     #endif
 
@@ -214,6 +227,20 @@ struct R: Rswift.Validatable {
 
   /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
+<<<<<<< HEAD
+    /// Nib `BottomView`.
+    static let bottomView = _R.nib._BottomView()
+    /// Nib `CollectionViewCell`.
+    static let collectionViewCell = _R.nib._CollectionViewCell()
+    /// Nib `UpperView`.
+    static let upperView = _R.nib._UpperView()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "BottomView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.bottomView) instead")
+    static func bottomView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bottomView)
+=======
     /// Nib `TestUITableViewCell`.
     static let testUITableViewCell = _R.nib._TestUITableViewCell()
     /// Nib `TopViewCell`.
@@ -226,18 +253,45 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.testUITableViewCell) instead")
     static func testUITableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.testUITableViewCell)
+>>>>>>> develop
     }
     #endif
 
     #if os(iOS) || os(tvOS)
+<<<<<<< HEAD
+    /// `UINib(name: "CollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.collectionViewCell) instead")
+    static func collectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.collectionViewCell)
+=======
     /// `UINib(name: "TopViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.topViewCell) instead")
     static func topViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.topViewCell)
+>>>>>>> develop
     }
     #endif
 
     #if os(iOS) || os(tvOS)
+<<<<<<< HEAD
+    /// `UINib(name: "UpperView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.upperView) instead")
+    static func upperView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.upperView)
+    }
+    #endif
+
+    static func bottomView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.bottomView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func collectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
+      return R.nib.collectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionViewCell
+    }
+
+    static func upperView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.upperView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+=======
     /// `UINib(name: "TopViewHeader", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.topViewHeader) instead")
     static func topViewHeader(_: Void = ()) -> UIKit.UINib {
@@ -255,6 +309,7 @@ struct R: Rswift.Validatable {
 
     static func topViewHeader(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewHeader? {
       return R.nib.topViewHeader.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewHeader
+>>>>>>> develop
     }
 
     fileprivate init() {}
@@ -262,8 +317,13 @@ struct R: Rswift.Validatable {
 
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+<<<<<<< HEAD
+    /// Reuse identifier `Cell`.
+    static let cell: Rswift.ReuseIdentifier<CollectionViewCell> = Rswift.ReuseIdentifier(identifier: "Cell")
+=======
     /// Reuse identifier `TopViewCell`.
     static let topViewCell: Rswift.ReuseIdentifier<TopViewCell> = Rswift.ReuseIdentifier(identifier: "TopViewCell")
+>>>>>>> develop
 
     fileprivate init() {}
   }
@@ -290,17 +350,34 @@ struct _R: Rswift.Validatable {
 
   #if os(iOS) || os(tvOS)
   struct nib {
+<<<<<<< HEAD
+    struct _BottomView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BottomView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+=======
     struct _TestUITableViewCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "TestUITableViewCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TestUITableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TestUITableViewCell
+>>>>>>> develop
       }
 
       fileprivate init() {}
     }
 
+<<<<<<< HEAD
+    struct _CollectionViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "CollectionViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionViewCell
+=======
     struct _TopViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = TopViewCell
 
@@ -310,17 +387,27 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewCell
+>>>>>>> develop
       }
 
       fileprivate init() {}
     }
 
+<<<<<<< HEAD
+    struct _UpperView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "UpperView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+=======
     struct _TopViewHeader: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "TopViewHeader"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewHeader? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewHeader
+>>>>>>> develop
       }
 
       fileprivate init() {}
@@ -334,10 +421,14 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+<<<<<<< HEAD
+      try collectionView.validate()
+=======
       try nextViewFromTableView.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try scrollView.validate()
+>>>>>>> develop
       #endif
       #if os(iOS) || os(tvOS)
       try splash.validate()
@@ -351,6 +442,15 @@ struct _R: Rswift.Validatable {
     }
 
     #if os(iOS) || os(tvOS)
+<<<<<<< HEAD
+    struct collectionView: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let collectionView = StoryboardViewControllerResource<CollectionViewController>(identifier: "CollectionView")
+      let name = "CollectionView"
+
+      func collectionView(_: Void = ()) -> CollectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: collectionView)
+=======
     struct nextViewFromTableView: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = NextViewControllerFromTableView
 
@@ -360,11 +460,15 @@ struct _R: Rswift.Validatable {
 
       func nextViewFromTableView(_: Void = ()) -> NextViewControllerFromTableView? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: nextViewFromTableView)
+>>>>>>> develop
       }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+<<<<<<< HEAD
+        if _R.storyboard.collectionView().collectionView() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'collectionView' could not be loaded from storyboard 'CollectionView' as 'CollectionViewController'.") }
+=======
         if _R.storyboard.nextViewFromTableView().nextViewFromTableView() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'nextViewFromTableView' could not be loaded from storyboard 'NextViewFromTableView' as 'NextViewControllerFromTableView'.") }
       }
 
@@ -382,6 +486,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+>>>>>>> develop
       }
 
       fileprivate init() {}
