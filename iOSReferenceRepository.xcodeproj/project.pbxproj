@@ -28,6 +28,15 @@
 		86809125291E90B900531ABC /* TopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86809124291E90B900531ABC /* TopViewCell.xib */; };
 		86809127291E922B00531ABC /* TopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86809126291E922B00531ABC /* TopViewCell.swift */; };
 		869DCEC829DA49680000A1DD /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DCEC729DA49680000A1DD /* TopViewModel.swift */; };
+		86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */; };
+		86C0648D29EB8F2F0019FC77 /* TestUICollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */; };
+		86C0648F29EB91D00019FC77 /* TestCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0648E29EB91D00019FC77 /* TestCollectionViewModel.swift */; };
+		86C0649329EB92050019FC77 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0649129EB92050019FC77 /* TestCollectionViewCell.swift */; };
+		86C0649429EB92050019FC77 /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0649229EB92050019FC77 /* TestCollectionViewCell.xib */; };
+		86C0649729EB92630019FC77 /* TestCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0649529EB92630019FC77 /* TestCollectionHeaderView.swift */; };
+		86C0649829EB92630019FC77 /* TestCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0649629EB92630019FC77 /* TestCollectionHeaderView.xib */; };
+		86C0649B29EB927F0019FC77 /* TestCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0649929EB927F0019FC77 /* TestCollectionFooterView.swift */; };
+		86C0649C29EB927F0019FC77 /* TestCollectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0649A29EB927F0019FC77 /* TestCollectionFooterView.xib */; };
 		86D1200B29E8C66B001F59BD /* TestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1200A29E8C66B001F59BD /* TestListView.swift */; };
 		86D1200F29EA4542001F59BD /* NextListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1200E29EA4542001F59BD /* NextListView.swift */; };
 		86D1201129EA4627001F59BD /* TestListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1201029EA4627001F59BD /* TestListViewModel.swift */; };
@@ -65,6 +74,15 @@
 		86809124291E90B900531ABC /* TopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopViewCell.xib; sourceTree = "<group>"; };
 		86809126291E922B00531ABC /* TopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewCell.swift; sourceTree = "<group>"; };
 		869DCEC729DA49680000A1DD /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
+		86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUICollectionViewController.swift; sourceTree = "<group>"; };
+		86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUICollectionView.storyboard; sourceTree = "<group>"; };
+		86C0648E29EB91D00019FC77 /* TestCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewModel.swift; sourceTree = "<group>"; };
+		86C0649129EB92050019FC77 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		86C0649229EB92050019FC77 /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
+		86C0649529EB92630019FC77 /* TestCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionHeaderView.swift; sourceTree = "<group>"; };
+		86C0649629EB92630019FC77 /* TestCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionHeaderView.xib; sourceTree = "<group>"; };
+		86C0649929EB927F0019FC77 /* TestCollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionFooterView.swift; sourceTree = "<group>"; };
+		86C0649A29EB927F0019FC77 /* TestCollectionFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionFooterView.xib; sourceTree = "<group>"; };
 		86D1200A29E8C66B001F59BD /* TestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListView.swift; sourceTree = "<group>"; };
 		86D1200E29EA4542001F59BD /* NextListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextListView.swift; sourceTree = "<group>"; };
 		86D1201029EA4627001F59BD /* TestListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewModel.swift; sourceTree = "<group>"; };
@@ -211,6 +229,7 @@
 		865A100129CE713D007D9567 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				86C0648929EB8F010019FC77 /* UICollectionView */,
 				8609B80629E4D96E00453822 /* UITableView */,
 				865A100229CE7143007D9567 /* ScrollView */,
 			);
@@ -233,6 +252,30 @@
 				86809124291E90B900531ABC /* TopViewCell.xib */,
 				860B302B291EA09100628191 /* TopViewHeader.swift */,
 				860B3029291E9FCC00628191 /* TopViewHeader.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		86C0648929EB8F010019FC77 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				86C0649029EB91E00019FC77 /* View */,
+				86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */,
+				86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */,
+				86C0648E29EB91D00019FC77 /* TestCollectionViewModel.swift */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		86C0649029EB91E00019FC77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				86C0649129EB92050019FC77 /* TestCollectionViewCell.swift */,
+				86C0649229EB92050019FC77 /* TestCollectionViewCell.xib */,
+				86C0649529EB92630019FC77 /* TestCollectionHeaderView.swift */,
+				86C0649629EB92630019FC77 /* TestCollectionHeaderView.xib */,
+				86C0649929EB927F0019FC77 /* TestCollectionFooterView.swift */,
+				86C0649A29EB927F0019FC77 /* TestCollectionFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,11 +368,15 @@
 				86FAFDA529E6247A00327F7F /* TestUITableViewCell.xib in Resources */,
 				86FAFDA229E623BD00327F7F /* TestUITableView.storyboard in Resources */,
 				8675881229E6DA4B0096C92F /* NextViewFromTableView.storyboard in Resources */,
+				86C0649C29EB927F0019FC77 /* TestCollectionFooterView.xib in Resources */,
 				8618B4BA28CD9B55004810C3 /* Splash.storyboard in Resources */,
+				86C0648D29EB8F2F0019FC77 /* TestUICollectionView.storyboard in Resources */,
 				86809125291E90B900531ABC /* TopViewCell.xib in Resources */,
 				860B302A291E9FCC00628191 /* TopViewHeader.xib in Resources */,
 				8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */,
+				86C0649829EB92630019FC77 /* TestCollectionHeaderView.xib in Resources */,
 				865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */,
+				86C0649429EB92050019FC77 /* TestCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,11 +452,13 @@
 				8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */,
 				86D1200F29EA4542001F59BD /* NextListView.swift in Sources */,
 				8609B80529DF9ABA00453822 /* TestScrollView.swift in Sources */,
+				86C0649329EB92050019FC77 /* TestCollectionViewCell.swift in Sources */,
 				865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */,
 				86FAFDA729E624AE00327F7F /* TestUITableViewCell.swift in Sources */,
 				86D1200B29E8C66B001F59BD /* TestListView.swift in Sources */,
 				86FAFDAB29E6CD8700327F7F /* NextViewControllerFromTableView.swift in Sources */,
 				86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */,
+				86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */,
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
 				860B302C291EA09100628191 /* TopViewHeader.swift in Sources */,
 				869DCEC829DA49680000A1DD /* TopViewModel.swift in Sources */,
@@ -417,6 +466,9 @@
 				86D1201129EA4627001F59BD /* TestListViewModel.swift in Sources */,
 				86FAFDA929E6299E00327F7F /* TestUItableViewModel.swift in Sources */,
 				8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */,
+				86C0649B29EB927F0019FC77 /* TestCollectionFooterView.swift in Sources */,
+				86C0649729EB92630019FC77 /* TestCollectionHeaderView.swift in Sources */,
+				86C0648F29EB91D00019FC77 /* TestCollectionViewModel.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,
 				86809127291E922B00531ABC /* TopViewCell.swift in Sources */,
 				8618B4BC28CD9B6B004810C3 /* SplashViewController.swift in Sources */,
