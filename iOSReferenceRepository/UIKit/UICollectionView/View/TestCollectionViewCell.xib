@@ -22,7 +22,7 @@
                             <constraint firstAttribute="width" secondItem="KEY-ic-FQN" secondAttribute="height" multiplier="1:1" id="OP6-gG-sh0"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-hV-88S">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop_sold_out" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-hV-88S">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="RkK-hV-88S" secondAttribute="height" multiplier="1:1" id="ApC-5s-5el"/>
@@ -58,4 +58,7 @@
             <point key="canvasLocation" x="722.90076335877859" y="280.98591549295776"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="pop_sold_out" width="800" height="397"/>
+    </resources>
 </document>

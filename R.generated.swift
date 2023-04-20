@@ -344,12 +344,19 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _TestCollectionViewCell.validate()
+    }
+
     struct _TestCollectionFooterView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "TestCollectionFooterView"
@@ -372,12 +379,18 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _TestCollectionViewCell: Rswift.NibResourceType {
+    struct _TestCollectionViewCell: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "TestCollectionViewCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TestCollectionViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TestCollectionViewCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "pop_sold_out", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pop_sold_out' is used in nib 'TestCollectionViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
       }
 
       fileprivate init() {}
