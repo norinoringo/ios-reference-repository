@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `NextViewFromTableView`.
     static let nextViewFromTableView = _R.storyboard.nextViewFromTableView()
@@ -97,6 +97,8 @@ struct R: Rswift.Validatable {
     static let scrollView = _R.storyboard.scrollView()
     /// Storyboard `Splash`.
     static let splash = _R.storyboard.splash()
+    /// Storyboard `TestUICollectionView`.
+    static let testUICollectionView = _R.storyboard.testUICollectionView()
     /// Storyboard `TestUITableView`.
     static let testUITableView = _R.storyboard.testUITableView()
     /// Storyboard `Top`.
@@ -120,6 +122,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Splash", bundle: ...)`
     static func splash(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.splash)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "TestUICollectionView", bundle: ...)`
+    static func testUICollectionView(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.testUICollectionView)
     }
     #endif
 
@@ -166,10 +175,19 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
+    /// Image `pop_sold_out`.
+    static let pop_sold_out = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop_sold_out")
     /// Image `sarunori`.
     static let sarunori = Rswift.ImageResource(bundle: R.hostingBundle, name: "sarunori")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pop_sold_out", bundle: ..., traitCollection: ...)`
+    static func pop_sold_out(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pop_sold_out, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "sarunori", bundle: ..., traitCollection: ...)`
@@ -212,14 +230,44 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
+    /// Nib `TestCollectionFooterView`.
+    static let testCollectionFooterView = _R.nib._TestCollectionFooterView()
+    /// Nib `TestCollectionHeaderView`.
+    static let testCollectionHeaderView = _R.nib._TestCollectionHeaderView()
+    /// Nib `TestCollectionViewCell`.
+    static let testCollectionViewCell = _R.nib._TestCollectionViewCell()
     /// Nib `TestUITableViewCell`.
     static let testUITableViewCell = _R.nib._TestUITableViewCell()
     /// Nib `TopViewCell`.
     static let topViewCell = _R.nib._TopViewCell()
     /// Nib `TopViewHeader`.
     static let topViewHeader = _R.nib._TopViewHeader()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "TestCollectionFooterView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.testCollectionFooterView) instead")
+    static func testCollectionFooterView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.testCollectionFooterView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "TestCollectionHeaderView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.testCollectionHeaderView) instead")
+    static func testCollectionHeaderView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.testCollectionHeaderView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "TestCollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.testCollectionViewCell) instead")
+    static func testCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.testCollectionViewCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "TestUITableViewCell", in: bundle)`
@@ -244,6 +292,18 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.topViewHeader)
     }
     #endif
+
+    static func testCollectionFooterView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionReusableView? {
+      return R.nib.testCollectionFooterView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionReusableView
+    }
+
+    static func testCollectionHeaderView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionReusableView? {
+      return R.nib.testCollectionHeaderView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionReusableView
+    }
+
+    static func testCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TestCollectionViewCell? {
+      return R.nib.testCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TestCollectionViewCell
+    }
 
     static func testUITableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TestUITableViewCell? {
       return R.nib.testUITableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TestUITableViewCell
@@ -284,12 +344,58 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _TestCollectionViewCell.validate()
+    }
+
+    struct _TestCollectionFooterView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "TestCollectionFooterView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionReusableView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionReusableView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _TestCollectionHeaderView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "TestCollectionHeaderView"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionReusableView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionReusableView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _TestCollectionViewCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "TestCollectionViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TestCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TestCollectionViewCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "pop_sold_out", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pop_sold_out' is used in nib 'TestCollectionViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
     struct _TestUITableViewCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "TestUITableViewCell"
@@ -341,6 +447,9 @@ struct _R: Rswift.Validatable {
       #endif
       #if os(iOS) || os(tvOS)
       try splash.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try testUICollectionView.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try testUITableView.validate()
@@ -398,6 +507,26 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct testUICollectionView: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "TestUICollectionView"
+      let testUICollectionView = StoryboardViewControllerResource<TestUICollectionViewController>(identifier: "TestUICollectionView")
+
+      func testUICollectionView(_: Void = ()) -> TestUICollectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: testUICollectionView)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.testUICollectionView().testUICollectionView() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'testUICollectionView' could not be loaded from storyboard 'TestUICollectionView' as 'TestUICollectionViewController'.") }
       }
 
       fileprivate init() {}

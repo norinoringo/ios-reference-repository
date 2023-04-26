@@ -85,6 +85,10 @@ extension TopViewController: UITableViewDelegate {
                     return
                 }
                 self.navigationController?.pushViewController(nextVC, animated: true)
+            case .UICollectionView:
+                let storyboard = UIStoryboard(name: "TestUICollectionView", bundle: nil)
+                guard let nextVC = storyboard.instantiateViewController(withIdentifier: "TestUICollectionView") as? TestUICollectionViewController else { return }
+                self.navigationController?.pushViewController(nextVC, animated: true)
             default:
                 return
             }
@@ -92,6 +96,10 @@ extension TopViewController: UITableViewDelegate {
             switch section.rows[indexPath.row] {
             case .List:
                 let vc = UIHostingController(rootView: TestListView())
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
+            case .Grid:
+                let vc = UIHostingController(rootView: TestLazyGridView())
                 vc.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(vc, animated: true)
             default:
