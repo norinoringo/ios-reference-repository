@@ -37,6 +37,8 @@
 		86C0649829EB92630019FC77 /* TestCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0649629EB92630019FC77 /* TestCollectionHeaderView.xib */; };
 		86C0649B29EB927F0019FC77 /* TestCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0649929EB927F0019FC77 /* TestCollectionFooterView.swift */; };
 		86C0649C29EB927F0019FC77 /* TestCollectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C0649A29EB927F0019FC77 /* TestCollectionFooterView.xib */; };
+		86C0649F29F204C80019FC77 /* TestLazyGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0649E29F204C80019FC77 /* TestLazyGridView.swift */; };
+		86C064A129F204FD0019FC77 /* TestLazyGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C064A029F204FD0019FC77 /* TestLazyGridViewModel.swift */; };
 		86D1200B29E8C66B001F59BD /* TestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1200A29E8C66B001F59BD /* TestListView.swift */; };
 		86D1200F29EA4542001F59BD /* NextListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1200E29EA4542001F59BD /* NextListView.swift */; };
 		86D1201129EA4627001F59BD /* TestListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1201029EA4627001F59BD /* TestListViewModel.swift */; };
@@ -83,6 +85,8 @@
 		86C0649629EB92630019FC77 /* TestCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionHeaderView.xib; sourceTree = "<group>"; };
 		86C0649929EB927F0019FC77 /* TestCollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionFooterView.swift; sourceTree = "<group>"; };
 		86C0649A29EB927F0019FC77 /* TestCollectionFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionFooterView.xib; sourceTree = "<group>"; };
+		86C0649E29F204C80019FC77 /* TestLazyGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLazyGridView.swift; sourceTree = "<group>"; };
+		86C064A029F204FD0019FC77 /* TestLazyGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLazyGridViewModel.swift; sourceTree = "<group>"; };
 		86D1200A29E8C66B001F59BD /* TestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListView.swift; sourceTree = "<group>"; };
 		86D1200E29EA4542001F59BD /* NextListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextListView.swift; sourceTree = "<group>"; };
 		86D1201029EA4627001F59BD /* TestListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewModel.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		8609B80229DF9A8600453822 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				86C0649D29F204570019FC77 /* LazyGrid */,
 				86D1200929E7816E001F59BD /* List */,
 				8609B80329DF9AA300453822 /* ScrollView */,
 			);
@@ -278,6 +283,15 @@
 				86C0649A29EB927F0019FC77 /* TestCollectionFooterView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		86C0649D29F204570019FC77 /* LazyGrid */ = {
+			isa = PBXGroup;
+			children = (
+				86C0649E29F204C80019FC77 /* TestLazyGridView.swift */,
+				86C064A029F204FD0019FC77 /* TestLazyGridViewModel.swift */,
+			);
+			name = LazyGrid;
 			sourceTree = "<group>";
 		};
 		86D1200929E7816E001F59BD /* List */ = {
@@ -459,6 +473,7 @@
 				86FAFDAB29E6CD8700327F7F /* NextViewControllerFromTableView.swift in Sources */,
 				86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */,
 				86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */,
+				86C064A129F204FD0019FC77 /* TestLazyGridViewModel.swift in Sources */,
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
 				860B302C291EA09100628191 /* TopViewHeader.swift in Sources */,
 				869DCEC829DA49680000A1DD /* TopViewModel.swift in Sources */,
@@ -468,6 +483,7 @@
 				8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */,
 				86C0649B29EB927F0019FC77 /* TestCollectionFooterView.swift in Sources */,
 				86C0649729EB92630019FC77 /* TestCollectionHeaderView.swift in Sources */,
+				86C0649F29F204C80019FC77 /* TestLazyGridView.swift in Sources */,
 				86C0648F29EB91D00019FC77 /* TestCollectionViewModel.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,
 				86809127291E922B00531ABC /* TopViewCell.swift in Sources */,
