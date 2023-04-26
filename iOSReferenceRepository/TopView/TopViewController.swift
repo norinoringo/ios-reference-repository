@@ -98,6 +98,10 @@ extension TopViewController: UITableViewDelegate {
                 let vc = UIHostingController(rootView: TestListView())
                 vc.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(vc, animated: true)
+            case .Grid:
+                let vc = UIHostingController(rootView: TestLazyGridView())
+                vc.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(vc, animated: true)
             default:
                 return
             }

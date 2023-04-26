@@ -27,6 +27,7 @@ struct TestLazyGridView: View {
             }.padding()
         }
         .onAppear() {
+            print("LazyGrid画面の表示")
             viewModel.fetchData()
         }
     }

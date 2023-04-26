@@ -28,7 +28,7 @@ class TestLazyGridViewModel: ObservableObject {
 
     private func createData() -> [GridData] {
         var data: [GridData] = []
-        for i in 1 ... 10 {
+        for i in 1 ... 30 {
             data.append(GridData(thumbImage: Image(uiImage: R.image.sarunori()!),
                                  price: i * 1000,
                                  isSoldOut: i % 2 == 0))
