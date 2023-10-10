@@ -1,16 +1,4 @@
 PODS:
-  - Alamofire (5.6.1)
-  - AlamofireImage (4.2.0):
-    - Alamofire (~> 5.4)
-  - PromiseKit (6.18.1):
-    - PromiseKit/CorePromise (= 6.18.1)
-    - PromiseKit/Foundation (= 6.18.1)
-    - PromiseKit/UIKit (= 6.18.1)
-  - PromiseKit/CorePromise (6.18.1)
-  - PromiseKit/Foundation (6.18.1):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.18.1):
-    - PromiseKit/CorePromise
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
@@ -21,43 +9,30 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SwiftLint (0.47.1)
-  - SwiftyUserDefaults (5.3.0)
 
 DEPENDENCIES:
-  - Alamofire
-  - AlamofireImage
-  - PromiseKit (~> 6.8)
   - R.swift
   - RxCocoa
   - RxSwift
   - SwiftLint
-  - SwiftyUserDefaults (~> 5.0)
 
 SPEC REPOS:
   trunk:
-    - Alamofire
-    - AlamofireImage
-    - PromiseKit
     - R.swift
     - R.swift.Library
     - RxCocoa
     - RxRelay
     - RxSwift
     - SwiftLint
-    - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
-  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
-  AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
-  PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
-  SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
 
-PODFILE CHECKSUM: 95561b02a4787efb9d3c79837a038a4bf363dae5
+PODFILE CHECKSUM: 9117e2038e79e934ec8d10f3cd6d5e690becee65
 
 COCOAPODS: 1.11.2
