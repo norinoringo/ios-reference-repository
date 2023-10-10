@@ -6,19 +6,10 @@ target 'iOSReferenceRepository' do
   use_frameworks!
 
   # Pods for iOSReferenceRepository
-
 	pod 'SwiftLint'
 	pod 'R.swift'
-
 	pod 'RxSwift'
 	pod 'RxCocoa'
-
-	pod 'Alamofire'
-	pod 'AlamofireImage'
-
-	pod 'SwiftyUserDefaults', '~> 5.0'
-  pod "PromiseKit", "~> 6.8"
-
 end
 
 # post install
