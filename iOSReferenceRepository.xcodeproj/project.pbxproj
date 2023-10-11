@@ -19,6 +19,9 @@
 		8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4BF28CDA8C2004810C3 /* TopViewController.swift */; };
 		8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4C128CDA8FB004810C3 /* Top.storyboard */; };
 		8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4C428CDAAB4004810C3 /* R.generated.swift */; };
+		861B23C32AD62295002935FD /* SwiftFormat in Frameworks */ = {isa = PBXBuildFile; productRef = 861B23C22AD62295002935FD /* SwiftFormat */; };
+		861B23C52AD62295002935FD /* CommandLineTool in Frameworks */ = {isa = PBXBuildFile; productRef = 861B23C42AD62295002935FD /* CommandLineTool */; };
+		861B23C72AD62295002935FD /* swiftformat in Frameworks */ = {isa = PBXBuildFile; productRef = 861B23C62AD62295002935FD /* swiftformat */; };
 		865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */; };
 		865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A100329CE7159007D9567 /* ScrollViewController.swift */; };
 		865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A100529CE7199007D9567 /* ScrollView.storyboard */; };
@@ -107,8 +110,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				865A100C29D1166F007D9567 /* RxCocoa.framework in Frameworks */,
+				861B23C72AD62295002935FD /* swiftformat in Frameworks */,
+				861B23C32AD62295002935FD /* SwiftFormat in Frameworks */,
 				865A100A29D11669007D9567 /* RxSwift.framework in Frameworks */,
 				1743F3A07AEDFBB02AFD4928 /* Pods_iOSReferenceRepository.framework in Frameworks */,
+				861B23C52AD62295002935FD /* CommandLineTool in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +339,9 @@
 			);
 			name = iOSReferenceRepository;
 			packageProductDependencies = (
+				861B23C22AD62295002935FD /* SwiftFormat */,
+				861B23C42AD62295002935FD /* CommandLineTool */,
+				861B23C62AD62295002935FD /* swiftformat */,
 			);
 			productName = iOSReferenceRepository;
 			productReference = 8618B4A028CC45D9004810C3 /* iOSReferenceRepository.app */;
@@ -363,6 +372,7 @@
 			);
 			mainGroup = 8618B49728CC45D9004810C3;
 			packageReferences = (
+				861B23C12AD62295002935FD /* XCRemoteSwiftPackageReference "SwiftFormat" */,
 			);
 			productRefGroup = 8618B4A128CC45D9004810C3 /* Products */;
 			projectDirPath = "";
@@ -690,6 +700,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		861B23C12AD62295002935FD /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
+			requirement = {
+				kind = exactVersion;
+				version = 0.52.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		861B23C22AD62295002935FD /* SwiftFormat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 861B23C12AD62295002935FD /* XCRemoteSwiftPackageReference "SwiftFormat" */;
+			productName = SwiftFormat;
+		};
+		861B23C42AD62295002935FD /* CommandLineTool */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 861B23C12AD62295002935FD /* XCRemoteSwiftPackageReference "SwiftFormat" */;
+			productName = CommandLineTool;
+		};
+		861B23C62AD62295002935FD /* swiftformat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 861B23C12AD62295002935FD /* XCRemoteSwiftPackageReference "SwiftFormat" */;
+			productName = swiftformat;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8618B49828CC45D9004810C3 /* Project object */;
 }
