@@ -7,6 +7,8 @@ target 'iOSReferenceRepository' do
 
   # Pods for iOSReferenceRepository
 	pod 'SwiftLint'
+  pod 'SwiftFormat/CLI', '~> 0.49'
+
 	pod 'R.swift'
 	pod 'RxSwift'
 	pod 'RxCocoa'
