@@ -190,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				8618B4B728CD9B08004810C3 /* AppManager */,
-				8618B4B828CD9B28004810C3 /* SplashView */,
+				861B23C82AD76E04002935FD /* View */,
 				8618B4BD28CDA89F004810C3 /* TopView */,
 				865A0FFB29BBF8C4007D9567 /* MyPlayground.playground */,
 				865A100129CE713D007D9567 /* UIKit */,
@@ -229,6 +229,14 @@
 				869DCEC729DA49680000A1DD /* TopViewModel.swift */,
 			);
 			path = TopView;
+			sourceTree = "<group>";
+		};
+		861B23C82AD76E04002935FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8618B4B828CD9B28004810C3 /* SplashView */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		865A100129CE713D007D9567 /* UIKit */ = {

@@ -18,13 +18,13 @@ class SplashViewController: UIViewController {
         super.viewDidAppear(animated)
         gotoTop()
     }
-}
 
-extension SplashViewController {
     private func gotoTop() {
-        if let nextVC = R.storyboard.top.instantiateInitialViewController() {
+        guard let nextVC = R.storyboard.top.instantiateInitialViewController() else {
+            print("Top.storyboardの取得エラー")
+            return
+        }
             nextVC.modalPresentationStyle = .fullScreen
             self.present(nextVC, animated: true)
-        }
     }
 }
