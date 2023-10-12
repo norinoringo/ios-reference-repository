@@ -1,7 +1,7 @@
 //
 //  SplashViewController.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2022/09/11.
 //
 
@@ -24,7 +24,7 @@ class SplashViewController: UIViewController {
             print("Top.storyboardの取得エラー")
             return
         }
-            nextVC.modalPresentationStyle = .fullScreen
-            self.present(nextVC, animated: true)
+        nextVC.modalPresentationStyle = .fullScreen
+        present(nextVC, animated: true)
     }
 }
