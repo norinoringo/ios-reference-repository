@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 class SplashViewController: UIViewController {
-
     private let viewModel = SplashViewModel()
     private let disposeBag = DisposeBag()
 
@@ -22,10 +21,10 @@ class SplashViewController: UIViewController {
     }
 
     private func bind() {
-        let load = self.rx.sentMessage(#selector(viewDidAppear(_:)))
+        let load = rx.sentMessage(#selector(viewDidAppear(_:)))
             .asDriver(onErrorJustReturn: [])
             .map { _ in
-                return Void()
+                ()
             }
 
         let input = SplashViewModel.Input(load: load)

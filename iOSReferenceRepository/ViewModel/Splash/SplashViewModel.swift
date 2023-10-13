@@ -1,16 +1,15 @@
 //
 //  SplashViewModel.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/10/13.
-//  
+//
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 struct SplashViewModel {
-
     private let disposeBag = DisposeBag()
 
     struct Input {
