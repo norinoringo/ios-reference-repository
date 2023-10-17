@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-struct SplashViewModel {
+class SplashViewModel {
     private let disposeBag = DisposeBag()
 
     struct Input {
