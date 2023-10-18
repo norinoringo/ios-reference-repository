@@ -228,9 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				86809123291E90A800531ABC /* View */,
-				8618B4BF28CDA8C2004810C3 /* TopViewController.swift */,
-				8618B4C128CDA8FB004810C3 /* Top.storyboard */,
-				869DCEC729DA49680000A1DD /* TopViewModel.swift */,
 			);
 			path = TopView;
 			sourceTree = "<group>";
@@ -239,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				8618B4B828CD9B28004810C3 /* Splash */,
+				861B23D02ADFD043002935FD /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				861B23CD2AD8AEE7002935FD /* Splash */,
+				861B23D12ADFD06B002935FD /* Home */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -280,6 +279,23 @@
 				861B23CE2AD8AF07002935FD /* SplashViewModel.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		861B23D02ADFD043002935FD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8618B4C128CDA8FB004810C3 /* Top.storyboard */,
+				8618B4BF28CDA8C2004810C3 /* TopViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		861B23D12ADFD06B002935FD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				869DCEC729DA49680000A1DD /* TopViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		865A100129CE713D007D9567 /* UIKit */ = {

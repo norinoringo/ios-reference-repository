@@ -30,14 +30,14 @@ class SplashViewController: UIViewController {
         let input = SplashViewModel.Input(load: load)
         let output = viewModel.transform(input: input)
 
-        output.goToTop
+        output.presentHome
             .drive(onNext: { [weak self] _ in
-                self?.gotoTop()
+                self?.presentHome()
             })
             .disposed(by: disposeBag)
     }
 
-    private func gotoTop() {
+    private func presentHome() {
         guard let nextVC = R.storyboard.top.instantiateInitialViewController() else {
             print("Top.storyboardの取得エラー")
             return
