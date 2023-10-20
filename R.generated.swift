@@ -89,8 +89,10 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
   struct storyboard {
+    /// Storyboard `Home`.
+    static let home = _R.storyboard.home()
     /// Storyboard `NextViewFromTableView`.
     static let nextViewFromTableView = _R.storyboard.nextViewFromTableView()
     /// Storyboard `ScrollView`.
@@ -103,6 +105,13 @@ struct R: Rswift.Validatable {
     static let testUITableView = _R.storyboard.testUITableView()
     /// Storyboard `Top`.
     static let top = _R.storyboard.top()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Home", bundle: ...)`
+    static func home(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.home)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "NextViewFromTableView", bundle: ...)`
@@ -440,6 +449,9 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try home.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try nextViewFromTableView.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -458,6 +470,22 @@ struct _R: Rswift.Validatable {
       try top.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = HomeViewController
+
+      let bundle = R.hostingBundle
+      let name = "Home"
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct nextViewFromTableView: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -557,6 +585,7 @@ struct _R: Rswift.Validatable {
       let name = "Top"
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "house") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'house' is used in storyboard 'Top', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

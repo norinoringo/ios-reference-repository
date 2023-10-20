@@ -38,8 +38,8 @@ class SplashViewController: UIViewController {
     }
 
     private func presentHome() {
-        guard let nextVC = R.storyboard.top.instantiateInitialViewController() else {
-            print("Top.storyboardの取得エラー")
+        guard let nextVC = R.storyboard.home.instantiateInitialViewController() else {
+            print("Home.storyboardの取得エラー")
             return
         }
         nextVC.modalPresentationStyle = .fullScreen
