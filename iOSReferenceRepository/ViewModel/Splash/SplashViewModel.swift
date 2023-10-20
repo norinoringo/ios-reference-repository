@@ -17,18 +17,18 @@ class SplashViewModel {
     }
 
     struct Output {
-        let goToTop: Driver<Void>
+        let presentHome: Driver<Void>
     }
 
     func transform(input: Input) -> Output {
-        let goToTopRelay = PublishRelay<Void>()
+        let presentHomeRelay = PublishRelay<Void>()
 
         input.load
             .drive(onNext: { _ in
-                goToTopRelay.accept(())
+                presentHomeRelay.accept(())
             })
             .disposed(by: disposeBag)
 
-        return Output(goToTop: goToTopRelay.asDriver(onErrorJustReturn: ()))
+        return Output(presentHome: presentHomeRelay.asDriver(onErrorJustReturn: ()))
     }
 }
