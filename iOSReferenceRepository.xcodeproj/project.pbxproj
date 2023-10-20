@@ -19,6 +19,10 @@
 		8618B4C028CDA8C2004810C3 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4BF28CDA8C2004810C3 /* TopViewController.swift */; };
 		8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4C128CDA8FB004810C3 /* Top.storyboard */; };
 		8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4C428CDAAB4004810C3 /* R.generated.swift */; };
+		861ABC042AE21F75004D46E1 /* GitHubSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861ABC032AE21F75004D46E1 /* GitHubSearch.storyboard */; };
+		861ABC062AE21F89004D46E1 /* GitHubSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861ABC052AE21F89004D46E1 /* GitHubSearchViewController.swift */; };
+		861ABC092AE221D5004D46E1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861ABC082AE221D5004D46E1 /* Settings.storyboard */; };
+		861ABC0B2AE221EA004D46E1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861ABC0A2AE221EA004D46E1 /* SettingsViewController.swift */; };
 		861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23CE2AD8AF07002935FD /* SplashViewModel.swift */; };
 		861B23D32AE0AA77002935FD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861B23D22AE0AA76002935FD /* Home.storyboard */; };
 		861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23D42AE0ABFA002935FD /* HomeViewController.swift */; };
@@ -67,6 +71,10 @@
 		8618B4BF28CDA8C2004810C3 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		8618B4C128CDA8FB004810C3 /* Top.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
 		8618B4C428CDAAB4004810C3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		861ABC032AE21F75004D46E1 /* GitHubSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GitHubSearch.storyboard; sourceTree = "<group>"; };
+		861ABC052AE21F89004D46E1 /* GitHubSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewController.swift; sourceTree = "<group>"; };
+		861ABC082AE221D5004D46E1 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		861ABC0A2AE221EA004D46E1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		861B23CE2AD8AF07002935FD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		861B23D22AE0AA76002935FD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		861B23D42AE0ABFA002935FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +242,15 @@
 			path = TopView;
 			sourceTree = "<group>";
 		};
+		861ABC072AE22193004D46E1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				861ABC082AE221D5004D46E1 /* Settings.storyboard */,
+				861ABC0A2AE221EA004D46E1 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		861B23C82AD76E04002935FD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +259,7 @@
 				861B23D62AE0AF6C002935FD /* GitHubSearch */,
 				865A100129CE713D007D9567 /* UIKit */,
 				8609B80229DF9A8600453822 /* SwiftUI */,
+				861ABC072AE22193004D46E1 /* Settings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,6 +324,8 @@
 		861B23D62AE0AF6C002935FD /* GitHubSearch */ = {
 			isa = PBXGroup;
 			children = (
+				861ABC032AE21F75004D46E1 /* GitHubSearch.storyboard */,
+				861ABC052AE21F89004D46E1 /* GitHubSearchViewController.swift */,
 			);
 			path = GitHubSearch;
 			sourceTree = "<group>";
@@ -471,9 +491,11 @@
 				86809125291E90B900531ABC /* TopViewCell.xib in Resources */,
 				860B302A291E9FCC00628191 /* TopViewHeader.xib in Resources */,
 				8618B4C228CDA8FB004810C3 /* Top.storyboard in Resources */,
+				861ABC092AE221D5004D46E1 /* Settings.storyboard in Resources */,
 				86C0649829EB92630019FC77 /* TestCollectionHeaderView.xib in Resources */,
 				865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */,
 				86C0649429EB92050019FC77 /* TestCollectionViewCell.xib in Resources */,
+				861ABC042AE21F75004D46E1 /* GitHubSearch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +578,7 @@
 				86FAFDAB29E6CD8700327F7F /* NextViewControllerFromTableView.swift in Sources */,
 				86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */,
 				86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */,
+				861ABC062AE21F89004D46E1 /* GitHubSearchViewController.swift in Sources */,
 				86C064A129F204FD0019FC77 /* TestLazyGridViewModel.swift in Sources */,
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
 				860B302C291EA09100628191 /* TopViewHeader.swift in Sources */,
@@ -568,6 +591,7 @@
 				86C0649B29EB927F0019FC77 /* TestCollectionFooterView.swift in Sources */,
 				86C0649729EB92630019FC77 /* TestCollectionHeaderView.swift in Sources */,
 				86C0649F29F204C80019FC77 /* TestLazyGridView.swift in Sources */,
+				861ABC0B2AE221EA004D46E1 /* SettingsViewController.swift in Sources */,
 				861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */,
 				86C0648F29EB91D00019FC77 /* TestCollectionViewModel.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,

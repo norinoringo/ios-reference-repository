@@ -89,14 +89,18 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 7 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
   struct storyboard {
+    /// Storyboard `GitHubSearch`.
+    static let gitHubSearch = _R.storyboard.gitHubSearch()
     /// Storyboard `Home`.
     static let home = _R.storyboard.home()
     /// Storyboard `NextViewFromTableView`.
     static let nextViewFromTableView = _R.storyboard.nextViewFromTableView()
     /// Storyboard `ScrollView`.
     static let scrollView = _R.storyboard.scrollView()
+    /// Storyboard `Settings`.
+    static let settings = _R.storyboard.settings()
     /// Storyboard `Splash`.
     static let splash = _R.storyboard.splash()
     /// Storyboard `TestUICollectionView`.
@@ -105,6 +109,13 @@ struct R: Rswift.Validatable {
     static let testUITableView = _R.storyboard.testUITableView()
     /// Storyboard `Top`.
     static let top = _R.storyboard.top()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "GitHubSearch", bundle: ...)`
+    static func gitHubSearch(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.gitHubSearch)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "Home", bundle: ...)`
@@ -124,6 +135,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "ScrollView", bundle: ...)`
     static func scrollView(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.scrollView)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Settings", bundle: ...)`
+    static func settings(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.settings)
     }
     #endif
 
@@ -449,6 +467,9 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try gitHubSearch.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try home.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -456,6 +477,9 @@ struct _R: Rswift.Validatable {
       #endif
       #if os(iOS) || os(tvOS)
       try scrollView.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try settings.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try splash.validate()
@@ -470,6 +494,23 @@ struct _R: Rswift.Validatable {
       try top.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct gitHubSearch: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+
+      let bundle = R.hostingBundle
+      let name = "GitHubSearch"
+
+      static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "house") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'house' is used in storyboard 'GitHubSearch', but couldn't be loaded.") } }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct home: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -517,6 +558,23 @@ struct _R: Rswift.Validatable {
       let name = "ScrollView"
 
       static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct settings: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+
+      let bundle = R.hostingBundle
+      let name = "Settings"
+
+      static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "gearshape") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'gearshape' is used in storyboard 'Settings', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -585,7 +643,7 @@ struct _R: Rswift.Validatable {
       let name = "Top"
 
       static func validate() throws {
-        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "house") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'house' is used in storyboard 'Top', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "swift") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'swift' is used in storyboard 'Top', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
