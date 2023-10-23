@@ -23,6 +23,8 @@
 		861ABC062AE21F89004D46E1 /* GitHubSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861ABC052AE21F89004D46E1 /* GitHubSearchViewController.swift */; };
 		861ABC092AE221D5004D46E1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861ABC082AE221D5004D46E1 /* Settings.storyboard */; };
 		861ABC0B2AE221EA004D46E1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861ABC0A2AE221EA004D46E1 /* SettingsViewController.swift */; };
+		861ABC0D2AE37E8A004D46E1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861ABC0C2AE37E8A004D46E1 /* HomeViewModel.swift */; };
+		861ABC112AE5E815004D46E1 /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861ABC102AE5E815004D46E1 /* Notification.Name+Extension.swift */; };
 		861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23CE2AD8AF07002935FD /* SplashViewModel.swift */; };
 		861B23D32AE0AA77002935FD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861B23D22AE0AA76002935FD /* Home.storyboard */; };
 		861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23D42AE0ABFA002935FD /* HomeViewController.swift */; };
@@ -75,10 +77,12 @@
 		861ABC052AE21F89004D46E1 /* GitHubSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewController.swift; sourceTree = "<group>"; };
 		861ABC082AE221D5004D46E1 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		861ABC0A2AE221EA004D46E1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		861ABC0C2AE37E8A004D46E1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		861ABC102AE5E815004D46E1 /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
+		861ABC152AE5F117004D46E1 /* Swift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Swift.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		861B23CE2AD8AF07002935FD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		861B23D22AE0AA76002935FD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		861B23D42AE0ABFA002935FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		865A0FFB29BBF8C4007D9567 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		865A0FFC29BC3FE5007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		865A100329CE7159007D9567 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				8618B4A228CC45D9004810C3 /* iOSReferenceRepository */,
+				861ABC122AE5F0B0004D46E1 /* Playgrounds */,
 				8618B4A128CC45D9004810C3 /* Products */,
 				26A75E6A7FEF49D2A283D3FC /* Pods */,
 				20F39CEE4AB04A3821159EDC /* Frameworks */,
@@ -208,7 +213,7 @@
 				861B23C82AD76E04002935FD /* View */,
 				861B23C92AD8AEA3002935FD /* ViewModel */,
 				861B23CA2AD8AEB4002935FD /* Model */,
-				865A0FFB29BBF8C4007D9567 /* MyPlayground.playground */,
+				861ABC0F2AE5E7ED004D46E1 /* Extensions */,
 			);
 			path = iOSReferenceRepository;
 			sourceTree = "<group>";
@@ -251,6 +256,38 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		861ABC0E2AE37EB2004D46E1 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				869DCEC729DA49680000A1DD /* TopViewModel.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		861ABC0F2AE5E7ED004D46E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				861ABC102AE5E815004D46E1 /* Notification.Name+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		861ABC122AE5F0B0004D46E1 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				861ABC132AE5F0C9004D46E1 /* Swift */,
+			);
+			path = Playgrounds;
+			sourceTree = "<group>";
+		};
+		861ABC132AE5F0C9004D46E1 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				861ABC152AE5F117004D46E1 /* Swift.playground */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 		861B23C82AD76E04002935FD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +306,7 @@
 			children = (
 				861B23CD2AD8AEE7002935FD /* Splash */,
 				861B23D12ADFD06B002935FD /* Home */,
+				861ABC0E2AE37EB2004D46E1 /* UIKit */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -316,7 +354,7 @@
 		861B23D12ADFD06B002935FD /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				869DCEC729DA49680000A1DD /* TopViewModel.swift */,
+				861ABC0C2AE37E8A004D46E1 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -581,6 +619,7 @@
 				861ABC062AE21F89004D46E1 /* GitHubSearchViewController.swift in Sources */,
 				86C064A129F204FD0019FC77 /* TestLazyGridViewModel.swift in Sources */,
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
+				861ABC0D2AE37E8A004D46E1 /* HomeViewModel.swift in Sources */,
 				860B302C291EA09100628191 /* TopViewHeader.swift in Sources */,
 				869DCEC829DA49680000A1DD /* TopViewModel.swift in Sources */,
 				861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */,
@@ -596,6 +635,7 @@
 				86C0648F29EB91D00019FC77 /* TestCollectionViewModel.swift in Sources */,
 				8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */,
 				86809127291E922B00531ABC /* TopViewCell.swift in Sources */,
+				861ABC112AE5E815004D46E1 /* Notification.Name+Extension.swift in Sources */,
 				8618B4BC28CD9B6B004810C3 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
