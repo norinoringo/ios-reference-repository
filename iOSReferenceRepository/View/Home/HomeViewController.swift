@@ -1,15 +1,14 @@
 //
 //  HomeViewController.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/10/19.
-//  
+//
 
 import Foundation
 import UIKit
 
 class HomeViewController: UITabBarController {
-
     private let viewModel = HomeViewModel()
 
     override func viewDidLoad() {
@@ -33,7 +32,7 @@ class HomeViewController: UITabBarController {
         )
     }
 
-    @objc func handleHomeViewDidLoad(_ notification: Notification) {
+    @objc func handleHomeViewDidLoad(_: Notification) {
         print("handleHomeViewDidLoad")
     }
 

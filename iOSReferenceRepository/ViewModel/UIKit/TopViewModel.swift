@@ -1,16 +1,14 @@
 //
 //  TopViewModel.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/04/03.
-//  
-
+//
 
 import Foundation
 
 class TopViewModel {
-    
-    struct TableData {
+    enum TableData {
         enum Section: String {
             case Swift
             case RxSwift
@@ -21,8 +19,11 @@ class TopViewModel {
 
         enum Row: String {
             // MARK: SwiftRow
+
             // MARK: RxSwiftRow
+
             // MARK: UIKitRow
+
             // View
             case UIScrollView
             case UITableView
@@ -31,9 +32,11 @@ class TopViewModel {
             case UISlider
 
             // MARK: SwiftUIRow
+
             case ScrollView
             case List
             case Grid
+
             // MARK: RxCocoaRow
         }
     }
