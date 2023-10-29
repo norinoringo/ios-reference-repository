@@ -40,43 +40,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="RFW-cN-75M" userLabel="InputKeyword">
-                                <rect key="frame" x="12" y="103" width="369" height="34.333333333333343"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="GitHubを検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-1s-gVN" userLabel="InputKeyword">
-                                        <rect key="frame" x="0.0" y="0.0" width="256.33333333333331" height="34.333333333333336"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqG-4w-pHJ" userLabel="Cancel">
-                                        <rect key="frame" x="258.33333333333331" y="0.0" width="110.66666666666669" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="キャンセル"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VCj-fk-H0x">
-                                <rect key="frame" x="0.0" y="149.33333333333331" width="393" height="619.66666666666674"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <searchBar contentMode="redraw" verticalHuggingPriority="251" searchBarStyle="minimal" placeholder="GitHubを検索" translatesAutoresizingMaskIntoConstraints="NO" id="yVe-wx-xw4">
+                                <rect key="frame" x="12" y="103" width="369" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="IsI-zW-6Kh"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GAy-yq-f5S">
+                                <rect key="frame" x="12" y="159" width="369" height="610"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="RFW-cN-75M" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="2rm-p5-0fY"/>
-                            <constraint firstItem="VCj-fk-H0x" firstAttribute="top" secondItem="RFW-cN-75M" secondAttribute="bottom" constant="12" id="H6M-qE-k6y"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VCj-fk-H0x" secondAttribute="trailing" id="V2J-Ze-CSs"/>
-                            <constraint firstItem="RFW-cN-75M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="exo-r5-Qlf"/>
-                            <constraint firstItem="VCj-fk-H0x" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="kRh-Yf-NNh"/>
-                            <constraint firstItem="VCj-fk-H0x" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="lQz-1V-hUs"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="VCj-fk-H0x" secondAttribute="bottom" id="lyh-IV-KAa"/>
-                            <constraint firstItem="VCj-fk-H0x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="otS-zl-7NE"/>
-                            <constraint firstItem="VCj-fk-H0x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="q6K-bR-lR3"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RFW-cN-75M" secondAttribute="trailing" constant="12" id="w19-IE-gak"/>
+                            <constraint firstItem="yVe-wx-xw4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="79l-jV-Ykl"/>
+                            <constraint firstItem="GAy-yq-f5S" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="Kd5-ue-Ieq"/>
+                            <constraint firstItem="GAy-yq-f5S" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="Mtj-oR-MnK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GAy-yq-f5S" secondAttribute="trailing" constant="12" id="SVv-nh-Shc"/>
+                            <constraint firstItem="yVe-wx-xw4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="fI7-ME-el2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yVe-wx-xw4" secondAttribute="trailing" constant="12" id="pZv-kN-aJQ"/>
+                            <constraint firstItem="GAy-yq-f5S" firstAttribute="top" secondItem="yVe-wx-xw4" secondAttribute="bottom" id="wKx-Y0-WqJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g81-CP-uC3"/>
+                    <connections>
+                        <outlet property="searchBar" destination="yVe-wx-xw4" id="WTM-Gx-Nq0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,12 +77,6 @@
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -11,4 +11,23 @@ import UIKit
 
 class GitHubSearchViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    private func bind() {
+        configureSearchBar()
+    }
+
+    private func configureSearchBar() {
+        self.searchBar.delegate = self
+    }
+}
+
+extension GitHubSearchViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+    }
 }
