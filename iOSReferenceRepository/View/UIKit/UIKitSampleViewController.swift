@@ -7,13 +7,14 @@
 
 import UIKit
 import SwiftUI
+import RxSwift
 
-class TopViewController: UIViewController {
+class UIKitSampleViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    private let viewModel: TopViewModel = TopViewModel()
-    private var tableData: [TopViewModel.Data] = []
+    private let viewModel = UIKitSampleViewModel()
+    private var tableData = [UIKitSampleViewModel.items]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class TopViewController: UIViewController {
     }
 }
 
-extension TopViewController: UITableViewDataSource {
+extension UIKitSampleViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableData.count
@@ -53,24 +54,17 @@ extension TopViewController: UITableViewDataSource {
     }
 }
 
-extension TopViewController: UITableViewDelegate {
+extension UIKitSampleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TopViewHeader") as! TopViewHeader
-        header.configure(sectionTitle: tableData[section].section.rawValue)
+        header.configure(sectionTitle: tableData[section].sections.rawValue)
         return header
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = tableData[indexPath.section]
 
-        switch section.section {
-        case .Swift:
-            switch section.rows {
-            default:
-                return
-            }
-        case .RxSwift:
-            return
+        switch section.sections {
         case .UIKit:
             switch section.rows[indexPath.row] {
             case .UIScrollView:
@@ -89,21 +83,6 @@ extension TopViewController: UITableViewDelegate {
                 let storyboard = UIStoryboard(name: "TestUICollectionView", bundle: nil)
                 guard let nextVC = storyboard.instantiateViewController(withIdentifier: "TestUICollectionView") as? TestUICollectionViewController else { return }
                 self.navigationController?.pushViewController(nextVC, animated: true)
-            default:
-                return
-            }
-        case .SwiftUI:
-            switch section.rows[indexPath.row] {
-            case .List:
-                let vc = UIHostingController(rootView: TestListView())
-                vc.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(vc, animated: true)
-            case .Grid:
-                let vc = UIHostingController(rootView: TestLazyGridView())
-                vc.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(vc, animated: true)
-            default:
-                return
             }
         case .RxCocoa:
             return

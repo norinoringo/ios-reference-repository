@@ -107,8 +107,8 @@ struct R: Rswift.Validatable {
     static let testUICollectionView = _R.storyboard.testUICollectionView()
     /// Storyboard `TestUITableView`.
     static let testUITableView = _R.storyboard.testUITableView()
-    /// Storyboard `Top`.
-    static let top = _R.storyboard.top()
+    /// Storyboard `UIKitSample`.
+    static let uiKitSample = _R.storyboard.uiKitSample()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "GitHubSearch", bundle: ...)`
@@ -167,9 +167,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Top", bundle: ...)`
-    static func top(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.top)
+    /// `UIStoryboard(name: "UIKitSample", bundle: ...)`
+    static func uiKitSample(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.uiKitSample)
     }
     #endif
 
@@ -491,7 +491,7 @@ struct _R: Rswift.Validatable {
       try testUITableView.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try top.validate()
+      try uiKitSample.validate()
       #endif
     }
 
@@ -636,14 +636,14 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct top: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct uiKitSample: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
-      let name = "Top"
+      let name = "UIKitSample"
 
       static func validate() throws {
-        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "swift") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'swift' is used in storyboard 'Top', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "swift") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'swift' is used in storyboard 'UIKitSample', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

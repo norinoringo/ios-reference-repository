@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="169" y="-351"/>
         </scene>
-        <!--Top-->
+        <!--UIKitSample-->
         <scene sceneID="yfA-Pb-6yw">
             <objects>
-                <viewControllerPlaceholder storyboardName="Top" id="v4s-a8-Eog" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="UIKitSample" id="v4s-a8-Eog" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="SLP-Lu-o7u"/>
                     <navigationItem key="navigationItem" id="b7x-FW-VOS"/>
                 </viewControllerPlaceholder>
@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="121" y="-219"/>
         </scene>
-        <!--Top-->
+        <!--UIKitSample-->
         <scene sceneID="kKg-UQ-niC">
             <objects>
-                <viewControllerPlaceholder storyboardName="Top" id="fGm-Rm-j2B" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="UIKitSample" id="fGm-Rm-j2B" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="9ha-WP-Ufu"/>
                     <navigationItem key="navigationItem" id="gir-ZN-PaR"/>
                 </viewControllerPlaceholder>

@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="744.92753623188412" y="83.705357142857139"/>
         </scene>
-        <!--Top View Controller-->
+        <!--UIKit Sample View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="TopViewController" customModule="iOSReferenceRepository" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" userLabel="UIKit Sample View Controller" customClass="UIKitSampleViewController" customModule="iOSReferenceRepository" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
