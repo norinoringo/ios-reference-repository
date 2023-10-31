@@ -8,27 +8,16 @@
 import Foundation
 
 class UIKitSampleViewModel {
-    enum TableData {
-        enum FrameWork: String {
-            case UIKit
-            case RxCocoa
-        }
 
-        enum Samples: String, CaseIterable {
-            case UIScrollView
-            case UITableView
-            case UICollectionView
-        }
-    }
-
-    typealias items = (sections: TableData.FrameWork, rows: [TableData.Samples])
+    typealias items = (sections: UIkitSampleData.FrameWork, rows: [UIkitSampleData.Samples])
 
     var tableData = [items]()
 
     init() {
-        let uikitSamples = items(sections: TableData.FrameWork.UIKit, rows: TableData.Samples.allCases)
+        // FIXME: $0.allCasesを使って簡潔に書ける気がする
+        let uikitSamples = items(sections: UIkitSampleData.FrameWork.UIKit, rows: UIkitSampleData.Samples.allCases)
         tableData.append(uikitSamples)
-        let rxcocoaSamples = items(sections: TableData.FrameWork.RxCocoa, rows: TableData.Samples.allCases)
+        let rxcocoaSamples = items(sections: UIkitSampleData.FrameWork.RxCocoa, rows: [])
         tableData.append(rxcocoaSamples)
     }
 }

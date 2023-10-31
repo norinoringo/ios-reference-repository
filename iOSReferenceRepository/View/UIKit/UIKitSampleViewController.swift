@@ -18,7 +18,7 @@ class UIKitSampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Top画面の表示")
+        print("UIKitSample画面の表示")
         setup()
     }
 
@@ -83,6 +83,8 @@ extension UIKitSampleViewController: UITableViewDelegate {
                 let storyboard = UIStoryboard(name: "TestUICollectionView", bundle: nil)
                 guard let nextVC = storyboard.instantiateViewController(withIdentifier: "TestUICollectionView") as? TestUICollectionViewController else { return }
                 self.navigationController?.pushViewController(nextVC, animated: true)
+            default:
+                return
             }
         case .RxCocoa:
             return
