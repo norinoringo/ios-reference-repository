@@ -12,6 +12,10 @@ enum UIkitSampleData {
     enum FrameWork: String {
         case UIKit
         case RxCocoa
+
+        var title: String {
+            return self.rawValue
+        }
     }
 
     enum Samples: String, CaseIterable {
@@ -44,5 +48,9 @@ enum UIkitSampleData {
         case UINavigationBar
         case UIAlertController
         case UIAlertAction
+
+        var title: String {
+            return self.rawValue
+        }
     }
 }

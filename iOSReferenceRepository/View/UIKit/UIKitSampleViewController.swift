@@ -49,7 +49,7 @@ extension UIKitSampleViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TopViewCell", for: indexPath) as! TopViewCell
-        cell.configure(title: tableData[indexPath.section].rows[indexPath.row].rawValue)
+        cell.configure(title: tableData[indexPath.section].rows[indexPath.row].title)
         return cell
     }
 }
@@ -57,7 +57,7 @@ extension UIKitSampleViewController: UITableViewDataSource {
 extension UIKitSampleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TopViewHeader") as! TopViewHeader
-        header.configure(sectionTitle: tableData[section].sections.rawValue)
+        header.configure(sectionTitle: tableData[section].sections.title)
         return header
     }
 
