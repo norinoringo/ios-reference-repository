@@ -32,8 +32,8 @@ class UIKitSampleViewController: UIViewController {
     }
 
     private func register() {
-        tableView.register(UINib(nibName: "TopViewCell", bundle: nil), forCellReuseIdentifier: "TopViewCell")
-        tableView.register(UINib(nibName: "TopViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier:"TopViewHeader" )
+        tableView.register(UINib(nibName: "UIKitSampleCell", bundle: nil), forCellReuseIdentifier: "UIKitSampleCell")
+        tableView.register(UINib(nibName: "UIKitSampleHeader", bundle: nil), forHeaderFooterViewReuseIdentifier:"UIKitSampleHeader" )
     }
 }
 
@@ -48,7 +48,9 @@ extension UIKitSampleViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TopViewCell", for: indexPath) as! TopViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UIKitSampleCell", for: indexPath) as? UIKitSampleCell else {
+            return UITableViewCell()
+        }
         cell.configure(title: tableData[indexPath.section].rows[indexPath.row].title)
         return cell
     }
@@ -56,8 +58,10 @@ extension UIKitSampleViewController: UITableViewDataSource {
 
 extension UIKitSampleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TopViewHeader") as! TopViewHeader
-        header.configure(sectionTitle: tableData[section].sections.title)
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UIKitSampleHeader") as? UIKitSampleHeader else {
+            return UIView()
+        }
+        header.configure(title: tableData[section].sections.title)
         return header
     }
 
