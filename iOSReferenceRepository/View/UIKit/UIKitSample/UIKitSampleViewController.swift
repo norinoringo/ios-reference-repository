@@ -32,8 +32,8 @@ class UIKitSampleViewController: UIViewController {
     }
 
     private func register() {
-        tableView.register(UINib(nibName: "UIKitSampleCell", bundle: nil), forCellReuseIdentifier: "UIKitSampleCell")
-        tableView.register(UINib(nibName: "UIKitSampleHeader", bundle: nil), forHeaderFooterViewReuseIdentifier:"UIKitSampleHeader" )
+        tableView.register(UINib(nibName: R.nib.uiKitSampleCell.name, bundle: nil), forCellReuseIdentifier: R.nib.uiKitSampleCell.identifier)
+        tableView.register(UINib(nibName: R.nib.uiKitSampleHeader.name, bundle: nil), forHeaderFooterViewReuseIdentifier: R.nib.uiKitSampleHeader.name)
     }
 }
 
@@ -48,7 +48,7 @@ extension UIKitSampleViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UIKitSampleCell", for: indexPath) as? UIKitSampleCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.uiKitSampleCell.identifier, for: indexPath) as? UIKitSampleCell else {
             return UITableViewCell()
         }
         cell.configure(title: tableData[indexPath.section].rows[indexPath.row].title)
