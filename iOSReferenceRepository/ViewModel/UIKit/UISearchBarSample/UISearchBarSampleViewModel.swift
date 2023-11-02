@@ -22,13 +22,17 @@ class UISearchBarSampleViewModel {
         let searchText: Driver<String?>
     }
 
+    private var searchText: String?
+
     private let disposeBag = DisposeBag()
 
     func transform(input: Input) -> Output {
         let textRelay = PublishRelay<String?>()
 
         input.textDidChange
-            .drive(onNext: { text in
+            .drive(onNext: { [weak self] text in
+                print("textDidChange")
+                self?.searchText = text
                 textRelay.accept(text)
             })
             .disposed(by: disposeBag)
@@ -41,8 +45,9 @@ class UISearchBarSampleViewModel {
             .disposed(by: disposeBag)
 
         input.searchButtonClicked
-            .drive(onNext: { _ in
+            .drive(onNext: { [weak self] _ in
                 print("searchButtonClicked")
+                print(self?.searchText)
             })
             .disposed(by: disposeBag)
 

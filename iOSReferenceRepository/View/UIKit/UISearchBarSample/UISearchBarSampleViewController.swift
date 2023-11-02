@@ -64,4 +64,8 @@ extension UISearchBarSampleViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         cancelButtonClickedRelay.accept(())
     }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchButtonClickedRelay.accept(())
+    }
 }
