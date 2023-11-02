@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import RxSwift
+import RxCocoa
 
 class UIKitSampleViewController: UIViewController {
 
@@ -15,20 +16,46 @@ class UIKitSampleViewController: UIViewController {
 
     private let viewModel = UIKitSampleViewModel()
     private var tableData = [UIKitSampleViewModel.items]()
+    // タップされたセル情報を流すRelay
+    private var didSelectItemRelay = PublishRelay<UIKitSampleViewModel.items>()
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("UIKitSample画面の表示")
-        setup()
-    }
-
-    func setup() {
-        initView()
+        bind()
         register()
     }
 
-    private func initView() {
-        self.tableData = viewModel.tableData
+    private func bind() {
+        let viewDidAppear = rx.sentMessage(#selector(viewDidAppear(_:)))
+            .asDriver(onErrorJustReturn: [])
+            .map { _ in
+                ()
+            }
+
+        let input = UIKitSampleViewModel.Input(viewDidAppear: viewDidAppear,
+                                               didSelectRow: didSelectItemRelay.asDriver(onErrorJustReturn: (sections: UIkitSampleData.FrameWork.None, rows: [])))
+
+        let output = viewModel.transform(input: input)
+
+        output.tableData
+            .drive(onNext: { [weak self] items in
+                self?.tableData = items
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        // TODO: 他の画面も遷移処理を実装する
+        output.pushUIScrollView
+            .drive(onNext: { [weak self] _ in
+
+                guard let nextVC = R.storyboard.scrollView.instantiateInitialViewController() else {
+                    return
+                }
+                self?.navigationController?.pushViewController(nextVC, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func register() {
@@ -66,32 +93,9 @@ extension UIKitSampleViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let section = tableData[indexPath.section]
+        let item = UIKitSampleViewModel.items(sections: tableData[indexPath.section].sections,
+                                              rows: [tableData[indexPath.section].rows[indexPath.row]])
 
-        switch section.sections {
-        case .UIKit:
-            switch section.rows[indexPath.row] {
-            case .UIScrollView:
-                let nextVC = R.storyboard.scrollView.instantiateInitialViewController()
-                guard let nextVC = nextVC else {
-                    return
-                }
-                self.navigationController?.pushViewController(nextVC, animated: true)
-            case.UITableView:
-                let nextVC = R.storyboard.testUITableView().instantiateInitialViewController()
-                guard let nextVC = nextVC else {
-                    return
-                }
-                self.navigationController?.pushViewController(nextVC, animated: true)
-            case .UICollectionView:
-                let storyboard = UIStoryboard(name: "TestUICollectionView", bundle: nil)
-                guard let nextVC = storyboard.instantiateViewController(withIdentifier: "TestUICollectionView") as? TestUICollectionViewController else { return }
-                self.navigationController?.pushViewController(nextVC, animated: true)
-            default:
-                return
-            }
-        case .RxCocoa:
-            return
-        }
+        self.didSelectItemRelay.accept(item)
     }
 }

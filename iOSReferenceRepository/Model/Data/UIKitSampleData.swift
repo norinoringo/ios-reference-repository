@@ -12,6 +12,7 @@ enum UIkitSampleData {
     enum FrameWork: String {
         case UIKit
         case RxCocoa
+        case None
 
         var title: String {
             return self.rawValue
