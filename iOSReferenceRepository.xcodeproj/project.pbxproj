@@ -54,6 +54,7 @@
 		86E03C8A2AF082DD00AAEAC7 /* UIKitSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */; };
 		86E6C24F2AF333680043F09C /* UISearchBarSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6C24E2AF333680043F09C /* UISearchBarSampleViewController.swift */; };
 		86E6C2512AF333C60043F09C /* UISearchBarSample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E6C2502AF333C60043F09C /* UISearchBarSample.storyboard */; };
+		86E6C2552AF33A8C0043F09C /* UISearchBarSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6C2542AF33A8C0043F09C /* UISearchBarSampleViewModel.swift */; };
 		86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FAFD9F29E4E5FE00327F7F /* TestUITableViewController.swift */; };
 		86FAFDA229E623BD00327F7F /* TestUITableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86FAFDA129E623BC00327F7F /* TestUITableView.storyboard */; };
 		86FAFDA529E6247A00327F7F /* TestUITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86FAFDA429E6247A00327F7F /* TestUITableViewCell.xib */; };
@@ -114,6 +115,7 @@
 		86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleData.swift; sourceTree = "<group>"; };
 		86E6C24E2AF333680043F09C /* UISearchBarSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarSampleViewController.swift; sourceTree = "<group>"; };
 		86E6C2502AF333C60043F09C /* UISearchBarSample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UISearchBarSample.storyboard; sourceTree = "<group>"; };
+		86E6C2542AF33A8C0043F09C /* UISearchBarSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarSampleViewModel.swift; sourceTree = "<group>"; };
 		86FAFD9F29E4E5FE00327F7F /* TestUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITableViewController.swift; sourceTree = "<group>"; };
 		86FAFDA129E623BC00327F7F /* TestUITableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUITableView.storyboard; sourceTree = "<group>"; };
 		86FAFDA429E6247A00327F7F /* TestUITableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestUITableViewCell.xib; sourceTree = "<group>"; };
@@ -314,7 +316,7 @@
 			children = (
 				861B23CD2AD8AEE7002935FD /* Splash */,
 				861B23D12ADFD06B002935FD /* Home */,
-				861ABC0E2AE37EB2004D46E1 /* UIKitSample */,
+				86E6C2522AF33A460043F09C /* UIKit */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -465,6 +467,23 @@
 			children = (
 				86E6C24E2AF333680043F09C /* UISearchBarSampleViewController.swift */,
 				86E6C2502AF333C60043F09C /* UISearchBarSample.storyboard */,
+			);
+			path = UISearchBarSample;
+			sourceTree = "<group>";
+		};
+		86E6C2522AF33A460043F09C /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				861ABC0E2AE37EB2004D46E1 /* UIKitSample */,
+				86E6C2532AF33A5A0043F09C /* UISearchBarSample */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		86E6C2532AF33A5A0043F09C /* UISearchBarSample */ = {
+			isa = PBXGroup;
+			children = (
+				86E6C2542AF33A8C0043F09C /* UISearchBarSampleViewModel.swift */,
 			);
 			path = UISearchBarSample;
 			sourceTree = "<group>";
@@ -632,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E6C2552AF33A8C0043F09C /* UISearchBarSampleViewModel.swift in Sources */,
 				8618B4C028CDA8C2004810C3 /* UIKitSampleViewController.swift in Sources */,
 				86D1200F29EA4542001F59BD /* NextListView.swift in Sources */,
 				8609B80529DF9ABA00453822 /* TestScrollView.swift in Sources */,
