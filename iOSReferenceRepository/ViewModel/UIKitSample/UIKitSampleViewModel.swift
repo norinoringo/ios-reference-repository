@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 class UIKitSampleViewModel {
-
     typealias items = (sections: UIkitSampleData.FrameWork, rows: [UIkitSampleData.Samples])
 
     struct Input {
@@ -31,7 +30,7 @@ class UIKitSampleViewModel {
         let pushUIScrollViewRelay = PublishRelay<Void>()
 
         input.viewDidAppear
-            .drive(onNext: { [weak self] _  in
+            .drive(onNext: { [weak self] _ in
                 guard let self = self else {
                     return ()
                 }
@@ -49,7 +48,7 @@ class UIKitSampleViewModel {
                     default:
                         break
                     }
-                case .RxCocoa: 
+                case .RxCocoa:
                     break
                 case .None:
                     break

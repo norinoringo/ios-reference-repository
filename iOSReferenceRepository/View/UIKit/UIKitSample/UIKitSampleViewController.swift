@@ -1,18 +1,17 @@
 //
 //  TopViewController.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2022/09/11.
-//  
+//
 
-import UIKit
-import SwiftUI
-import RxSwift
 import RxCocoa
+import RxSwift
+import SwiftUI
+import UIKit
 
 class UIKitSampleViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
 
     private let viewModel = UIKitSampleViewModel()
     private var tableData = [UIKitSampleViewModel.items]()
@@ -65,12 +64,11 @@ class UIKitSampleViewController: UIViewController {
 }
 
 extension UIKitSampleViewController: UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         return tableData.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData[section].rows.count
     }
 
@@ -92,10 +90,10 @@ extension UIKitSampleViewController: UITableViewDelegate {
         return header
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = UIKitSampleViewModel.items(sections: tableData[indexPath.section].sections,
                                               rows: [tableData[indexPath.section].rows[indexPath.row]])
 
-        self.didSelectItemRelay.accept(item)
+        didSelectItemRelay.accept(item)
     }
 }

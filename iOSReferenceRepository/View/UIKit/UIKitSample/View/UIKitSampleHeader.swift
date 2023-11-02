@@ -1,16 +1,14 @@
 //
 //  UIKitSampleHeader.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2022/11/12.
-//  
-
+//
 
 import UIKit
 
 class UIKitSampleHeader: UITableViewHeaderFooterView {
-
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet var title: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,10 +1,9 @@
 //
 //  UIKitSample.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/10/31.
-//  
-
+//
 
 import Foundation
 
@@ -15,7 +14,7 @@ enum UIkitSampleData {
         case None
 
         var title: String {
-            return self.rawValue
+            return rawValue
         }
     }
 
@@ -51,7 +50,7 @@ enum UIkitSampleData {
         case UIAlertAction
 
         var title: String {
-            return self.rawValue
+            return rawValue
         }
     }
 }
