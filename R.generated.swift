@@ -89,7 +89,7 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 10 storyboards.
   struct storyboard {
     /// Storyboard `GitHubSearch`.
     static let gitHubSearch = _R.storyboard.gitHubSearch()
@@ -109,6 +109,8 @@ struct R: Rswift.Validatable {
     static let testUITableView = _R.storyboard.testUITableView()
     /// Storyboard `UIKitSample`.
     static let uiKitSample = _R.storyboard.uiKitSample()
+    /// Storyboard `UISearchBarSample`.
+    static let uiSearchBarSample = _R.storyboard.uiSearchBarSample()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "GitHubSearch", bundle: ...)`
@@ -170,6 +172,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "UIKitSample", bundle: ...)`
     static func uiKitSample(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.uiKitSample)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "UISearchBarSample", bundle: ...)`
+    static func uiSearchBarSample(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.uiSearchBarSample)
     }
     #endif
 
@@ -493,6 +502,9 @@ struct _R: Rswift.Validatable {
       #if os(iOS) || os(tvOS)
       try uiKitSample.validate()
       #endif
+      #if os(iOS) || os(tvOS)
+      try uiSearchBarSample.validate()
+      #endif
     }
 
     #if os(iOS) || os(tvOS)
@@ -644,6 +656,22 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "swift") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'swift' is used in storyboard 'UIKitSample', but couldn't be loaded.") } }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct uiSearchBarSample: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UISearchBarSampleViewController
+
+      let bundle = R.hostingBundle
+      let name = "UISearchBarSample"
+
+      static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

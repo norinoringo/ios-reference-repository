@@ -21,6 +21,7 @@ class UIKitSampleViewModel {
         let tableData: Driver<[items]>
         // TODO: 他の画面も遷移処理を実装する
         let pushUIScrollView: Driver<Void>
+        let pushSearchBarView: Driver<Void>
     }
 
     private let disposeBag = DisposeBag()
@@ -28,6 +29,7 @@ class UIKitSampleViewModel {
     func transform(input: Input) -> Output {
         let tableDataRelay = PublishRelay<[items]>()
         let pushUIScrollViewRelay = PublishRelay<Void>()
+        let pushSearchBarViewRelay = PublishRelay<Void>()
 
         input.viewDidAppear
             .drive(onNext: { [weak self] _ in
@@ -45,6 +47,8 @@ class UIKitSampleViewModel {
                     switch items.rows.first {
                     case .UIScrollView:
                         pushUIScrollViewRelay.accept(())
+                    case .UISearchBar:
+                        pushSearchBarViewRelay.accept(())
                     default:
                         break
                     }
@@ -57,7 +61,8 @@ class UIKitSampleViewModel {
             .disposed(by: disposeBag)
 
         return Output(tableData: tableDataRelay.asDriver(onErrorJustReturn: []),
-                      pushUIScrollView: pushUIScrollViewRelay.asDriver(onErrorJustReturn: ()))
+                      pushUIScrollView: pushUIScrollViewRelay.asDriver(onErrorJustReturn: ()),
+                      pushSearchBarView: pushSearchBarViewRelay.asDriver(onErrorJustReturn: ()))
     }
 
     private func createTableData() -> [items] {

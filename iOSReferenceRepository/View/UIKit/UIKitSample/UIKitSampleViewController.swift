@@ -48,8 +48,16 @@ class UIKitSampleViewController: UIViewController {
         // TODO: 他の画面も遷移処理を実装する
         output.pushUIScrollView
             .drive(onNext: { [weak self] _ in
-
                 guard let nextVC = R.storyboard.scrollView.instantiateInitialViewController() else {
+                    return
+                }
+                self?.navigationController?.pushViewController(nextVC, animated: true)
+            })
+            .disposed(by: disposeBag)
+
+        output.pushSearchBarView
+            .drive(onNext: { [weak self] _ in
+                guard let nextVC = R.storyboard.uiSearchBarSample.instantiateInitialViewController() else {
                     return
                 }
                 self?.navigationController?.pushViewController(nextVC, animated: true)

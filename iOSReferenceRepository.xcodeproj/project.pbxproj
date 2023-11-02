@@ -52,6 +52,8 @@
 		86D1200F29EA4542001F59BD /* NextListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1200E29EA4542001F59BD /* NextListView.swift */; };
 		86D1201129EA4627001F59BD /* TestListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1201029EA4627001F59BD /* TestListViewModel.swift */; };
 		86E03C8A2AF082DD00AAEAC7 /* UIKitSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */; };
+		86E6C24F2AF333680043F09C /* UISearchBarSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6C24E2AF333680043F09C /* UISearchBarSampleViewController.swift */; };
+		86E6C2512AF333C60043F09C /* UISearchBarSample.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E6C2502AF333C60043F09C /* UISearchBarSample.storyboard */; };
 		86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FAFD9F29E4E5FE00327F7F /* TestUITableViewController.swift */; };
 		86FAFDA229E623BD00327F7F /* TestUITableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86FAFDA129E623BC00327F7F /* TestUITableView.storyboard */; };
 		86FAFDA529E6247A00327F7F /* TestUITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86FAFDA429E6247A00327F7F /* TestUITableViewCell.xib */; };
@@ -110,6 +112,8 @@
 		86D1200E29EA4542001F59BD /* NextListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextListView.swift; sourceTree = "<group>"; };
 		86D1201029EA4627001F59BD /* TestListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewModel.swift; sourceTree = "<group>"; };
 		86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleData.swift; sourceTree = "<group>"; };
+		86E6C24E2AF333680043F09C /* UISearchBarSampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBarSampleViewController.swift; sourceTree = "<group>"; };
+		86E6C2502AF333C60043F09C /* UISearchBarSample.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UISearchBarSample.storyboard; sourceTree = "<group>"; };
 		86FAFD9F29E4E5FE00327F7F /* TestUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITableViewController.swift; sourceTree = "<group>"; };
 		86FAFDA129E623BC00327F7F /* TestUITableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUITableView.storyboard; sourceTree = "<group>"; };
 		86FAFDA429E6247A00327F7F /* TestUITableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestUITableViewCell.xib; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 				86C0648929EB8F010019FC77 /* UICollectionView */,
 				8609B80629E4D96E00453822 /* UITableView */,
 				865A100229CE7143007D9567 /* ScrollView */,
+				86E6C24D2AF332A50043F09C /* UISearchBarSample */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -453,6 +458,15 @@
 				86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		86E6C24D2AF332A50043F09C /* UISearchBarSample */ = {
+			isa = PBXGroup;
+			children = (
+				86E6C24E2AF333680043F09C /* UISearchBarSampleViewController.swift */,
+				86E6C2502AF333C60043F09C /* UISearchBarSample.storyboard */,
+			);
+			path = UISearchBarSample;
 			sourceTree = "<group>";
 		};
 		86FAFDA329E6246500327F7F /* View */ = {
@@ -541,6 +555,7 @@
 				860B302A291E9FCC00628191 /* UIKitSampleHeader.xib in Resources */,
 				8618B4C228CDA8FB004810C3 /* UIKitSample.storyboard in Resources */,
 				861ABC092AE221D5004D46E1 /* Settings.storyboard in Resources */,
+				86E6C2512AF333C60043F09C /* UISearchBarSample.storyboard in Resources */,
 				86C0649829EB92630019FC77 /* TestCollectionHeaderView.xib in Resources */,
 				865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */,
 				86C0649429EB92050019FC77 /* TestCollectionViewCell.xib in Resources */,
@@ -649,6 +664,7 @@
 				86809127291E922B00531ABC /* UIKitSampleCell.swift in Sources */,
 				861ABC112AE5E815004D46E1 /* Notification.Name+Extension.swift in Sources */,
 				8618B4BC28CD9B6B004810C3 /* SplashViewController.swift in Sources */,
+				86E6C24F2AF333680043F09C /* UISearchBarSampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
