@@ -55,6 +55,8 @@
 		86D1201129EA4627001F59BD /* TestListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D1201029EA4627001F59BD /* TestListViewModel.swift */; };
 		86D68D1D2AF64810003901C0 /* GitHubSearchHistoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D68D1C2AF64810003901C0 /* GitHubSearchHistoryHeader.xib */; };
 		86D68D1F2AF64871003901C0 /* GitHubSearchHistoryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D68D1E2AF64871003901C0 /* GitHubSearchHistoryHeader.swift */; };
+		86D68D212AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D68D202AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib */; };
+		86D68D232AF64EF2003901C0 /* GitHubSearchSuggestionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D68D222AF64EF2003901C0 /* GitHubSearchSuggestionsCell.swift */; };
 		86E03C8A2AF082DD00AAEAC7 /* UIKitSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */; };
 		86E6C2582AF5E02A0043F09C /* GitHubSearchTutorialLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E6C2572AF5E02A0043F09C /* GitHubSearchTutorialLabelCell.xib */; };
 		86E6C25A2AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6C2592AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift */; };
@@ -120,6 +122,8 @@
 		86D1201029EA4627001F59BD /* TestListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewModel.swift; sourceTree = "<group>"; };
 		86D68D1C2AF64810003901C0 /* GitHubSearchHistoryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubSearchHistoryHeader.xib; sourceTree = "<group>"; };
 		86D68D1E2AF64871003901C0 /* GitHubSearchHistoryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchHistoryHeader.swift; sourceTree = "<group>"; };
+		86D68D202AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubSearchSuggestionsCell.xib; sourceTree = "<group>"; };
+		86D68D222AF64EF2003901C0 /* GitHubSearchSuggestionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchSuggestionsCell.swift; sourceTree = "<group>"; };
 		86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleData.swift; sourceTree = "<group>"; };
 		86E6C2572AF5E02A0043F09C /* GitHubSearchTutorialLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubSearchTutorialLabelCell.xib; sourceTree = "<group>"; };
 		86E6C2592AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchTutorialLabelCell.swift; sourceTree = "<group>"; };
@@ -480,6 +484,8 @@
 				868E6F3C2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift */,
 				86D68D1C2AF64810003901C0 /* GitHubSearchHistoryHeader.xib */,
 				86D68D1E2AF64871003901C0 /* GitHubSearchHistoryHeader.swift */,
+				86D68D202AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib */,
+				86D68D222AF64EF2003901C0 /* GitHubSearchSuggestionsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -570,6 +576,7 @@
 				86E6C25C2AF5E35F0043F09C /* Localizable.xcstrings in Resources */,
 				861B23D32AE0AA77002935FD /* Home.storyboard in Resources */,
 				86D68D1D2AF64810003901C0 /* GitHubSearchHistoryHeader.xib in Resources */,
+				86D68D212AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib in Resources */,
 				86809125291E90B900531ABC /* UIKitSampleCell.xib in Resources */,
 				860B302A291E9FCC00628191 /* UIKitSampleHeader.xib in Resources */,
 				8618B4C228CDA8FB004810C3 /* UIKitSample.storyboard in Resources */,
@@ -659,6 +666,7 @@
 				86FAFDA729E624AE00327F7F /* TestUITableViewCell.swift in Sources */,
 				86D1200B29E8C66B001F59BD /* TestListView.swift in Sources */,
 				86FAFDAB29E6CD8700327F7F /* NextViewControllerFromTableView.swift in Sources */,
+				86D68D232AF64EF2003901C0 /* GitHubSearchSuggestionsCell.swift in Sources */,
 				86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */,
 				86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */,
 				861ABC062AE21F89004D46E1 /* GitHubSearchViewController.swift in Sources */,

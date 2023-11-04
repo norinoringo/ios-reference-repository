@@ -28,6 +28,7 @@ class GitHubSearchViewController: UIViewController {
         tableView.register(UINib(resource: R.nib.gitHubSearchTutorialLabelCell), forCellReuseIdentifier: R.nib.gitHubSearchTutorialLabelCell.identifier)
         tableView.register(UINib(resource: R.nib.gitHubSearchHistoryCell), forCellReuseIdentifier: R.nib.gitHubSearchHistoryCell.identifier)
         tableView.register(UINib(resource: R.nib.gitHubSearchHistoryHeader), forHeaderFooterViewReuseIdentifier: R.nib.gitHubSearchHistoryHeader.name)
+        tableView.register(UINib(resource: R.nib.gitHubSearchSuggestionsCell), forCellReuseIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier)
     }
 
     private func configureSearchBar() {
@@ -37,7 +38,7 @@ class GitHubSearchViewController: UIViewController {
 extension GitHubSearchViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,6 +46,8 @@ extension GitHubSearchViewController: UITableViewDataSource {
             return 1
         } else if section == 1 {
             return 5
+        } else if section == 2 {
+            return 6
         } else {
             return 0
         }
@@ -62,6 +65,15 @@ extension GitHubSearchViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.configureView(title: "Swift")
+            return cell
+        } else if indexPath.section == 2 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
+                return UITableViewCell()
+            }
+            cell.configureView(
+                image: UIImage(systemName: "arrow.right") ?? UIImage(),
+                               title: "Swiftへ移動"
+            )
             return cell
         } else {
             return UITableViewCell()

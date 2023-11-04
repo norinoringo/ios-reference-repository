@@ -271,12 +271,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 9 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 10 nibs.
   struct nib {
     /// Nib `GitHubSearchHistoryCell`.
     static let gitHubSearchHistoryCell = _R.nib._GitHubSearchHistoryCell()
     /// Nib `GitHubSearchHistoryHeader`.
     static let gitHubSearchHistoryHeader = _R.nib._GitHubSearchHistoryHeader()
+    /// Nib `GitHubSearchSuggestionsCell`.
+    static let gitHubSearchSuggestionsCell = _R.nib._GitHubSearchSuggestionsCell()
     /// Nib `GitHubSearchTutorialLabelCell`.
     static let gitHubSearchTutorialLabelCell = _R.nib._GitHubSearchTutorialLabelCell()
     /// Nib `TestCollectionFooterView`.
@@ -305,6 +307,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.gitHubSearchHistoryHeader) instead")
     static func gitHubSearchHistoryHeader(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.gitHubSearchHistoryHeader)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GitHubSearchSuggestionsCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.gitHubSearchSuggestionsCell) instead")
+    static func gitHubSearchSuggestionsCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.gitHubSearchSuggestionsCell)
     }
     #endif
 
@@ -372,6 +382,10 @@ struct R: Rswift.Validatable {
       return R.nib.gitHubSearchHistoryHeader.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryHeader
     }
 
+    static func gitHubSearchSuggestionsCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchSuggestionsCell? {
+      return R.nib.gitHubSearchSuggestionsCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchSuggestionsCell
+    }
+
     static func gitHubSearchTutorialLabelCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchTutorialLabelCell? {
       return R.nib.gitHubSearchTutorialLabelCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchTutorialLabelCell
     }
@@ -403,10 +417,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `GitHubSearchHistoryCell`.
     static let gitHubSearchHistoryCell: Rswift.ReuseIdentifier<GitHubSearchHistoryCell> = Rswift.ReuseIdentifier(identifier: "GitHubSearchHistoryCell")
+    /// Reuse identifier `GitHubSearchSuggestionsCell`.
+    static let gitHubSearchSuggestionsCell: Rswift.ReuseIdentifier<GitHubSearchSuggestionsCell> = Rswift.ReuseIdentifier(identifier: "GitHubSearchSuggestionsCell")
     /// Reuse identifier `GitHubSearchTutorialLabelCell`.
     static let gitHubSearchTutorialLabelCell: Rswift.ReuseIdentifier<GitHubSearchTutorialLabelCell> = Rswift.ReuseIdentifier(identifier: "GitHubSearchTutorialLabelCell")
     /// Reuse identifier `UIKitSampleCell`.
@@ -464,6 +480,20 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchHistoryHeader? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryHeader
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _GitHubSearchSuggestionsCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = GitHubSearchSuggestionsCell
+
+      let bundle = R.hostingBundle
+      let identifier = "GitHubSearchSuggestionsCell"
+      let name = "GitHubSearchSuggestionsCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchSuggestionsCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchSuggestionsCell
       }
 
       fileprivate init() {}
