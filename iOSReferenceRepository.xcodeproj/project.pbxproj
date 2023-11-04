@@ -36,6 +36,8 @@
 		8675881229E6DA4B0096C92F /* NextViewFromTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8675881129E6DA4B0096C92F /* NextViewFromTableView.storyboard */; };
 		86809125291E90B900531ABC /* UIKitSampleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86809124291E90B900531ABC /* UIKitSampleCell.xib */; };
 		86809127291E922B00531ABC /* UIKitSampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86809126291E922B00531ABC /* UIKitSampleCell.swift */; };
+		868E6F3B2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868E6F3A2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib */; };
+		868E6F3D2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E6F3C2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift */; };
 		869DCEC829DA49680000A1DD /* UIKitSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */; };
 		86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */; };
 		86C0648D29EB8F2F0019FC77 /* TestUICollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */; };
@@ -97,6 +99,8 @@
 		8675881129E6DA4B0096C92F /* NextViewFromTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NextViewFromTableView.storyboard; sourceTree = "<group>"; };
 		86809124291E90B900531ABC /* UIKitSampleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIKitSampleCell.xib; sourceTree = "<group>"; };
 		86809126291E922B00531ABC /* UIKitSampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleCell.swift; sourceTree = "<group>"; };
+		868E6F3A2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubSearchHistoryCell.xib; sourceTree = "<group>"; };
+		868E6F3C2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchHistoryCell.swift; sourceTree = "<group>"; };
 		869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleViewModel.swift; sourceTree = "<group>"; };
 		86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUICollectionViewController.swift; sourceTree = "<group>"; };
 		86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUICollectionView.storyboard; sourceTree = "<group>"; };
@@ -468,6 +472,8 @@
 			children = (
 				86E6C2572AF5E02A0043F09C /* GitHubSearchTutorialLabelCell.xib */,
 				86E6C2592AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift */,
+				868E6F3A2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib */,
+				868E6F3C2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				86C0649829EB92630019FC77 /* TestCollectionHeaderView.xib in Resources */,
 				865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */,
 				86C0649429EB92050019FC77 /* TestCollectionViewCell.xib in Resources */,
+				868E6F3B2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib in Resources */,
 				861ABC042AE21F75004D46E1 /* GitHubSearch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,6 +659,7 @@
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
 				86E6C25A2AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift in Sources */,
 				861ABC0D2AE37E8A004D46E1 /* HomeViewModel.swift in Sources */,
+				868E6F3D2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift in Sources */,
 				860B302C291EA09100628191 /* UIKitSampleHeader.swift in Sources */,
 				869DCEC829DA49680000A1DD /* UIKitSampleViewModel.swift in Sources */,
 				861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */,

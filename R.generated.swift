@@ -271,8 +271,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
   struct nib {
+    /// Nib `GitHubSearchHistoryCell`.
+    static let gitHubSearchHistoryCell = _R.nib._GitHubSearchHistoryCell()
     /// Nib `GitHubSearchTutorialLabelCell`.
     static let gitHubSearchTutorialLabelCell = _R.nib._GitHubSearchTutorialLabelCell()
     /// Nib `TestCollectionFooterView`.
@@ -287,6 +289,14 @@ struct R: Rswift.Validatable {
     static let uiKitSampleCell = _R.nib._UIKitSampleCell()
     /// Nib `UIKitSampleHeader`.
     static let uiKitSampleHeader = _R.nib._UIKitSampleHeader()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GitHubSearchHistoryCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.gitHubSearchHistoryCell) instead")
+    static func gitHubSearchHistoryCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.gitHubSearchHistoryCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "GitHubSearchTutorialLabelCell", in: bundle)`
@@ -344,6 +354,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func gitHubSearchHistoryCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchHistoryCell? {
+      return R.nib.gitHubSearchHistoryCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryCell
+    }
+
     static func gitHubSearchTutorialLabelCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchTutorialLabelCell? {
       return R.nib.gitHubSearchTutorialLabelCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchTutorialLabelCell
     }
@@ -375,8 +389,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `GitHubSearchHistoryCell`.
+    static let gitHubSearchHistoryCell: Rswift.ReuseIdentifier<GitHubSearchHistoryCell> = Rswift.ReuseIdentifier(identifier: "GitHubSearchHistoryCell")
     /// Reuse identifier `GitHubSearchTutorialLabelCell`.
     static let gitHubSearchTutorialLabelCell: Rswift.ReuseIdentifier<GitHubSearchTutorialLabelCell> = Rswift.ReuseIdentifier(identifier: "GitHubSearchTutorialLabelCell")
     /// Reuse identifier `UIKitSampleCell`.
@@ -412,6 +428,20 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _TestCollectionViewCell.validate()
+    }
+
+    struct _GitHubSearchHistoryCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = GitHubSearchHistoryCell
+
+      let bundle = R.hostingBundle
+      let identifier = "GitHubSearchHistoryCell"
+      let name = "GitHubSearchHistoryCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchHistoryCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryCell
+      }
+
+      fileprivate init() {}
     }
 
     struct _GitHubSearchTutorialLabelCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
