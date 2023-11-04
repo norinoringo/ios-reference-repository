@@ -107,8 +107,8 @@ struct R: Rswift.Validatable {
     static let testUICollectionView = _R.storyboard.testUICollectionView()
     /// Storyboard `TestUITableView`.
     static let testUITableView = _R.storyboard.testUITableView()
-    /// Storyboard `Top`.
-    static let top = _R.storyboard.top()
+    /// Storyboard `UIKitSample`.
+    static let uiKitSample = _R.storyboard.uiKitSample()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "GitHubSearch", bundle: ...)`
@@ -167,9 +167,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "Top", bundle: ...)`
-    static func top(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.top)
+    /// `UIStoryboard(name: "UIKitSample", bundle: ...)`
+    static func uiKitSample(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.uiKitSample)
     }
     #endif
 
@@ -267,10 +267,10 @@ struct R: Rswift.Validatable {
     static let testCollectionViewCell = _R.nib._TestCollectionViewCell()
     /// Nib `TestUITableViewCell`.
     static let testUITableViewCell = _R.nib._TestUITableViewCell()
-    /// Nib `TopViewCell`.
-    static let topViewCell = _R.nib._TopViewCell()
-    /// Nib `TopViewHeader`.
-    static let topViewHeader = _R.nib._TopViewHeader()
+    /// Nib `UIKitSampleCell`.
+    static let uiKitSampleCell = _R.nib._UIKitSampleCell()
+    /// Nib `UIKitSampleHeader`.
+    static let uiKitSampleHeader = _R.nib._UIKitSampleHeader()
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "TestCollectionFooterView", in: bundle)`
@@ -305,18 +305,18 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UINib(name: "TopViewCell", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.topViewCell) instead")
-    static func topViewCell(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.topViewCell)
+    /// `UINib(name: "UIKitSampleCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.uiKitSampleCell) instead")
+    static func uiKitSampleCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.uiKitSampleCell)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UINib(name: "TopViewHeader", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.topViewHeader) instead")
-    static func topViewHeader(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.topViewHeader)
+    /// `UINib(name: "UIKitSampleHeader", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.uiKitSampleHeader) instead")
+    static func uiKitSampleHeader(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.uiKitSampleHeader)
     }
     #endif
 
@@ -336,12 +336,12 @@ struct R: Rswift.Validatable {
       return R.nib.testUITableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TestUITableViewCell
     }
 
-    static func topViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewCell? {
-      return R.nib.topViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewCell
+    static func uiKitSampleCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKitSampleCell? {
+      return R.nib.uiKitSampleCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKitSampleCell
     }
 
-    static func topViewHeader(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewHeader? {
-      return R.nib.topViewHeader.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewHeader
+    static func uiKitSampleHeader(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKitSampleHeader? {
+      return R.nib.uiKitSampleHeader.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKitSampleHeader
     }
 
     fileprivate init() {}
@@ -349,8 +349,8 @@ struct R: Rswift.Validatable {
 
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `TopViewCell`.
-    static let topViewCell: Rswift.ReuseIdentifier<TopViewCell> = Rswift.ReuseIdentifier(identifier: "TopViewCell")
+    /// Reuse identifier `UIKitSampleCell`.
+    static let uiKitSampleCell: Rswift.ReuseIdentifier<UIKitSampleCell> = Rswift.ReuseIdentifier(identifier: "UIKitSampleCell")
 
     fileprivate init() {}
   }
@@ -434,26 +434,26 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _TopViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
-      typealias ReusableType = TopViewCell
+    struct _UIKitSampleCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = UIKitSampleCell
 
       let bundle = R.hostingBundle
-      let identifier = "TopViewCell"
-      let name = "TopViewCell"
+      let identifier = "UIKitSampleCell"
+      let name = "UIKitSampleCell"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewCell? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewCell
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKitSampleCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKitSampleCell
       }
 
       fileprivate init() {}
     }
 
-    struct _TopViewHeader: Rswift.NibResourceType {
+    struct _UIKitSampleHeader: Rswift.NibResourceType {
       let bundle = R.hostingBundle
-      let name = "TopViewHeader"
+      let name = "UIKitSampleHeader"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> TopViewHeader? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TopViewHeader
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKitSampleHeader? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKitSampleHeader
       }
 
       fileprivate init() {}
@@ -491,7 +491,7 @@ struct _R: Rswift.Validatable {
       try testUITableView.validate()
       #endif
       #if os(iOS) || os(tvOS)
-      try top.validate()
+      try uiKitSample.validate()
       #endif
     }
 
@@ -636,14 +636,14 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    struct top: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct uiKitSample: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
-      let name = "Top"
+      let name = "UIKitSample"
 
       static func validate() throws {
-        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "swift") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'swift' is used in storyboard 'Top', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "swift") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'swift' is used in storyboard 'UIKitSample', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

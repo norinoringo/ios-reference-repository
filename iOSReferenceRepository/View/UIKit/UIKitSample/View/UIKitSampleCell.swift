@@ -1,15 +1,14 @@
 //
-//  TopViewCell.swift
+//  UIKitSampleCell.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2022/11/11.
-//  
-
+//
 
 import UIKit
 
-class TopViewCell: UITableViewCell {
-    @IBOutlet weak var sampleTitleLabel: UILabel!
+class UIKitSampleCell: UITableViewCell {
+    @IBOutlet var title: UILabel!
 
     override class func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +19,7 @@ class TopViewCell: UITableViewCell {
     }
 
     func configure(title: String) {
-        sampleTitleLabel.text = title
-        self.accessoryType = .disclosureIndicator
+        self.title.text = title
+        accessoryType = .disclosureIndicator
     }
 }
