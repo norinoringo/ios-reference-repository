@@ -202,6 +202,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.file` struct is generated, and contains static references to 1 files.
+  struct file {
+    /// Resource file `Localizable.xcstrings`.
+    static let localizableXcstrings = Rswift.FileResource(bundle: R.hostingBundle, name: "Localizable", pathExtension: "xcstrings")
+
+    /// `bundle.url(forResource: "Localizable", withExtension: "xcstrings")`
+    static func localizableXcstrings(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.localizableXcstrings
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
     /// Image `pop_sold_out`.
@@ -257,8 +271,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
+    /// Nib `GitHubSearchTutorialLabelCell`.
+    static let gitHubSearchTutorialLabelCell = _R.nib._GitHubSearchTutorialLabelCell()
     /// Nib `TestCollectionFooterView`.
     static let testCollectionFooterView = _R.nib._TestCollectionFooterView()
     /// Nib `TestCollectionHeaderView`.
@@ -271,6 +287,14 @@ struct R: Rswift.Validatable {
     static let uiKitSampleCell = _R.nib._UIKitSampleCell()
     /// Nib `UIKitSampleHeader`.
     static let uiKitSampleHeader = _R.nib._UIKitSampleHeader()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GitHubSearchTutorialLabelCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.gitHubSearchTutorialLabelCell) instead")
+    static func gitHubSearchTutorialLabelCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.gitHubSearchTutorialLabelCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "TestCollectionFooterView", in: bundle)`
@@ -320,6 +344,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func gitHubSearchTutorialLabelCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchTutorialLabelCell? {
+      return R.nib.gitHubSearchTutorialLabelCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchTutorialLabelCell
+    }
+
     static func testCollectionFooterView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UICollectionReusableView? {
       return R.nib.testCollectionFooterView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UICollectionReusableView
     }
@@ -347,8 +375,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `GitHubSearchTutorialLabelCell`.
+    static let gitHubSearchTutorialLabelCell: Rswift.ReuseIdentifier<GitHubSearchTutorialLabelCell> = Rswift.ReuseIdentifier(identifier: "GitHubSearchTutorialLabelCell")
     /// Reuse identifier `UIKitSampleCell`.
     static let uiKitSampleCell: Rswift.ReuseIdentifier<UIKitSampleCell> = Rswift.ReuseIdentifier(identifier: "UIKitSampleCell")
 
@@ -382,6 +412,20 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _TestCollectionViewCell.validate()
+    }
+
+    struct _GitHubSearchTutorialLabelCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = GitHubSearchTutorialLabelCell
+
+      let bundle = R.hostingBundle
+      let identifier = "GitHubSearchTutorialLabelCell"
+      let name = "GitHubSearchTutorialLabelCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchTutorialLabelCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchTutorialLabelCell
+      }
+
+      fileprivate init() {}
     }
 
     struct _TestCollectionFooterView: Rswift.NibResourceType {
