@@ -23,11 +23,12 @@ class UIKitSampleViewModel {
         let pushUIScrollView: Driver<Void>
     }
 
+    private let pushUIScrollViewRelay = PublishRelay<Void>()
+
     private let disposeBag = DisposeBag()
 
     func transform(input: Input) -> Output {
         let tableDataRelay = PublishRelay<[items]>()
-        let pushUIScrollViewRelay = PublishRelay<Void>()
 
         input.viewDidAppear
             .drive(onNext: { [weak self] _ in
@@ -39,20 +40,8 @@ class UIKitSampleViewModel {
             .disposed(by: disposeBag)
 
         input.didSelectRow
-            .drive(onNext: { items in
-                switch items.sections {
-                case .UIKit:
-                    switch items.rows.first {
-                    case .UIScrollView:
-                        pushUIScrollViewRelay.accept(())
-                    default:
-                        break
-                    }
-                case .RxCocoa:
-                    break
-                case .None:
-                    break
-                }
+            .drive(onNext: { [weak self] items in
+                self?.acceptPushViewRelay(items: items)
             })
             .disposed(by: disposeBag)
 
@@ -69,5 +58,21 @@ class UIKitSampleViewModel {
         tableData.append(rxcocoaSamples)
 
         return tableData
+    }
+
+    private func acceptPushViewRelay(items: UIKitSampleViewModel.items) {
+        switch items.sections {
+        case .UIKit:
+            switch items.rows.first {
+            case .UIScrollView:
+                pushUIScrollViewRelay.accept(())
+            default:
+                break
+            }
+        case .RxCocoa:
+            break
+        case .None:
+            break
+        }
     }
 }
