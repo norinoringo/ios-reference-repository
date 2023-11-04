@@ -1,17 +1,15 @@
 //
 //  GitHubSearchHistoryCell.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/11/04.
-//  
-
+//
 
 import Foundation
 import UIKit
 
 class GitHubSearchHistoryCell: UITableViewCell {
-
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet var title: UILabel!
 
     override func awakeFromNib() {
         initView()
@@ -25,7 +23,7 @@ class GitHubSearchHistoryCell: UITableViewCell {
         // RenderingMode.alwaysTemplateにしないとTintColorがあたらない
         let imageView = UIImageView(image: .init(systemName: "arrow.up.left")?.withRenderingMode(.alwaysTemplate))
         imageView.tintColor = .lightGray
-        self.accessoryView = imageView
+        accessoryView = imageView
     }
 
     func configureView(title: String?) {
