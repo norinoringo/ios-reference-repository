@@ -1,16 +1,14 @@
 //
-//  TopViewHeader.swift
+//  UIKitSampleHeader.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2022/11/12.
-//  
-
+//
 
 import UIKit
 
-class TopViewHeader: UITableViewHeaderFooterView {
-
-    @IBOutlet weak var sectionTitleLabel: UILabel!
+class UIKitSampleHeader: UITableViewHeaderFooterView {
+    @IBOutlet var title: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +18,7 @@ class TopViewHeader: UITableViewHeaderFooterView {
         super.prepareForReuse()
     }
 
-    func configure(sectionTitle: String) {
-        self.sectionTitleLabel.text = sectionTitle
+    func configure(title: String) {
+        self.title.text = title
     }
 }
