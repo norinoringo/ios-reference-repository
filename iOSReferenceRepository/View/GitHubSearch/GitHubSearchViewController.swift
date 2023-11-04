@@ -27,6 +27,7 @@ class GitHubSearchViewController: UIViewController {
     private func configureTableView() {
         tableView.register(UINib(resource: R.nib.gitHubSearchTutorialLabelCell), forCellReuseIdentifier: R.nib.gitHubSearchTutorialLabelCell.identifier)
         tableView.register(UINib(resource: R.nib.gitHubSearchHistoryCell), forCellReuseIdentifier: R.nib.gitHubSearchHistoryCell.identifier)
+        tableView.register(UINib(resource: R.nib.gitHubSearchHistoryHeader), forHeaderFooterViewReuseIdentifier: R.nib.gitHubSearchHistoryHeader.name)
     }
 
     private func configureSearchBar() {
@@ -64,6 +65,19 @@ extension GitHubSearchViewController: UITableViewDataSource {
             return cell
         } else {
             return UITableViewCell()
+        }
+    }
+}
+
+extension GitHubSearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader else {
+                return nil
+            }
+            return header
+        } else {
+            return nil
         }
     }
 }

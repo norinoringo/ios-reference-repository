@@ -271,10 +271,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 8 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 9 nibs.
   struct nib {
     /// Nib `GitHubSearchHistoryCell`.
     static let gitHubSearchHistoryCell = _R.nib._GitHubSearchHistoryCell()
+    /// Nib `GitHubSearchHistoryHeader`.
+    static let gitHubSearchHistoryHeader = _R.nib._GitHubSearchHistoryHeader()
     /// Nib `GitHubSearchTutorialLabelCell`.
     static let gitHubSearchTutorialLabelCell = _R.nib._GitHubSearchTutorialLabelCell()
     /// Nib `TestCollectionFooterView`.
@@ -295,6 +297,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.gitHubSearchHistoryCell) instead")
     static func gitHubSearchHistoryCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.gitHubSearchHistoryCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GitHubSearchHistoryHeader", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.gitHubSearchHistoryHeader) instead")
+    static func gitHubSearchHistoryHeader(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.gitHubSearchHistoryHeader)
     }
     #endif
 
@@ -356,6 +366,10 @@ struct R: Rswift.Validatable {
 
     static func gitHubSearchHistoryCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchHistoryCell? {
       return R.nib.gitHubSearchHistoryCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryCell
+    }
+
+    static func gitHubSearchHistoryHeader(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchHistoryHeader? {
+      return R.nib.gitHubSearchHistoryHeader.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryHeader
     }
 
     static func gitHubSearchTutorialLabelCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchTutorialLabelCell? {
@@ -439,6 +453,17 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchHistoryCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _GitHubSearchHistoryHeader: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "GitHubSearchHistoryHeader"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchHistoryHeader? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryHeader
       }
 
       fileprivate init() {}

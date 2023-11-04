@@ -22,6 +22,7 @@ class GitHubSearchHistoryCell: UITableViewCell {
     }
 
     private func initView() {
+        // RenderingMode.alwaysTemplateにしないとTintColorがあたらない
         let imageView = UIImageView(image: .init(systemName: "arrow.up.left")?.withRenderingMode(.alwaysTemplate))
         imageView.tintColor = .lightGray
         self.accessoryView = imageView
