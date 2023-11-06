@@ -24,6 +24,8 @@ class GitHubSearchHistoryCell: UITableViewCell {
         let imageView = UIImageView(image: .init(systemName: "arrow.up.left")?.withRenderingMode(.alwaysTemplate))
         imageView.tintColor = .lightGray
         accessoryView = imageView
+        // separatorを左端まで延長
+        self.separatorInset = .zero
     }
 
     func configureView(title: String?) {
