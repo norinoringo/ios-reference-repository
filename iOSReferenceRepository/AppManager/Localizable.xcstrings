@@ -1,0 +1,37 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "¥%lld" : {
+
+    },
+    "explanation" : {
+
+    },
+    "GitHubSearchTutorialLabelSubTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub内の人、リポジトリ、Organization、Issue、プルリクエストなどを検索できます。"
+          }
+        }
+      }
+    },
+    "GitHubSearchTutorialLabelTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索してみましょう"
+          }
+        }
+      }
+    },
+    "Title" : {
+
+    }
+  },
+  "version" : "1.0"
+}
