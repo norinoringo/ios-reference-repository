@@ -12,7 +12,9 @@ class GitHubSearchHistoryHeader: UITableViewHeaderFooterView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var clearButton: UIButton!
 
-    @IBAction func tappedClearButton(_: Any) {}
+    @IBAction func tappedClearButton(_: Any) {
+        // TODO: ViewModelへイベント伝搬するようにする
+    }
 
     override func awakeFromNib() {}
 

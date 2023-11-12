@@ -17,11 +17,11 @@ class GitHubSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        configureTableView()
     }
 
     private func bind() {
-        configureTableView()
-        configureSearchBar()
+        // TODO: ViewModelとデータバインディングする
     }
 
     private func configureTableView() {
@@ -30,13 +30,10 @@ class GitHubSearchViewController: UIViewController {
         tableView.register(UINib(resource: R.nib.gitHubSearchHistoryHeader), forHeaderFooterViewReuseIdentifier: R.nib.gitHubSearchHistoryHeader.name)
         tableView.register(UINib(resource: R.nib.gitHubSearchSuggestionsCell), forCellReuseIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier)
     }
-
-    private func configureSearchBar() {
-    }
 }
 
 extension GitHubSearchViewController: UITableViewDataSource {
-
+    // TODO: TableViewのセルとセクションはViewModelから渡されたデータを使う
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -82,6 +79,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
 }
 
 extension GitHubSearchViewController: UITableViewDelegate {
+    // TODO: 検索履歴がない場合は表示しないロジックを実装する
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader else {

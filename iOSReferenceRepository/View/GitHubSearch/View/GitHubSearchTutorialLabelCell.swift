@@ -19,7 +19,7 @@ class GitHubSearchTutorialLabelCell: UITableViewCell {
     override func prepareForReuse() {}
 
     private func configureView() {
-        // xib上でbackgroundColorをclearにしても反映されなかったので、ここで明示的に宣言している
+        // Cellの背景色を親Viewの背景色にしたいけど、xib上でbackground = defaultしても背景色が白色になる。そのためクリアにすることで対応している
         backgroundColor = .clear
         titleLabel.text = String(localized: "GitHubSearchTutorialLabelTitle")
         subTitleLabel.text = String(localized: "GitHubSearchTutorialLabelSubTitle")

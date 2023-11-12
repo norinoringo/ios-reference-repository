@@ -20,7 +20,7 @@ class GitHubSearchSuggestionsCell: UITableViewCell {
 
     private func initView() {
         accessoryType = .disclosureIndicator
-        // separatorのレイアウト調整
+        // デザインにあわせてseparatorに左余白を追加
         self.separatorInset = UIEdgeInsets(top: 0, left: iconImage.frame.width, bottom: 0, right: 0)
     }
 
