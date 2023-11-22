@@ -8,11 +8,32 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class GitHubSearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+
+    private var searchKeyword: String?
+    private var isShowTutorial = true
+    private var isShowSearcHistories = true
+    private var isShowSearchRepositories = false
+
+    private let viewModel = GitHubSearchViewModel()
+    private let disposeBag = DisposeBag()
+    // Input
+    private let inputtedKeywordsRelay = PublishRelay<String?>()
+    private let tappedClearKeywordsButton = PublishRelay<Void>()
+    private let tappedSearchHistoryButton = PublishRelay<Int>()
+    private let tappedClearSearchHisoryButton = PublishRelay<Void>()
+    private let tappedSearchRepositories = PublishRelay<Void>()
+    private let tappedSearchIssues = PublishRelay<Void>()
+    private let tappedSearchPullRequests = PublishRelay<Void>()
+    private let tappedSearchUsers = PublishRelay<Void>()
+    private let tappedSearchOrganizations = PublishRelay<Void>()
+    private let tappedSearchKeywords = PublishRelay<Void>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +42,48 @@ class GitHubSearchViewController: UIViewController {
     }
 
     private func bind() {
-        // TODO: ViewModelとデータバインディングする
+        let input = GitHubSearchViewModel.Input(inputtedKeywords: inputtedKeywordsRelay.asDriver(onErrorJustReturn: nil),
+                                                tappedClearKeywordsButton: tappedClearKeywordsButton.asDriver(onErrorJustReturn: ()),
+                                                tappedSearchHistoryButton: tappedSearchHistoryButton.asDriver(onErrorJustReturn: 0),
+                                                tappedClearSearchHisoryButton: tappedClearSearchHisoryButton.asDriver(onErrorJustReturn: ()),
+                                                tappedSearchRepositories: tappedSearchRepositories.asDriver(onErrorJustReturn: ()),
+                                                tappedSearchIssues: tappedSearchIssues.asDriver(onErrorJustReturn: ()),
+                                                tappedSearchPullRequests: tappedSearchPullRequests.asDriver(onErrorJustReturn: ()),
+                                                tappedSearchUsers: tappedSearchUsers.asDriver(onErrorJustReturn: ()),
+                                                tappedSearchOrganizations: tappedSearchOrganizations.asDriver(onErrorJustReturn: ()),
+                                                tappedSearchKeywords: tappedSearchKeywords.asDriver(onErrorJustReturn: ())
+        )
+
+        let output = viewModel.transform(input: input)
+
+        output.searchKeyword
+            .drive(onNext: { [weak self] keyword in
+                self?.searchKeyword = keyword
+                self?.searchBar.text = keyword
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        output.isShowTutorial
+            .drive(onNext: { [weak self] isShow in
+                self?.isShowTutorial = isShow
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        output.isShowSearchHistories
+            .drive(onNext: { [weak self] isShow in
+                self?.isShowSearcHistories = isShow
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        output.isShowSearchConditions
+            .drive(onNext: { [weak self] isShow in
+                self?.isShowSearchRepositories = isShow
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 
     private func configureTableView() {
@@ -40,11 +102,11 @@ extension GitHubSearchViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 1
+            return isShowTutorial ? 1 : 0
         } else if section == 1 {
-            return 5
+            return isShowSearcHistories ? 5 : 0
         } else if section == 2 {
-            return 6
+            return isShowSearchRepositories ? 6 : 0
         } else {
             return 0
         }
@@ -61,7 +123,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchHistoryCell.identifier, for: indexPath) as? GitHubSearchHistoryCell else {
                 return UITableViewCell()
             }
-            cell.configureView(title: "Swift")
+            cell.configureView(title: self.searchKeyword)
             return cell
         } else if indexPath.section == 2 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
@@ -69,7 +131,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
             }
             cell.configureView(
                 image: UIImage(systemName: "arrow.right") ?? UIImage(),
-                               title: "Swiftへ移動"
+                title: "\(self.searchKeyword ?? "")" + "へ移動"
             )
             return cell
         } else {
@@ -85,7 +147,7 @@ extension GitHubSearchViewController: UITableViewDelegate {
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader else {
                 return nil
             }
-            return header
+            return isShowSearcHistories ? header : nil
         } else {
             return nil
         }
@@ -93,7 +155,14 @@ extension GitHubSearchViewController: UITableViewDelegate {
 }
 
 extension GitHubSearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.inputtedKeywordsRelay.accept(searchText)
+    }
+
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        self.searchKeyword = nil
     }
 }
