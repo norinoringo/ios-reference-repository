@@ -100,6 +100,7 @@
 		865A100729D11558007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A100929D11669007D9567 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A100B29D1166F007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8663010E2B0F2986003A08C8 /* RxSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwift.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8675881129E6DA4B0096C92F /* NextViewFromTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NextViewFromTableView.storyboard; sourceTree = "<group>"; };
 		86809124291E90B900531ABC /* UIKitSampleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIKitSampleCell.xib; sourceTree = "<group>"; };
 		86809126291E922B00531ABC /* UIKitSampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleCell.swift; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				861ABC132AE5F0C9004D46E1 /* Swift */,
+				8663010F2B0F299C003A08C8 /* RxSwift */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
@@ -411,6 +413,14 @@
 				865A100529CE7199007D9567 /* ScrollView.storyboard */,
 			);
 			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		8663010F2B0F299C003A08C8 /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8663010E2B0F2986003A08C8 /* RxSwift.playground */,
+			);
+			path = RxSwift;
 			sourceTree = "<group>";
 		};
 		86809123291E90A800531ABC /* View */ = {
