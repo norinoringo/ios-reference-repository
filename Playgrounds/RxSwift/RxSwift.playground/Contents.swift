@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 import RxSwift
 
 let observable = Observable.of(
@@ -11,7 +11,23 @@ let observable = Observable.of(
     "RxSwift"
 )
 
-let observer = observable
-    .subscribe(onNext: {
-        print("onNext:", $0)
+// Observableインスタンスはイベントを発火できない
+// observable.just("RxSwift")
+
+let observer1 = observable
+    .subscribe(onNext: { (arg: String) -> Void in
+        print("onNext: \(arg)")
+    }, onCompleted: {
+        print("onCompleted")
+    })
+
+let observer2 = Observable.just(10)
+    .map { (arg: Int) -> Int in
+        print("arg: \(arg)")
+        return arg * 2
+    }
+    .subscribe(onNext: { (arg: Int) -> Void in
+        print("arg: \(arg)")
+    }, onCompleted: {
+        print("onCompleted")
     })
