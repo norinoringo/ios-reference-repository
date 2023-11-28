@@ -31,3 +31,17 @@ let observer2 = Observable.just(10)
     }, onCompleted: {
         print("onCompleted")
     })
+
+let subject = PublishSubject<String>()
+
+let observer3 = subject
+    .subscribe(onNext: { (arg: String) -> Void in
+        print("onNext: \(arg)")
+    }, onCompleted: {
+        print("onCompleted")
+    })
+
+subject.onNext("A")
+subject.onNext("B")
+subject.onNext("C")
+subject.onCompleted()
