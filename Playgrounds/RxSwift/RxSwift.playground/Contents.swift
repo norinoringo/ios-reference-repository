@@ -22,10 +22,10 @@ let observer1 = observable
     })
 
 let observer2 = Observable.just(10)
-    .map { (arg: Int) -> Int in
+    .map({ (arg: Int) -> Int in
         print("arg: \(arg)")
         return arg * 2
-    }
+    })
     .subscribe(onNext: { (arg: Int) -> Void in
         print("arg: \(arg)")
     }, onCompleted: {
