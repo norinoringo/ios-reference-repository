@@ -15,18 +15,18 @@ let observable = Observable.of(
 // observable.just("RxSwift")
 
 let observer1 = observable
-    .subscribe(onNext: { (arg: String) -> Void in
+    .subscribe(onNext: { (arg: String) in
         print("onNext: \(arg)")
     }, onCompleted: {
         print("onCompleted")
     })
 
 let observer2 = Observable.just(10)
-    .map({ (arg: Int) -> Int in
+    .map { (arg: Int) -> Int in
         print("arg: \(arg)")
         return arg * 2
-    })
-    .subscribe(onNext: { (arg: Int) -> Void in
+    }
+    .subscribe(onNext: { (arg: Int) in
         print("arg: \(arg)")
     }, onCompleted: {
         print("onCompleted")
@@ -35,7 +35,7 @@ let observer2 = Observable.just(10)
 let subject = PublishSubject<String>()
 
 let observer3 = subject
-    .subscribe(onNext: { (arg: String) -> Void in
+    .subscribe(onNext: { (arg: String) in
         print("onNext: \(arg)")
     }, onCompleted: {
         print("onCompleted")
