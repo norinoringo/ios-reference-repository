@@ -125,7 +125,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
                 }
                 cell.configureView(
                     image: UIImage(systemName: "arrow.right") ?? UIImage(),
-                    title: "\(self.searchKeyword ?? "")" + "へ移動"
+                    title: "\"\(self.searchKeyword ?? "")\"" + "へ移動"
                 )
                 return cell
             }
