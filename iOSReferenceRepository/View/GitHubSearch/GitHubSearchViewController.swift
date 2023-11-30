@@ -97,16 +97,14 @@ class GitHubSearchViewController: UIViewController {
 extension GitHubSearchViewController: UITableViewDataSource {
     // TODO: TableViewのセルとセクションはViewModelから渡されたデータを使う
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return isShowSearchRepositories ? 1 : 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return isShowTutorial ? 1 : 0
+            return isShowTutorial ? 1 : 6
         } else if section == 1 {
             return isShowSearcHistories ? 5 : 0
-        } else if section == 2 {
-            return isShowSearchRepositories ? 6 : 0
         } else {
             return 0
         }
@@ -114,25 +112,28 @@ extension GitHubSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // TODO: DATA層でモデルを定義して、その値を指定する
+        // FIXME: 検索候補セルを表示したときに他のsectionを非表示にしても余白ができてしまうので、動的に表示するセルを切り替えている。しかし実装が複雑になるのでこのやり方は辞めたい。
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  R.nib.gitHubSearchTutorialLabelCell.identifier, for: indexPath) as? GitHubSearchTutorialLabelCell else {
-                return UITableViewCell()
+            if isShowTutorial {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier:  R.nib.gitHubSearchTutorialLabelCell.identifier, for: indexPath) as? GitHubSearchTutorialLabelCell else {
+                    return UITableViewCell()
+                }
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
+                    return UITableViewCell()
+                }
+                cell.configureView(
+                    image: UIImage(systemName: "arrow.right") ?? UIImage(),
+                    title: "\(self.searchKeyword ?? "")" + "へ移動"
+                )
+                return cell
             }
-            return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchHistoryCell.identifier, for: indexPath) as? GitHubSearchHistoryCell else {
                 return UITableViewCell()
             }
             cell.configureView(title: self.searchKeyword)
-            return cell
-        } else if indexPath.section == 2 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
-                return UITableViewCell()
-            }
-            cell.configureView(
-                image: UIImage(systemName: "arrow.right") ?? UIImage(),
-                title: "\(self.searchKeyword ?? "")" + "へ移動"
-            )
             return cell
         } else {
             return UITableViewCell()
