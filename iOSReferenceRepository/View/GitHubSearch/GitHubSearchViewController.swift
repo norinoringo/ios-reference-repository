@@ -152,6 +152,14 @@ extension GitHubSearchViewController: UITableViewDelegate {
             return nil
         }
     }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return isShowSearcHistories ? 54 : CGFloat.leastNormalMagnitude
+        } else {
+            return CGFloat.leastNormalMagnitude
+        }
+    }
 }
 
 extension GitHubSearchViewController: UISearchBarDelegate {
