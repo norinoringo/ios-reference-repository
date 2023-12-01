@@ -39,6 +39,8 @@ class GitHubSearchViewController: UIViewController {
         super.viewDidLoad()
         bind()
         configureTableView()
+        // この画面はNavigationBar不要なので、hiddenして上余白を詰めている
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     private func bind() {

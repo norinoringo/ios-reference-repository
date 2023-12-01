@@ -9,8 +9,12 @@ import Foundation
 import UIKit
 
 class GitHubSearchTutorialLabelCell: UITableViewCell {
+    // FIXME: チュートリアルセルの上余白は、高さ固定のSpcerViewではなくて画面中央になるように制約をつけたい。
+    @IBOutlet weak var spacerView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
+    
+    @IBOutlet weak var spacerViewHeightConstraints: NSLayoutConstraint!
 
     override func awakeFromNib() {
         configureView()
