@@ -11,30 +11,27 @@ import RxSwift
 import RxCocoa
 
 class GitHubSearchViewModel {
+    
+    let searchCellData = GitHubSearchCellData.allCases
 
-    let searchConditions = [String]()
+    var userDefaultsRepository: GitHubSearchTextProtocol!
 
+    init(userDefaultsRepository: GitHubSearchTextProtocol = UserDefaultsRepository()) {
+        self.userDefaultsRepository = userDefaultsRepository
+    }
 
     private let disposeBag = DisposeBag()
 
     struct Input {
-        let inputtedKeywords: Driver<String?>
-        let tappedClearKeywordsButton: Driver<Void>
-        // 何の情報を渡すか考えないとだめ
-        let tappedSearchHistoryButton: Driver<Int>
+        let viewWillAppear: Driver<Void>
+        let searchText: Driver<String?>
+        let tappedSearchHistoryButton: Driver<String>
         let tappedClearSearchHisoryButton: Driver<Void>
-        // 検索モデル化してもいいかも
-        let tappedSearchRepositories: Driver<Void>
-        let tappedSearchIssues: Driver<Void>
-        let tappedSearchPullRequests: Driver<Void>
-        let tappedSearchUsers: Driver<Void>
-        let tappedSearchOrganizations: Driver<Void>
-        let tappedSearchKeywords: Driver<Void>
+        let tappedSearch: Driver<GitHubSearchType>
     }
 
     struct Output {
         let searchKeyword: Driver<String?>
-        // 何の情報を渡すか考えないとだめ。仮で[Stirng]
         let searchHistories: Driver<[String]>
         let isShowTutorial: Driver<Bool>
         let isShowSearchHistories: Driver<Bool>
@@ -48,7 +45,16 @@ class GitHubSearchViewModel {
         let isShowSearchHistoriesRelay = PublishRelay<Bool>()
         let isShowSearchConditionsRelay = PublishRelay<Bool>()
 
-        input.inputtedKeywords
+        input.viewWillAppear
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else {
+                    return
+                }
+                searchHistoriesRelay.accept(self.userDefaultsRepository.getSearchText())
+            })
+            .disposed(by: disposeBag)
+
+        input.searchText
             .drive(onNext: { keyword in
                 guard let keyword = keyword, !keyword.isEmpty else {
                     searchKeywordRelay.accept("")
@@ -64,12 +70,29 @@ class GitHubSearchViewModel {
             })
             .disposed(by: disposeBag)
 
-        input.tappedClearKeywordsButton
-            .drive(onNext: { _ in
-                searchKeywordRelay.accept(nil)
-                isShowTutorialRelay.accept(true)
-                isShowSearchHistoriesRelay.accept(true)
-                isShowSearchConditionsRelay.accept(false)
+        input.tappedSearch
+            .drive(onNext: { [weak self] searchType in
+                switch searchType {
+                // TODO: APIRepositoryへのつなぎ込み
+                case .repositories(searchText: let searchText):
+                    self?.userDefaultsRepository.addSearchText(text: searchText)
+                    print(searchText)
+                case .issues(searchText: let searchText):
+                    self?.userDefaultsRepository.addSearchText(text: searchText)
+                    print(searchText)
+                case .pullRequests(searchText: let searchText):
+                    self?.userDefaultsRepository.addSearchText(text: searchText)
+                    print(searchText)
+                case .users(searchText: let searchText):
+                    self?.userDefaultsRepository.addSearchText(text: searchText)
+                    print(searchText)
+                case .organizations(searchText: let searchText):
+                    self?.userDefaultsRepository.addSearchText(text: searchText)
+                    print(searchText)
+                case .keyword(searchText: let searchText):
+                    self?.userDefaultsRepository.addSearchText(text: searchText)
+                    print(searchText)
+                }
             })
             .disposed(by: disposeBag)
 

@@ -17,6 +17,7 @@ class GitHubSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private var searchKeyword: String?
+    private var searchHistroies: [String]?
     private var isShowTutorial = true
     private var isShowSearcHistories = true
     private var isShowSearchRepositories = false
@@ -24,16 +25,10 @@ class GitHubSearchViewController: UIViewController {
     private let viewModel = GitHubSearchViewModel()
     private let disposeBag = DisposeBag()
     // Input
-    private let inputtedKeywordsRelay = PublishRelay<String?>()
-    private let tappedClearKeywordsButton = PublishRelay<Void>()
-    private let tappedSearchHistoryButton = PublishRelay<Int>()
-    private let tappedClearSearchHisoryButton = PublishRelay<Void>()
-    private let tappedSearchRepositories = PublishRelay<Void>()
-    private let tappedSearchIssues = PublishRelay<Void>()
-    private let tappedSearchPullRequests = PublishRelay<Void>()
-    private let tappedSearchUsers = PublishRelay<Void>()
-    private let tappedSearchOrganizations = PublishRelay<Void>()
-    private let tappedSearchKeywords = PublishRelay<Void>()
+    private let searchTextRelay = PublishRelay<String?>()
+    private let tappedSearchHistoryButtonRelay = PublishRelay<String>()
+    private let tappedClearSearchHisoryButtonRelay = PublishRelay<Void>()
+    private let tappedSearchRelay = PublishRelay<GitHubSearchType>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +39,19 @@ class GitHubSearchViewController: UIViewController {
     }
 
     private func bind() {
-        let input = GitHubSearchViewModel.Input(inputtedKeywords: inputtedKeywordsRelay.asDriver(onErrorJustReturn: nil),
-                                                tappedClearKeywordsButton: tappedClearKeywordsButton.asDriver(onErrorJustReturn: ()),
-                                                tappedSearchHistoryButton: tappedSearchHistoryButton.asDriver(onErrorJustReturn: 0),
-                                                tappedClearSearchHisoryButton: tappedClearSearchHisoryButton.asDriver(onErrorJustReturn: ()),
-                                                tappedSearchRepositories: tappedSearchRepositories.asDriver(onErrorJustReturn: ()),
-                                                tappedSearchIssues: tappedSearchIssues.asDriver(onErrorJustReturn: ()),
-                                                tappedSearchPullRequests: tappedSearchPullRequests.asDriver(onErrorJustReturn: ()),
-                                                tappedSearchUsers: tappedSearchUsers.asDriver(onErrorJustReturn: ()),
-                                                tappedSearchOrganizations: tappedSearchOrganizations.asDriver(onErrorJustReturn: ()),
-                                                tappedSearchKeywords: tappedSearchKeywords.asDriver(onErrorJustReturn: ())
+
+        let viewWillAppear = rx.sentMessage(#selector(viewWillAppear(_:)))
+            .asDriver(onErrorJustReturn: [])
+            .map { _ in
+                ()
+            }
+
+        let input = GitHubSearchViewModel.Input(
+            viewWillAppear: viewWillAppear,
+            searchText: searchTextRelay.asDriver(onErrorJustReturn: nil),
+            tappedSearchHistoryButton: tappedSearchHistoryButtonRelay.asDriver(onErrorJustReturn: ""),
+            tappedClearSearchHisoryButton: tappedClearSearchHisoryButtonRelay.asDriver(onErrorJustReturn: ()),
+            tappedSearch: tappedSearchRelay.asDriver(onErrorJustReturn: GitHubSearchType.keyword(searchText: ""))
         )
 
         let output = viewModel.transform(input: input)
@@ -62,6 +60,13 @@ class GitHubSearchViewController: UIViewController {
             .drive(onNext: { [weak self] keyword in
                 self?.searchKeyword = keyword
                 self?.searchBar.text = keyword
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        output.searchHistories
+            .drive(onNext: { [weak self] hisories in
+                self?.searchHistroies = hisories
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
@@ -106,7 +111,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
         if section == 0 {
             return isShowTutorial ? 1 : 6
         } else if section == 1 {
-            return isShowSearcHistories ? 5 : 0
+            return isShowSearcHistories ? searchHistroies?.count ?? 0 : 0
         } else {
             return 0
         }
@@ -125,9 +130,11 @@ extension GitHubSearchViewController: UITableViewDataSource {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
                     return UITableViewCell()
                 }
+
+                let searchCellData = viewModel.searchCellData[indexPath.row]
                 cell.configureView(
-                    image: UIImage(systemName: "arrow.right") ?? UIImage(),
-                    title: "\"\(self.searchKeyword ?? "")\"" + "へ移動"
+                    image: searchCellData.image,
+                    title: "\"\(self.searchKeyword ?? "")\"" + searchCellData.title
                 )
                 return cell
             }
@@ -135,7 +142,8 @@ extension GitHubSearchViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchHistoryCell.identifier, for: indexPath) as? GitHubSearchHistoryCell else {
                 return UITableViewCell()
             }
-            cell.configureView(title: self.searchKeyword)
+            let history = searchHistroies?[indexPath.row]
+            cell.configureView(title: history ?? "")
             return cell
         } else {
             return UITableViewCell()
@@ -163,17 +171,38 @@ extension GitHubSearchViewController: UITableViewDelegate {
             return CGFloat.leastNormalMagnitude
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isShowSearcHistories {
+            let hisory = searchHistroies?[indexPath.row]
+            tappedSearchHistoryButtonRelay.accept(hisory ?? "")
+        }
+        if isShowSearchRepositories {
+            switch viewModel.searchCellData[indexPath.row] {
+            case .repositories:
+                tappedSearchRelay.accept(.repositories(searchText: searchKeyword ?? ""))
+            case .issues:
+                tappedSearchRelay.accept(.issues(searchText: searchKeyword ?? ""))
+            case .pullRequests:
+                tappedSearchRelay.accept(.pullRequests(searchText: searchKeyword ?? ""))
+            case .users:
+                tappedSearchRelay.accept(.users(searchText: searchKeyword ?? ""))
+            case .organizations:
+                tappedSearchRelay.accept(.organizations(searchText: searchKeyword ?? ""))
+            case .keyword:
+                tappedSearchRelay.accept(.keyword(searchText: searchKeyword ?? ""))
+            }
+        }
+    }
 }
 
 extension GitHubSearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.inputtedKeywordsRelay.accept(searchText)
+        self.searchTextRelay.accept(searchText)
     }
 
-
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        self.searchKeyword = nil
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
     }
 }

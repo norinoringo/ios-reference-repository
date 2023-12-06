@@ -11,6 +11,7 @@
 		8609B80529DF9ABA00453822 /* TestScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609B80429DF9ABA00453822 /* TestScrollView.swift */; };
 		860B302A291E9FCC00628191 /* UIKitSampleHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860B3029291E9FCC00628191 /* UIKitSampleHeader.xib */; };
 		860B302C291EA09100628191 /* UIKitSampleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860B302B291EA09100628191 /* UIKitSampleHeader.swift */; };
+		860E90902B1F2A0200468B8A /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860E908F2B1F2A0200468B8A /* UserDefaultsRepository.swift */; };
 		8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4A328CC45D9004810C3 /* AppDelegate.swift */; };
 		8618B4A628CC45D9004810C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618B4A528CC45D9004810C3 /* SceneDelegate.swift */; };
 		8618B4AD28CC45DC004810C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8618B4AC28CC45DC004810C3 /* Assets.xcassets */; };
@@ -28,6 +29,8 @@
 		861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23CE2AD8AF07002935FD /* SplashViewModel.swift */; };
 		861B23D32AE0AA77002935FD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861B23D22AE0AA76002935FD /* Home.storyboard */; };
 		861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23D42AE0ABFA002935FD /* HomeViewController.swift */; };
+		865510AC2B1FE6F0007767E1 /* GitHubSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */; };
+		865510AE2B1FE9F5007767E1 /* GitHubSearchCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AD2B1FE9F5007767E1 /* GitHubSearchCellData.swift */; };
 		865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */; };
 		865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A100329CE7159007D9567 /* ScrollViewController.swift */; };
 		865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A100529CE7199007D9567 /* ScrollView.storyboard */; };
@@ -74,6 +77,7 @@
 		8609B80429DF9ABA00453822 /* TestScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScrollView.swift; sourceTree = "<group>"; };
 		860B3029291E9FCC00628191 /* UIKitSampleHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIKitSampleHeader.xib; sourceTree = "<group>"; };
 		860B302B291EA09100628191 /* UIKitSampleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleHeader.swift; sourceTree = "<group>"; };
+		860E908F2B1F2A0200468B8A /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		8618B4A028CC45D9004810C3 /* iOSReferenceRepository.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSReferenceRepository.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8618B4A328CC45D9004810C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8618B4A528CC45D9004810C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		861B23CE2AD8AF07002935FD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		861B23D22AE0AA76002935FD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		861B23D42AE0ABFA002935FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchType.swift; sourceTree = "<group>"; };
+		865510AD2B1FE9F5007767E1 /* GitHubSearchCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchCellData.swift; sourceTree = "<group>"; };
 		865A0FFC29BC3FE5007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		865A100329CE7159007D9567 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
@@ -359,6 +365,7 @@
 		861B23CC2AD8AEC7002935FD /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				860E908F2B1F2A0200468B8A /* UserDefaultsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -492,6 +499,8 @@
 			isa = PBXGroup;
 			children = (
 				86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */,
+				865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */,
+				865510AD2B1FE9F5007767E1 /* GitHubSearchCellData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -703,12 +712,15 @@
 				86D68D1F2AF64871003901C0 /* GitHubSearchHistoryHeader.swift in Sources */,
 				86D1201129EA4627001F59BD /* TestListViewModel.swift in Sources */,
 				86FAFDA929E6299E00327F7F /* TestUItableViewModel.swift in Sources */,
+				865510AC2B1FE6F0007767E1 /* GitHubSearchType.swift in Sources */,
+				860E90902B1F2A0200468B8A /* UserDefaultsRepository.swift in Sources */,
 				86E03C8A2AF082DD00AAEAC7 /* UIKitSampleData.swift in Sources */,
 				8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */,
 				86C0649B29EB927F0019FC77 /* TestCollectionFooterView.swift in Sources */,
 				86C0649729EB92630019FC77 /* TestCollectionHeaderView.swift in Sources */,
 				86C0649F29F204C80019FC77 /* TestLazyGridView.swift in Sources */,
 				861ABC0B2AE221EA004D46E1 /* SettingsViewController.swift in Sources */,
+				865510AE2B1FE9F5007767E1 /* GitHubSearchCellData.swift in Sources */,
 				861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */,
 				86C0648F29EB91D00019FC77 /* TestCollectionViewModel.swift in Sources */,
 				86D852F52B00C83500873B4D /* GitHubSearchViewModel.swift in Sources */,
