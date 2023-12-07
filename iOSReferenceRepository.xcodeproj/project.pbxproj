@@ -31,6 +31,7 @@
 		861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23D42AE0ABFA002935FD /* HomeViewController.swift */; };
 		865510AC2B1FE6F0007767E1 /* GitHubSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */; };
 		865510AE2B1FE9F5007767E1 /* GitHubSearchCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AD2B1FE9F5007767E1 /* GitHubSearchCellData.swift */; };
+		865510B02B207868007767E1 /* GitHubSearchAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */; };
 		865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */; };
 		865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A100329CE7159007D9567 /* ScrollViewController.swift */; };
 		865A100629CE7199007D9567 /* ScrollView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865A100529CE7199007D9567 /* ScrollView.storyboard */; };
@@ -100,6 +101,7 @@
 		861B23D42AE0ABFA002935FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchType.swift; sourceTree = "<group>"; };
 		865510AD2B1FE9F5007767E1 /* GitHubSearchCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchCellData.swift; sourceTree = "<group>"; };
+		865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchAPIRepository.swift; sourceTree = "<group>"; };
 		865A0FFC29BC3FE5007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		865A100329CE7159007D9567 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				860E908F2B1F2A0200468B8A /* UserDefaultsRepository.swift */,
+				865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865510B02B207868007767E1 /* GitHubSearchAPIRepository.swift in Sources */,
 				8618B4C028CDA8C2004810C3 /* UIKitSampleViewController.swift in Sources */,
 				86D1200F29EA4542001F59BD /* NextListView.swift in Sources */,
 				8609B80529DF9ABA00453822 /* TestScrollView.swift in Sources */,

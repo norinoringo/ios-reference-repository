@@ -15,9 +15,13 @@ class GitHubSearchViewModel {
     let searchCellData = GitHubSearchCellData.allCases
 
     var userDefaultsRepository: GitHubSearchTextProtocol!
+    var githubSearchAPIRepository: GitHubSearchAPIRepository!
 
-    init(userDefaultsRepository: GitHubSearchTextProtocol = UserDefaultsRepository()) {
+    init(userDefaultsRepository: GitHubSearchTextProtocol = UserDefaultsRepository(),
+         githubSearchAPIRepository: GitHubSearchAPIRepository = GitHubSearchAPIRepository())
+    {
         self.userDefaultsRepository = userDefaultsRepository
+        self.githubSearchAPIRepository = githubSearchAPIRepository
     }
 
     private let disposeBag = DisposeBag()
@@ -93,6 +97,8 @@ class GitHubSearchViewModel {
                     self?.userDefaultsRepository.addSearchText(text: searchText)
                     print(searchText)
                 }
+                self?.githubSearchAPIRepository.get(type: searchType)
+                print("githubSearchAPIRepository.get(type:\(searchType)")
             })
             .disposed(by: disposeBag)
 
