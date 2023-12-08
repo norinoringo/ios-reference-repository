@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 class GitHubSearchHistoryHeader: UITableViewHeaderFooterView {
     @IBOutlet var titleLabel: UILabel!
@@ -21,7 +21,7 @@ class GitHubSearchHistoryHeader: UITableViewHeaderFooterView {
 
     override func prepareForReuse() {}
 
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override func willMove(toSuperview _: UIView?) {
         // UITableViewHeaderFooterViewは、非表示になるとUIButtonのtarget/actionが解除される仕様なので、再設定している
         clearButton.addTarget(self, action: #selector(tappedClearButton), for: .touchUpInside)
     }

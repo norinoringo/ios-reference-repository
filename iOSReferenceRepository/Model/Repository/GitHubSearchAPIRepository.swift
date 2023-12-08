@@ -1,10 +1,9 @@
 //
 //  GitHubSearchAPIRepository.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/12/06.
-//  
-
+//
 
 import Foundation
 
@@ -16,17 +15,17 @@ protocol GitHubSearchAPIProtocol {
 class GitHubSearchAPIRepository: GitHubSearchAPIProtocol {
     func get(type: GitHubSearchType) {
         switch type {
-        case .repositories(searchText: let searchText):
+        case let .repositories(searchText: searchText):
             print(searchText)
-        case .issues(searchText: let searchText):
+        case let .issues(searchText: searchText):
             print(searchText)
-        case .pullRequests(searchText: let searchText):
+        case let .pullRequests(searchText: searchText):
             print(searchText)
-        case .users(searchText: let searchText):
+        case let .users(searchText: searchText):
             print(searchText)
-        case .organizations(searchText: let searchText):
+        case let .organizations(searchText: searchText):
             print(searchText)
-        case .keyword(searchText: let searchText):
+        case let .keyword(searchText: searchText):
             print(searchText)
         }
     }

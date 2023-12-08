@@ -1,10 +1,9 @@
 //
 //  UserDefaultsRepository.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/12/05.
-//  
-
+//
 
 import Foundation
 
@@ -15,9 +14,8 @@ protocol GitHubSearchTextProtocol {
 }
 
 class UserDefaultsRepository: GitHubSearchTextProtocol {
-
     // TODO: UserDefaultsからGET/SETする処理を追加
-    private var histories =  ["1", "2", "3", "4", "5"]
+    private var histories = ["1", "2", "3", "4", "5"]
 
     func getSearchText() -> [String] {
         return histories
@@ -31,6 +29,4 @@ class UserDefaultsRepository: GitHubSearchTextProtocol {
         histories.removeAll()
         return histories
     }
-
-
 }

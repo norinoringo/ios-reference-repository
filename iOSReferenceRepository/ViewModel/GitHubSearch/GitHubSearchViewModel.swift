@@ -5,13 +5,11 @@
 //  Created by hisanori on 2023/11/12.
 //
 
-
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 class GitHubSearchViewModel {
-    
     let searchCellData = GitHubSearchCellData.allCases
 
     var userDefaultsRepository: GitHubSearchTextProtocol!
@@ -61,7 +59,7 @@ class GitHubSearchViewModel {
             .disposed(by: disposeBag)
 
         input.searchText
-            .drive(onNext: {[weak self] keyword in
+            .drive(onNext: { [weak self] keyword in
                 guard let keyword = keyword, !keyword.isEmpty else {
                     searchKeywordRelay.accept("")
                     if let self = self {
@@ -78,22 +76,22 @@ class GitHubSearchViewModel {
             .drive(onNext: { [weak self] searchType in
                 switch searchType {
                 // TODO: APIRepositoryへのつなぎ込み
-                case .repositories(searchText: let searchText):
+                case let .repositories(searchText: searchText):
                     self?.userDefaultsRepository.addSearchText(text: searchText)
                     print(searchText)
-                case .issues(searchText: let searchText):
+                case let .issues(searchText: searchText):
                     self?.userDefaultsRepository.addSearchText(text: searchText)
                     print(searchText)
-                case .pullRequests(searchText: let searchText):
+                case let .pullRequests(searchText: searchText):
                     self?.userDefaultsRepository.addSearchText(text: searchText)
                     print(searchText)
-                case .users(searchText: let searchText):
+                case let .users(searchText: searchText):
                     self?.userDefaultsRepository.addSearchText(text: searchText)
                     print(searchText)
-                case .organizations(searchText: let searchText):
+                case let .organizations(searchText: searchText):
                     self?.userDefaultsRepository.addSearchText(text: searchText)
                     print(searchText)
-                case .keyword(searchText: let searchText):
+                case let .keyword(searchText: searchText):
                     self?.userDefaultsRepository.addSearchText(text: searchText)
                     print(searchText)
                 }
@@ -119,8 +117,7 @@ class GitHubSearchViewModel {
                       searchHistories: searchHistoriesRelay.asDriver(onErrorJustReturn: []),
                       isShowTutorial: isShowTutorialRelay.asDriver(onErrorJustReturn: false),
                       isShowSearchHistories: isShowSearchHistoriesRelay.asDriver(onErrorJustReturn: false),
-                      isShowSearchConditions: isShowSearchConditionsRelay.asDriver(onErrorJustReturn: false)
-        )
+                      isShowSearchConditions: isShowSearchConditionsRelay.asDriver(onErrorJustReturn: false))
 
         func showTutorial() {
             isShowTutorialRelay.accept(true)
