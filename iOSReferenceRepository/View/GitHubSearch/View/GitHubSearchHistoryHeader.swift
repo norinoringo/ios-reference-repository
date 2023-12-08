@@ -17,11 +17,16 @@ class GitHubSearchHistoryHeader: UITableViewHeaderFooterView {
     let historyClearRelay = PublishRelay<Void>()
     let disposeBag = DisposeBag()
 
-    @IBAction func tappedClearButton(_: Any) {
-        historyClearRelay.accept(())
-    }
-
     override func awakeFromNib() {}
 
     override func prepareForReuse() {}
+
+    override func willMove(toSuperview newSuperview: UIView?) {
+        // UITableViewHeaderFooterViewは、非表示になるとUIButtonのtarget/actionが解除される仕様なので、再設定している
+        clearButton.addTarget(self, action: #selector(tappedClearButton), for: .touchUpInside)
+    }
+
+    @objc func tappedClearButton() {
+        historyClearRelay.accept(())
+    }
 }
