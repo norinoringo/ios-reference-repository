@@ -67,7 +67,6 @@ class GitHubSearchViewController: UIViewController {
         output.searchHistories
             .drive(onNext: { [weak self] hisories in
                 self?.searchHistroies = hisories
-                self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
 
