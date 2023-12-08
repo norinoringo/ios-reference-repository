@@ -97,8 +97,21 @@ class GitHubSearchViewModel {
                     self?.userDefaultsRepository.addSearchText(text: searchText)
                     print(searchText)
                 }
+                let hisotry = self?.userDefaultsRepository.getSearchText()
+                searchHistoriesRelay.accept(hisotry ?? [])
+
                 self?.githubSearchAPIRepository.get(type: searchType)
                 print("githubSearchAPIRepository.get(type:\(searchType)")
+            })
+            .disposed(by: disposeBag)
+
+        input.tappedClearSearchHisoryButton
+            .drive(onNext: { [weak self] _ in
+                let history = self?.userDefaultsRepository.clearSearchText()
+                searchHistoriesRelay.accept(history ?? [])
+                isShowTutorialRelay.accept(true)
+                isShowSearchHistoriesRelay.accept(false)
+                isShowSearchConditionsRelay.accept(false)
             })
             .disposed(by: disposeBag)
 

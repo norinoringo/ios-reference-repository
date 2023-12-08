@@ -16,18 +16,20 @@ protocol GitHubSearchTextProtocol {
 
 class UserDefaultsRepository: GitHubSearchTextProtocol {
 
+    // TODO: UserDefaultsからGET/SETする処理を追加
+    private var histories =  ["1", "2", "3", "4", "5"]
+
     func getSearchText() -> [String] {
-        // TODO: UserDefaultsからGETする処理を追加
-        return ["1", "2", "3", "4", "5"]
+        return histories
     }
 
     func addSearchText(text: String) {
-        // TODO: UserDefaultsにSETする処理を追加
+        histories.append(text)
     }
 
     func clearSearchText() -> [String] {
-        // TODO: UserDefaultsをクリアする処理を追加
-        return []
+        histories.removeAll()
+        return histories
     }
 
 

@@ -158,6 +158,12 @@ extension GitHubSearchViewController: UITableViewDelegate {
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader else {
                 return nil
             }
+            header.historyClearRelay
+                .asDriver(onErrorJustReturn: ())
+                .drive(onNext: { [weak self] _ in
+                    self?.tappedClearSearchHisoryButtonRelay.accept(())
+                })
+                .disposed(by: header.disposeBag)
             return isShowSearcHistories ? header : nil
         } else {
             return nil

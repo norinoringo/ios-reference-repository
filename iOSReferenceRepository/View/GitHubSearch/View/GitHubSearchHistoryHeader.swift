@@ -7,13 +7,18 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class GitHubSearchHistoryHeader: UITableViewHeaderFooterView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var clearButton: UIButton!
 
+    let historyClearRelay = PublishRelay<Void>()
+    let disposeBag = DisposeBag()
+
     @IBAction func tappedClearButton(_: Any) {
-        // TODO: ViewModelへイベント伝搬するようにする
+        historyClearRelay.accept(())
     }
 
     override func awakeFromNib() {}
