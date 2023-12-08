@@ -9,15 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GitHubSearchTutorialLabelCell" rowHeight="438" id="xBj-No-F9w" customClass="GitHubSearchTutorialLabelCell" customModule="iOSReferenceRepository" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="202" height="438"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GitHubSearchTutorialLabelCell" rowHeight="794" id="xBj-No-F9w" customClass="GitHubSearchTutorialLabelCell" customModule="iOSReferenceRepository" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="202" height="794"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xBj-No-F9w" id="dvZ-ju-7pG">
-                <rect key="frame" x="0.0" y="0.0" width="202" height="438"/>
+                <rect key="frame" x="0.0" y="0.0" width="202" height="794"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sRd-5F-6fE">
-                        <rect key="frame" x="16" y="11" width="170" height="416"/>
+                        <rect key="frame" x="16" y="11" width="170" height="772"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVK-qS-cnV" userLabel="Spacer">
                                 <rect key="frame" x="0.0" y="0.0" width="170" height="280"/>
@@ -32,11 +32,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuL-Oz-3i9" userLabel="SubTitle">
-                                <rect key="frame" x="64.333333333333329" y="338.33333333333331" width="41.333333333333329" height="77.666666666666686"/>
+                                <rect key="frame" x="64.333333333333329" y="338.33333333333331" width="41.333333333333329" height="137.66666666666669"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5t-4S-FWm" userLabel="Spacer">
+                                <rect key="frame" x="0.0" y="492" width="170" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="WFz-ja-pDM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                     </stackView>
                 </subviews>
@@ -53,7 +59,7 @@
                 <outlet property="subTitleLabel" destination="ZuL-Oz-3i9" id="ETR-s4-BcP"/>
                 <outlet property="titleLabel" destination="1T4-t4-Txj" id="SIh-2I-1Ku"/>
             </connections>
-            <point key="canvasLocation" x="-297.70992366412213" y="61.971830985915496"/>
+            <point key="canvasLocation" x="-297.70992366412213" y="187.32394366197184"/>
         </tableViewCell>
     </objects>
 </document>
