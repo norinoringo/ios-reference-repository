@@ -54,23 +54,23 @@ class GitHubSearchViewModel {
                 guard let self = self else {
                     return
                 }
-                searchHistoriesRelay.accept(self.userDefaultsRepository.getSearchText())
+                let history = self.userDefaultsRepository.getSearchText()
+                searchHistoriesRelay.accept(history)
+                history.isEmpty ? showTutorial() : showSearchHistories()
             })
             .disposed(by: disposeBag)
 
         input.searchText
-            .drive(onNext: { keyword in
+            .drive(onNext: {[weak self] keyword in
                 guard let keyword = keyword, !keyword.isEmpty else {
                     searchKeywordRelay.accept("")
-                    isShowTutorialRelay.accept(true)
-                    isShowSearchHistoriesRelay.accept(true)
-                    isShowSearchConditionsRelay.accept(false)
+                    if let self = self {
+                        self.userDefaultsRepository.getSearchText().isEmpty ? showTutorial() : showSearchHistories()
+                    }
                     return
                 }
                 searchKeywordRelay.accept(keyword)
-                isShowTutorialRelay.accept(false)
-                isShowSearchHistoriesRelay.accept(false)
-                isShowSearchConditionsRelay.accept(true)
+                showSearchConditions()
             })
             .disposed(by: disposeBag)
 
@@ -121,5 +121,23 @@ class GitHubSearchViewModel {
                       isShowSearchHistories: isShowSearchHistoriesRelay.asDriver(onErrorJustReturn: false),
                       isShowSearchConditions: isShowSearchConditionsRelay.asDriver(onErrorJustReturn: false)
         )
+
+        func showTutorial() {
+            isShowTutorialRelay.accept(true)
+            isShowSearchHistoriesRelay.accept(false)
+            isShowSearchConditionsRelay.accept(false)
+        }
+
+        func showSearchHistories() {
+            isShowTutorialRelay.accept(false)
+            isShowSearchHistoriesRelay.accept(true)
+            isShowSearchConditionsRelay.accept(false)
+        }
+
+        func showSearchConditions() {
+            isShowTutorialRelay.accept(false)
+            isShowSearchHistoriesRelay.accept(false)
+            isShowSearchConditionsRelay.accept(true)
+        }
     }
 }

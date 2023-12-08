@@ -18,8 +18,8 @@ class GitHubSearchViewController: UIViewController {
 
     private var searchKeyword: String?
     private var searchHistroies: [String]?
-    private var isShowTutorial = true
-    private var isShowSearcHistories = true
+    private var isShowTutorial = false
+    private var isShowSearcHistories = false
     private var isShowSearchRepositories = false
 
     private let viewModel = GitHubSearchViewModel()
@@ -103,14 +103,16 @@ class GitHubSearchViewController: UIViewController {
 extension GitHubSearchViewController: UITableViewDataSource {
     // TODO: TableViewのセルとセクションはViewModelから渡されたデータを使う
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isShowSearchRepositories ? 1 : 2
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return isShowTutorial ? 1 : 6
-        } else if section == 1 {
-            return isShowSearcHistories ? searchHistroies?.count ?? 0 : 0
+        if isShowTutorial {
+            return 1
+        } else if isShowSearcHistories {
+            return searchHistroies?.count ?? 0
+        } else if isShowSearchRepositories {
+            return viewModel.searchCellData.count
         } else {
             return 0
         }
@@ -119,30 +121,28 @@ extension GitHubSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // TODO: DATA層でモデルを定義して、その値を指定する
         // FIXME: 検索候補セルを表示したときに他のsectionを非表示にしても余白ができてしまうので、動的に表示するセルを切り替えている。しかし実装が複雑になるのでこのやり方は辞めたい。
-        if indexPath.section == 0 {
-            if isShowTutorial {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier:  R.nib.gitHubSearchTutorialLabelCell.identifier, for: indexPath) as? GitHubSearchTutorialLabelCell else {
-                    return UITableViewCell()
-                }
-                return cell
-            } else {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
-                    return UITableViewCell()
-                }
-
-                let searchCellData = viewModel.searchCellData[indexPath.row]
-                cell.configureView(
-                    image: searchCellData.image,
-                    title: "\"\(self.searchKeyword ?? "")\"" + searchCellData.title
-                )
-                return cell
+        if isShowTutorial {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier:  R.nib.gitHubSearchTutorialLabelCell.identifier, for: indexPath) as? GitHubSearchTutorialLabelCell else {
+                return UITableViewCell()
             }
-        } else if indexPath.section == 1 {
+            return cell
+        } else if isShowSearcHistories {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchHistoryCell.identifier, for: indexPath) as? GitHubSearchHistoryCell else {
                 return UITableViewCell()
             }
             let history = searchHistroies?[indexPath.row]
             cell.configureView(title: history ?? "")
+            return cell
+        } else if isShowSearchRepositories {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
+                return UITableViewCell()
+            }
+
+            let searchCellData = viewModel.searchCellData[indexPath.row]
+            cell.configureView(
+                image: searchCellData.image,
+                title: "\"\(self.searchKeyword ?? "")\"" + searchCellData.title
+            )
             return cell
         } else {
             return UITableViewCell()
@@ -153,28 +153,20 @@ extension GitHubSearchViewController: UITableViewDataSource {
 extension GitHubSearchViewController: UITableViewDelegate {
     // TODO: 検索履歴がない場合は表示しないロジックを実装する
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 1 {
-            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader else {
-                return nil
-            }
-            header.historyClearRelay
-                .asDriver(onErrorJustReturn: ())
-                .drive(onNext: { [weak self] _ in
-                    self?.tappedClearSearchHisoryButtonRelay.accept(())
-                })
-                .disposed(by: header.disposeBag)
-            return isShowSearcHistories ? header : nil
-        } else {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader, isShowSearcHistories else {
             return nil
         }
+        header.historyClearRelay
+            .asDriver(onErrorJustReturn: ())
+            .drive(onNext: { [weak self] _ in
+                self?.tappedClearSearchHisoryButtonRelay.accept(())
+            })
+            .disposed(by: header.disposeBag)
+        return header
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 1 {
-            return isShowSearcHistories ? 54 : CGFloat.leastNormalMagnitude
-        } else {
-            return CGFloat.leastNormalMagnitude
-        }
+        return isShowSearcHistories ? 54 : CGFloat.leastNormalMagnitude
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
