@@ -25,6 +25,8 @@ class GitHubSearchViewController: UIViewController {
     private let tappedClearSearchHisoryButtonRelay = PublishRelay<Void>()
     private let tappedSearchRelay = PublishRelay<GitHubSearchType>()
 
+    private let searchHistoryHeaderHeight: CGFloat = 54
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
@@ -130,7 +132,7 @@ extension GitHubSearchViewController: UITableViewDelegate {
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader else {
                 return nil
             }
-            header.historyClearRelay
+            header.tappedClearButtonRelay
                 .asDriver(onErrorJustReturn: ())
                 .drive(onNext: { [weak self] _ in
                     self?.tappedClearSearchHisoryButtonRelay.accept(())
@@ -146,7 +148,7 @@ extension GitHubSearchViewController: UITableViewDelegate {
         case .tutorial, .searchConditions, .none:
             return .leastNormalMagnitude
         case .searchHistories:
-            return 54
+            return searchHistoryHeaderHeight
         }
     }
 

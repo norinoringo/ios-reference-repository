@@ -14,7 +14,7 @@ class GitHubSearchHistoryHeader: UITableViewHeaderFooterView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var clearButton: UIButton!
 
-    let historyClearRelay = PublishRelay<Void>()
+    let tappedClearButtonRelay = PublishRelay<Void>()
     let disposeBag = DisposeBag()
 
     override func awakeFromNib() {}
@@ -27,6 +27,6 @@ class GitHubSearchHistoryHeader: UITableViewHeaderFooterView {
     }
 
     @objc func tappedClearButton() {
-        historyClearRelay.accept(())
+        tappedClearButtonRelay.accept(())
     }
 }
