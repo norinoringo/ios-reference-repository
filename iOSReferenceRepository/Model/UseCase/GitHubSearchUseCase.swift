@@ -1,10 +1,9 @@
 //
 //  GitHubSearchUseCase.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/12/09.
-//  
-
+//
 
 import Foundation
 
@@ -13,7 +12,6 @@ protocol GitHubSearchUseCaseProtocol {
 }
 
 class GitHubSearchUseCase: GitHubSearchUseCaseProtocol {
-    
     let repository: GitHubAPIRepositoryProtocol
 
     init(repository: GitHubAPIRepositoryProtocol = GitHubAPIRepository()) {

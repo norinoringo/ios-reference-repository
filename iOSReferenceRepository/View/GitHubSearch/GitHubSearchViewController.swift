@@ -124,8 +124,6 @@ extension GitHubSearchViewController: UITableViewDataSource {
 extension GitHubSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
         switch screenType {
-
-
         case .tutorial, .searchConditions, .none:
             return nil
         case .searchHistories:
@@ -141,7 +139,6 @@ extension GitHubSearchViewController: UITableViewDelegate {
             return header
         }
     }
-
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
         switch screenType {

@@ -1,10 +1,9 @@
 //
 //  GitHubSearchHisotryManagerUseCase.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/12/09.
-//  
-
+//
 
 import Foundation
 
@@ -15,13 +14,11 @@ protocol GitHubSearchHisotryManagerUseCaseProtocol {
 }
 
 class GitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol {
-    
     let repository: UserDefaultsRepositoryProtocol
 
     init(repository: UserDefaultsRepositoryProtocol = UserDefaultsRepository()) {
         self.repository = repository
     }
-
 
     func getSearchHistories() -> [String] {
         return repository.getSearchHistories()

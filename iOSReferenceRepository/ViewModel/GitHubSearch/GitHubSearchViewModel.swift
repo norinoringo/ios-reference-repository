@@ -49,7 +49,7 @@ class GitHubSearchViewModel {
                 }
                 let histories = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
                 self.searchHistories = histories
-                histories.isEmpty ? screenTypeRelay.accept(.tutorial)  : screenTypeRelay.accept(.searchHistories)
+                histories.isEmpty ? screenTypeRelay.accept(.tutorial) : screenTypeRelay.accept(.searchHistories)
             })
             .disposed(by: disposeBag)
 
@@ -85,8 +85,7 @@ class GitHubSearchViewModel {
             .disposed(by: disposeBag)
 
         return Output(searchKeyword: searchKeywordRelay.asDriver(onErrorJustReturn: nil),
-                      screenType: screenTypeRelay.asDriver(onErrorJustReturn: .none)
-                      )
+                      screenType: screenTypeRelay.asDriver(onErrorJustReturn: .none))
     }
 }
 

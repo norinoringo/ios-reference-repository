@@ -23,17 +23,17 @@ class UserDefaultsRepository: UserDefaultsRepositoryProtocol {
 
     func addSearchHistory(type: GitHubSearchType) {
         switch type {
-        case .repositories(let searchText):
+        case let .repositories(searchText):
             addGitHubSearchHistory(text: searchText)
-        case .issues(let searchText):
+        case let .issues(searchText):
             addGitHubSearchHistory(text: searchText)
-        case .pullRequests(let searchText):
+        case let .pullRequests(searchText):
             addGitHubSearchHistory(text: searchText)
-        case .users(let searchText):
+        case let .users(searchText):
             addGitHubSearchHistory(text: searchText)
-        case .organizations(let searchText):
+        case let .organizations(searchText):
             addGitHubSearchHistory(text: searchText)
-        case .keyword(let searchText):
+        case let .keyword(searchText):
             addGitHubSearchHistory(text: searchText)
         }
     }
