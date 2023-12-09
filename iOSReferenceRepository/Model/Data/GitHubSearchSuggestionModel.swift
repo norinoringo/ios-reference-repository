@@ -8,16 +8,11 @@
 import Foundation
 import UIKit
 
-enum GitHubSearchCellData: CaseIterable {
-    case repositories
-    case issues
-    case pullRequests
-    case users
-    case organizations
-    case keyword
+struct GitHubSearchSuggestionModel {
+    var type: GitHubSearchType
 
     var title: String {
-        switch self {
+        switch type {
         case .repositories:
             return " を含むリポジトリ"
         case .issues:
@@ -34,7 +29,7 @@ enum GitHubSearchCellData: CaseIterable {
     }
 
     var image: UIImage {
-        switch self {
+        switch type {
         default:
             return UIImage(systemName: "arrow.right") ?? UIImage()
         }

@@ -30,7 +30,7 @@
 		861B23D32AE0AA77002935FD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861B23D22AE0AA76002935FD /* Home.storyboard */; };
 		861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23D42AE0ABFA002935FD /* HomeViewController.swift */; };
 		865510AC2B1FE6F0007767E1 /* GitHubSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */; };
-		865510AE2B1FE9F5007767E1 /* GitHubSearchCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AD2B1FE9F5007767E1 /* GitHubSearchCellData.swift */; };
+		865510AE2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */; };
 		865510B02B207868007767E1 /* GitHubSearchAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */; };
 		865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */; };
 		865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865A100329CE7159007D9567 /* ScrollViewController.swift */; };
@@ -42,6 +42,7 @@
 		86809127291E922B00531ABC /* UIKitSampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86809126291E922B00531ABC /* UIKitSampleCell.swift */; };
 		868E6F3B2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868E6F3A2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib */; };
 		868E6F3D2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E6F3C2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift */; };
+		8690EAC12B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC02B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift */; };
 		869DCEC829DA49680000A1DD /* UIKitSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */; };
 		86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */; };
 		86C0648D29EB8F2F0019FC77 /* TestUICollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */; };
@@ -100,7 +101,7 @@
 		861B23D22AE0AA76002935FD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		861B23D42AE0ABFA002935FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchType.swift; sourceTree = "<group>"; };
-		865510AD2B1FE9F5007767E1 /* GitHubSearchCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchCellData.swift; sourceTree = "<group>"; };
+		865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchSuggestionModel.swift; sourceTree = "<group>"; };
 		865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchAPIRepository.swift; sourceTree = "<group>"; };
 		865A0FFC29BC3FE5007D9567 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A0FFF29C3EB56007D9567 /* SwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		86809126291E922B00531ABC /* UIKitSampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleCell.swift; sourceTree = "<group>"; };
 		868E6F3A2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubSearchHistoryCell.xib; sourceTree = "<group>"; };
 		868E6F3C2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchHistoryCell.swift; sourceTree = "<group>"; };
+		8690EAC02B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchSuggesionsCellData.swift; sourceTree = "<group>"; };
 		869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleViewModel.swift; sourceTree = "<group>"; };
 		86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUICollectionViewController.swift; sourceTree = "<group>"; };
 		86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUICollectionView.storyboard; sourceTree = "<group>"; };
@@ -503,7 +505,8 @@
 			children = (
 				86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */,
 				865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */,
-				865510AD2B1FE9F5007767E1 /* GitHubSearchCellData.swift */,
+				865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */,
+				8690EAC02B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -721,10 +724,11 @@
 				86E03C8A2AF082DD00AAEAC7 /* UIKitSampleData.swift in Sources */,
 				8618B4C528CDAAB4004810C3 /* R.generated.swift in Sources */,
 				86C0649B29EB927F0019FC77 /* TestCollectionFooterView.swift in Sources */,
+				8690EAC12B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift in Sources */,
 				86C0649729EB92630019FC77 /* TestCollectionHeaderView.swift in Sources */,
 				86C0649F29F204C80019FC77 /* TestLazyGridView.swift in Sources */,
 				861ABC0B2AE221EA004D46E1 /* SettingsViewController.swift in Sources */,
-				865510AE2B1FE9F5007767E1 /* GitHubSearchCellData.swift in Sources */,
+				865510AE2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift in Sources */,
 				861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */,
 				86C0648F29EB91D00019FC77 /* TestCollectionViewModel.swift in Sources */,
 				86D852F52B00C83500873B4D /* GitHubSearchViewModel.swift in Sources */,

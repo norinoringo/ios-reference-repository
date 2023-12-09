@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 
 class GitHubSearchViewModel {
-    let searchCellData = GitHubSearchCellData.allCases
+    let searchSuggesionsCellData = GitHubSearchSuggesionsCellData.data
 
     var userDefaultsRepository: GitHubSearchTextProtocol!
     var githubSearchAPIRepository: GitHubSearchAPIRepository!

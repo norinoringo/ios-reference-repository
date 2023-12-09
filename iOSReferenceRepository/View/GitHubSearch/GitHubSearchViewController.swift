@@ -109,7 +109,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
         } else if isShowSearcHistories {
             return searchHistroies?.count ?? 0
         } else if isShowSearchRepositories {
-            return viewModel.searchCellData.count
+            return viewModel.searchSuggesionsCellData.count
         } else {
             return 0
         }
@@ -135,10 +135,10 @@ extension GitHubSearchViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
 
-            let searchCellData = viewModel.searchCellData[indexPath.row]
+            let searchSuggesionsCell = viewModel.searchSuggesionsCellData[indexPath.row]
             cell.configureView(
-                image: searchCellData.image,
-                title: "\"\(searchKeyword ?? "")\"" + searchCellData.title
+                image: searchSuggesionsCell.image,
+                title: "\"\(searchKeyword ?? "")\"" + searchSuggesionsCell.title
             )
             return cell
         } else {
@@ -172,7 +172,7 @@ extension GitHubSearchViewController: UITableViewDelegate {
             tappedSearchHistoryButtonRelay.accept(hisory ?? "")
         }
         if isShowSearchRepositories {
-            switch viewModel.searchCellData[indexPath.row] {
+            switch viewModel.searchSuggesionsCellData[indexPath.row].type {
             case .repositories:
                 tappedSearchRelay.accept(.repositories(searchText: searchKeyword ?? ""))
             case .issues:
