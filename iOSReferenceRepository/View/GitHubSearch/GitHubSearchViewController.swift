@@ -54,7 +54,6 @@ class GitHubSearchViewController: UIViewController {
         output.searchKeyword
             .drive(onNext: { [weak self] keyword in
                 self?.searchKeyword = keyword
-                self?.searchBar.text = keyword
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
