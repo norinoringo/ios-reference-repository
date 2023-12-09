@@ -39,9 +39,7 @@ class GitHubSearchViewController: UIViewController {
     private func bind() {
         let viewWillAppear = rx.sentMessage(#selector(viewWillAppear(_:)))
             .asDriver(onErrorJustReturn: [])
-            .map { _ in
-                ()
-            }
+            .mapToVoid()
 
         let input = GitHubSearchViewModel.Input(
             viewWillAppear: viewWillAppear,
