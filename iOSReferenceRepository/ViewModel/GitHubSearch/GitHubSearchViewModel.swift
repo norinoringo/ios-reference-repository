@@ -12,14 +12,14 @@ import RxSwift
 class GitHubSearchViewModel {
     let searchSuggesionsCellData = GitHubSearchSuggesionsCellData.data
 
-    let gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerProtocol
-    var githubSearchAPIRepository: GitHubSearchAPIRepository!
+    let gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol
+    let githubSearchUseCase: GitHubSearchUseCaseProtocol
 
-    init(gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerProtocol = GitHubSearchHisotryManagerUseCase(),
-         githubSearchAPIRepository: GitHubSearchAPIRepository = GitHubSearchAPIRepository())
+    init(gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol = GitHubSearchHisotryManagerUseCase(),
+         githubSearchUseCase: GitHubSearchUseCaseProtocol = GitHubSearchUseCase())
     {
         self.gitHubSearchHisotryManagerUseCase = gitHubSearchHisotryManagerUseCase
-        self.githubSearchAPIRepository = githubSearchAPIRepository
+        self.githubSearchUseCase = githubSearchUseCase
     }
 
     private let disposeBag = DisposeBag()
@@ -77,7 +77,7 @@ class GitHubSearchViewModel {
                 self?.gitHubSearchHisotryManagerUseCase.addSearchHistory(type: searchType)
                 searchHistoriesRelay.accept(self?.gitHubSearchHisotryManagerUseCase.getSearchHistories() ?? [])
 
-                self?.githubSearchAPIRepository.get(type: searchType)
+                self?.githubSearchUseCase.search(type: searchType)
                 print("githubSearchAPIRepository.get(type:\(searchType)")
             })
             .disposed(by: disposeBag)

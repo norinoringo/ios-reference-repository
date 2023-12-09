@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol GitHubSearchHistoryProtocol {
+protocol UserDefaultsRepositoryProtocol {
     func getSearchHistories() -> [String]
     func addSearchHistory(type: GitHubSearchType)
     func clearSearchHistory() -> [String]
 }
 
-class UserDefaultsRepository: GitHubSearchHistoryProtocol {
+class UserDefaultsRepository: UserDefaultsRepositoryProtocol {
     // TODO: UserDefaultsからGET/SETする処理を追加
     private var histories = ["1", "2", "3", "4", "5"]
 

@@ -8,11 +8,11 @@
 import Foundation
 
 // TODO: APIの実装
-protocol GitHubSearchAPIProtocol {
+protocol GitHubAPIRepositoryProtocol {
     func get(type: GitHubSearchType)
 }
 
-class GitHubSearchAPIRepository: GitHubSearchAPIProtocol {
+class GitHubAPIRepository: GitHubAPIRepositoryProtocol {
     func get(type: GitHubSearchType) {
         switch type {
         case let .repositories(searchText: searchText):

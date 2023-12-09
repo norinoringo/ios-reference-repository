@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol GitHubSearchHisotryManagerProtocol {
+protocol GitHubSearchHisotryManagerUseCaseProtocol {
     func getSearchHistories() -> [String]
     func addSearchHistory(type: GitHubSearchType)
     func clearSearchHistory() -> [String]
 }
 
-class GitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerProtocol {
+class GitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol {
     
-    let repository: GitHubSearchHistoryProtocol
+    let repository: UserDefaultsRepositoryProtocol
 
-    init(repository: GitHubSearchHistoryProtocol = UserDefaultsRepository()) {
+    init(repository: UserDefaultsRepositoryProtocol = UserDefaultsRepository()) {
         self.repository = repository
     }
 
