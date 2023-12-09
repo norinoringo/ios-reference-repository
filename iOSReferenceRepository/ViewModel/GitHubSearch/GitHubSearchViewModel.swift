@@ -11,6 +11,7 @@ import RxSwift
 
 class GitHubSearchViewModel {
     let searchSuggesionsCellData = GitHubSearchSuggesionsCellData.data
+    var searchHistories = [String]()
 
     let gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol
     let githubSearchUseCase: GitHubSearchUseCaseProtocol
@@ -34,13 +35,11 @@ class GitHubSearchViewModel {
 
     struct Output {
         let searchKeyword: Driver<String?>
-        let searchHistories: Driver<[String]>
         let screenType: Driver<GitHubSearchViewModel.screenType>
     }
 
     func transform(input: Input) -> Output {
         let searchKeywordRelay = PublishRelay<String?>()
-        let searchHistoriesRelay = PublishRelay<[String]>()
         let screenTypeRelay = PublishRelay<GitHubSearchViewModel.screenType>()
 
         input.viewWillAppear
@@ -48,9 +47,9 @@ class GitHubSearchViewModel {
                 guard let self = self else {
                     return
                 }
-                let history = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
-                searchHistoriesRelay.accept(history)
-                history.isEmpty ? screenTypeRelay.accept(.tutorial)  : screenTypeRelay.accept(.searchHistories)
+                let histories = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
+                self.searchHistories = histories
+                histories.isEmpty ? screenTypeRelay.accept(.tutorial)  : screenTypeRelay.accept(.searchHistories)
             })
             .disposed(by: disposeBag)
 
@@ -71,7 +70,7 @@ class GitHubSearchViewModel {
         input.tappedSearch
             .drive(onNext: { [weak self] searchType in
                 self?.gitHubSearchHisotryManagerUseCase.addSearchHistory(type: searchType)
-                searchHistoriesRelay.accept(self?.gitHubSearchHisotryManagerUseCase.getSearchHistories() ?? [])
+                self?.searchHistories = self?.gitHubSearchHisotryManagerUseCase.getSearchHistories() ?? []
 
                 self?.githubSearchUseCase.search(type: searchType)
                 print("githubSearchAPIRepository.get(type:\(searchType)")
@@ -80,14 +79,12 @@ class GitHubSearchViewModel {
 
         input.tappedClearSearchHisoryButton
             .drive(onNext: { [weak self] _ in
-                let clearedHisotry = self?.gitHubSearchHisotryManagerUseCase.clearSearchHistory()
-                searchHistoriesRelay.accept(clearedHisotry ?? [])
+                self?.searchHistories = self?.gitHubSearchHisotryManagerUseCase.clearSearchHistory() ?? []
                 screenTypeRelay.accept(.tutorial)
             })
             .disposed(by: disposeBag)
 
         return Output(searchKeyword: searchKeywordRelay.asDriver(onErrorJustReturn: nil),
-                      searchHistories: searchHistoriesRelay.asDriver(onErrorJustReturn: []),
                       screenType: screenTypeRelay.asDriver(onErrorJustReturn: .none)
                       )
     }

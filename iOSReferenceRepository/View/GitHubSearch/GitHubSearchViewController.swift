@@ -15,7 +15,6 @@ class GitHubSearchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
 
     private var searchKeyword: String?
-    private var searchHistroies: [String]?
     private var screenType: GitHubSearchViewModel.screenType = .none
 
     private let viewModel = GitHubSearchViewModel()
@@ -56,12 +55,6 @@ class GitHubSearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        output.searchHistories
-            .drive(onNext: { [weak self] histories in
-                self?.searchHistroies = histories
-            })
-            .disposed(by: disposeBag)
-
         output.screenType
             .drive(onNext: { [weak self] type in
                 self?.screenType = type
@@ -88,7 +81,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
         case .tutorial:
             return 1
         case .searchHistories:
-            return searchHistroies?.count ?? 0
+            return viewModel.searchHistories.count
         case .searchConditions:
             return viewModel.searchSuggesionsCellData.count
         case .none:
@@ -107,8 +100,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchHistoryCell.identifier, for: indexPath) as? GitHubSearchHistoryCell else {
                 return UITableViewCell()
             }
-            let history = searchHistroies?[indexPath.row]
-            cell.configureView(title: history ?? "")
+            cell.configureView(title: viewModel.searchHistories[indexPath.row])
             return cell
         case .searchConditions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
@@ -163,8 +155,7 @@ extension GitHubSearchViewController: UITableViewDelegate {
         case .tutorial, .none:
             return
         case .searchHistories:
-            let hisory = searchHistroies?[indexPath.row]
-            tappedSearchHistoryButtonRelay.accept(hisory ?? "")
+            tappedSearchHistoryButtonRelay.accept(viewModel.searchHistories[indexPath.row])
         case .searchConditions:
             switch viewModel.searchSuggesionsCellData[indexPath.row].type {
             case .repositories:
