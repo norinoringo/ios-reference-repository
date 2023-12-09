@@ -35,17 +35,13 @@ class GitHubSearchViewModel {
     struct Output {
         let searchKeyword: Driver<String?>
         let searchHistories: Driver<[String]>
-        let isShowTutorial: Driver<Bool>
-        let isShowSearchHistories: Driver<Bool>
-        let isShowSearchConditions: Driver<Bool>
+        let screenType: Driver<GitHubSearchViewModel.screenType>
     }
 
     func transform(input: Input) -> Output {
         let searchKeywordRelay = PublishRelay<String?>()
         let searchHistoriesRelay = PublishRelay<[String]>()
-        let isShowTutorialRelay = PublishRelay<Bool>()
-        let isShowSearchHistoriesRelay = PublishRelay<Bool>()
-        let isShowSearchConditionsRelay = PublishRelay<Bool>()
+        let screenTypeRelay = PublishRelay<GitHubSearchViewModel.screenType>()
 
         input.viewWillAppear
             .drive(onNext: { [weak self] _ in
@@ -54,7 +50,7 @@ class GitHubSearchViewModel {
                 }
                 let history = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
                 searchHistoriesRelay.accept(history)
-                history.isEmpty ? showTutorial() : showSearchHistories()
+                history.isEmpty ? screenTypeRelay.accept(.tutorial)  : screenTypeRelay.accept(.searchHistories)
             })
             .disposed(by: disposeBag)
 
@@ -63,12 +59,12 @@ class GitHubSearchViewModel {
                 guard let keyword = keyword, !keyword.isEmpty else {
                     searchKeywordRelay.accept("")
                     if let self = self {
-                        self.gitHubSearchHisotryManagerUseCase.getSearchHistories().isEmpty ? showTutorial() : showSearchHistories()
+                        self.gitHubSearchHisotryManagerUseCase.getSearchHistories().isEmpty ? screenTypeRelay.accept(.tutorial) : screenTypeRelay.accept(.searchHistories)
                     }
                     return
                 }
                 searchKeywordRelay.accept(keyword)
-                showSearchConditions()
+                screenTypeRelay.accept(.searchConditions)
             })
             .disposed(by: disposeBag)
 
@@ -86,32 +82,22 @@ class GitHubSearchViewModel {
             .drive(onNext: { [weak self] _ in
                 let clearedHisotry = self?.gitHubSearchHisotryManagerUseCase.clearSearchHistory()
                 searchHistoriesRelay.accept(clearedHisotry ?? [])
-                showTutorial()
+                screenTypeRelay.accept(.tutorial)
             })
             .disposed(by: disposeBag)
 
         return Output(searchKeyword: searchKeywordRelay.asDriver(onErrorJustReturn: nil),
                       searchHistories: searchHistoriesRelay.asDriver(onErrorJustReturn: []),
-                      isShowTutorial: isShowTutorialRelay.asDriver(onErrorJustReturn: false),
-                      isShowSearchHistories: isShowSearchHistoriesRelay.asDriver(onErrorJustReturn: false),
-                      isShowSearchConditions: isShowSearchConditionsRelay.asDriver(onErrorJustReturn: false))
+                      screenType: screenTypeRelay.asDriver(onErrorJustReturn: .none)
+                      )
+    }
+}
 
-        func showTutorial() {
-            isShowTutorialRelay.accept(true)
-            isShowSearchHistoriesRelay.accept(false)
-            isShowSearchConditionsRelay.accept(false)
-        }
-
-        func showSearchHistories() {
-            isShowTutorialRelay.accept(false)
-            isShowSearchHistoriesRelay.accept(true)
-            isShowSearchConditionsRelay.accept(false)
-        }
-
-        func showSearchConditions() {
-            isShowTutorialRelay.accept(false)
-            isShowSearchHistoriesRelay.accept(false)
-            isShowSearchConditionsRelay.accept(true)
-        }
+extension GitHubSearchViewModel {
+    enum screenType {
+        case tutorial
+        case searchHistories
+        case searchConditions
+        case none
     }
 }

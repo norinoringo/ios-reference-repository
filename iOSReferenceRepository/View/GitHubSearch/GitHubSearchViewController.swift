@@ -16,9 +16,7 @@ class GitHubSearchViewController: UIViewController {
 
     private var searchKeyword: String?
     private var searchHistroies: [String]?
-    private var isShowTutorial = false
-    private var isShowSearcHistories = false
-    private var isShowSearchRepositories = false
+    private var screenType: GitHubSearchViewModel.screenType = .none
 
     private let viewModel = GitHubSearchViewModel()
     private let disposeBag = DisposeBag()
@@ -64,23 +62,9 @@ class GitHubSearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        output.isShowTutorial
-            .drive(onNext: { [weak self] isShow in
-                self?.isShowTutorial = isShow
-                self?.tableView.reloadData()
-            })
-            .disposed(by: disposeBag)
-
-        output.isShowSearchHistories
-            .drive(onNext: { [weak self] isShow in
-                self?.isShowSearcHistories = isShow
-                self?.tableView.reloadData()
-            })
-            .disposed(by: disposeBag)
-
-        output.isShowSearchConditions
-            .drive(onNext: { [weak self] isShow in
-                self?.isShowSearchRepositories = isShow
+        output.screenType
+            .drive(onNext: { [weak self] type in
+                self?.screenType = type
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
@@ -100,31 +84,33 @@ extension GitHubSearchViewController: UITableViewDataSource {
     }
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        if isShowTutorial {
+        switch screenType {
+        case .tutorial:
             return 1
-        } else if isShowSearcHistories {
+        case .searchHistories:
             return searchHistroies?.count ?? 0
-        } else if isShowSearchRepositories {
+        case .searchConditions:
             return viewModel.searchSuggesionsCellData.count
-        } else {
+        case .none:
             return 0
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isShowTutorial {
+        switch screenType {
+        case .tutorial:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchTutorialLabelCell.identifier, for: indexPath) as? GitHubSearchTutorialLabelCell else {
                 return UITableViewCell()
             }
             return cell
-        } else if isShowSearcHistories {
+        case .searchHistories:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchHistoryCell.identifier, for: indexPath) as? GitHubSearchHistoryCell else {
                 return UITableViewCell()
             }
             let history = searchHistroies?[indexPath.row]
             cell.configureView(title: history ?? "")
             return cell
-        } else if isShowSearchRepositories {
+        case .searchConditions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
                 return UITableViewCell()
             }
@@ -135,7 +121,7 @@ extension GitHubSearchViewController: UITableViewDataSource {
                 title: "\"\(searchKeyword ?? "")\"" + searchSuggesionsCell.title
             )
             return cell
-        } else {
+        case .none:
             return UITableViewCell()
         }
     }
@@ -143,28 +129,43 @@ extension GitHubSearchViewController: UITableViewDataSource {
 
 extension GitHubSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
-        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader, isShowSearcHistories else {
+        switch screenType {
+
+
+        case .tutorial, .searchConditions, .none:
             return nil
+        case .searchHistories:
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader else {
+                return nil
+            }
+            header.historyClearRelay
+                .asDriver(onErrorJustReturn: ())
+                .drive(onNext: { [weak self] _ in
+                    self?.tappedClearSearchHisoryButtonRelay.accept(())
+                })
+                .disposed(by: header.disposeBag)
+            return header
         }
-        header.historyClearRelay
-            .asDriver(onErrorJustReturn: ())
-            .drive(onNext: { [weak self] _ in
-                self?.tappedClearSearchHisoryButtonRelay.accept(())
-            })
-            .disposed(by: header.disposeBag)
-        return header
     }
 
+
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return isShowSearcHistories ? 54 : CGFloat.leastNormalMagnitude
+        switch screenType {
+        case .tutorial, .searchConditions, .none:
+            return .leastNormalMagnitude
+        case .searchHistories:
+            return 54
+        }
     }
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isShowSearcHistories {
+        switch screenType {
+        case .tutorial, .none:
+            return
+        case .searchHistories:
             let hisory = searchHistroies?[indexPath.row]
             tappedSearchHistoryButtonRelay.accept(hisory ?? "")
-        }
-        if isShowSearchRepositories {
+        case .searchConditions:
             switch viewModel.searchSuggesionsCellData[indexPath.row].type {
             case .repositories:
                 tappedSearchRelay.accept(.repositories(searchText: searchKeyword ?? ""))
