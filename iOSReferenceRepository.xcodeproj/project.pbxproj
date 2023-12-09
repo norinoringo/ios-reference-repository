@@ -43,6 +43,7 @@
 		868E6F3B2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868E6F3A2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib */; };
 		868E6F3D2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E6F3C2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift */; };
 		8690EAC12B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC02B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift */; };
+		8690EAC32B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC22B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift */; };
 		869DCEC829DA49680000A1DD /* UIKitSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */; };
 		86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */; };
 		86C0648D29EB8F2F0019FC77 /* TestUICollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */; };
@@ -117,6 +118,7 @@
 		868E6F3A2AF5EE7200C8599F /* GitHubSearchHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubSearchHistoryCell.xib; sourceTree = "<group>"; };
 		868E6F3C2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchHistoryCell.swift; sourceTree = "<group>"; };
 		8690EAC02B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchSuggesionsCellData.swift; sourceTree = "<group>"; };
+		8690EAC22B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchHisotryManagerUseCase.swift; sourceTree = "<group>"; };
 		869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleViewModel.swift; sourceTree = "<group>"; };
 		86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUICollectionViewController.swift; sourceTree = "<group>"; };
 		86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUICollectionView.storyboard; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		861B23CB2AD8AEBF002935FD /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				8690EAC22B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				868E6F3D2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift in Sources */,
 				860B302C291EA09100628191 /* UIKitSampleHeader.swift in Sources */,
 				869DCEC829DA49680000A1DD /* UIKitSampleViewModel.swift in Sources */,
+				8690EAC32B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift in Sources */,
 				861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */,
 				8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */,
 				86D68D1F2AF64871003901C0 /* GitHubSearchHistoryHeader.swift in Sources */,

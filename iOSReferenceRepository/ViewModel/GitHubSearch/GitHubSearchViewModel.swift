@@ -12,13 +12,13 @@ import RxSwift
 class GitHubSearchViewModel {
     let searchSuggesionsCellData = GitHubSearchSuggesionsCellData.data
 
-    var userDefaultsRepository: GitHubSearchTextProtocol!
+    let gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerProtocol
     var githubSearchAPIRepository: GitHubSearchAPIRepository!
 
-    init(userDefaultsRepository: GitHubSearchTextProtocol = UserDefaultsRepository(),
+    init(gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerProtocol = GitHubSearchHisotryManagerUseCase(),
          githubSearchAPIRepository: GitHubSearchAPIRepository = GitHubSearchAPIRepository())
     {
-        self.userDefaultsRepository = userDefaultsRepository
+        self.gitHubSearchHisotryManagerUseCase = gitHubSearchHisotryManagerUseCase
         self.githubSearchAPIRepository = githubSearchAPIRepository
     }
 
@@ -52,7 +52,7 @@ class GitHubSearchViewModel {
                 guard let self = self else {
                     return
                 }
-                let history = self.userDefaultsRepository.getSearchText()
+                let history = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
                 searchHistoriesRelay.accept(history)
                 history.isEmpty ? showTutorial() : showSearchHistories()
             })
@@ -63,7 +63,7 @@ class GitHubSearchViewModel {
                 guard let keyword = keyword, !keyword.isEmpty else {
                     searchKeywordRelay.accept("")
                     if let self = self {
-                        self.userDefaultsRepository.getSearchText().isEmpty ? showTutorial() : showSearchHistories()
+                        self.gitHubSearchHisotryManagerUseCase.getSearchHistories().isEmpty ? showTutorial() : showSearchHistories()
                     }
                     return
                 }
@@ -74,29 +74,8 @@ class GitHubSearchViewModel {
 
         input.tappedSearch
             .drive(onNext: { [weak self] searchType in
-                switch searchType {
-                // TODO: APIRepositoryへのつなぎ込み
-                case let .repositories(searchText: searchText):
-                    self?.userDefaultsRepository.addSearchText(text: searchText)
-                    print(searchText)
-                case let .issues(searchText: searchText):
-                    self?.userDefaultsRepository.addSearchText(text: searchText)
-                    print(searchText)
-                case let .pullRequests(searchText: searchText):
-                    self?.userDefaultsRepository.addSearchText(text: searchText)
-                    print(searchText)
-                case let .users(searchText: searchText):
-                    self?.userDefaultsRepository.addSearchText(text: searchText)
-                    print(searchText)
-                case let .organizations(searchText: searchText):
-                    self?.userDefaultsRepository.addSearchText(text: searchText)
-                    print(searchText)
-                case let .keyword(searchText: searchText):
-                    self?.userDefaultsRepository.addSearchText(text: searchText)
-                    print(searchText)
-                }
-                let hisotry = self?.userDefaultsRepository.getSearchText()
-                searchHistoriesRelay.accept(hisotry ?? [])
+                self?.gitHubSearchHisotryManagerUseCase.addSearchHistory(type: searchType)
+                searchHistoriesRelay.accept(self?.gitHubSearchHisotryManagerUseCase.getSearchHistories() ?? [])
 
                 self?.githubSearchAPIRepository.get(type: searchType)
                 print("githubSearchAPIRepository.get(type:\(searchType)")
@@ -105,11 +84,9 @@ class GitHubSearchViewModel {
 
         input.tappedClearSearchHisoryButton
             .drive(onNext: { [weak self] _ in
-                let history = self?.userDefaultsRepository.clearSearchText()
-                searchHistoriesRelay.accept(history ?? [])
-                isShowTutorialRelay.accept(true)
-                isShowSearchHistoriesRelay.accept(false)
-                isShowSearchConditionsRelay.accept(false)
+                let clearedHisotry = self?.gitHubSearchHisotryManagerUseCase.clearSearchHistory()
+                searchHistoriesRelay.accept(clearedHisotry ?? [])
+                showTutorial()
             })
             .disposed(by: disposeBag)
 
