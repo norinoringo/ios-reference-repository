@@ -59,8 +59,8 @@ class GitHubSearchViewController: UIViewController {
             .disposed(by: disposeBag)
 
         output.searchHistories
-            .drive(onNext: { [weak self] hisories in
-                self?.searchHistroies = hisories
+            .drive(onNext: { [weak self] histories in
+                self?.searchHistroies = histories
             })
             .disposed(by: disposeBag)
 
@@ -95,7 +95,6 @@ class GitHubSearchViewController: UIViewController {
 }
 
 extension GitHubSearchViewController: UITableViewDataSource {
-    // TODO: TableViewのセルとセクションはViewModelから渡されたデータを使う
     func numberOfSections(in _: UITableView) -> Int {
         return 1
     }
@@ -113,8 +112,6 @@ extension GitHubSearchViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: DATA層でモデルを定義して、その値を指定する
-        // FIXME: 検索候補セルを表示したときに他のsectionを非表示にしても余白ができてしまうので、動的に表示するセルを切り替えている。しかし実装が複雑になるのでこのやり方は辞めたい。
         if isShowTutorial {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchTutorialLabelCell.identifier, for: indexPath) as? GitHubSearchTutorialLabelCell else {
                 return UITableViewCell()
@@ -145,7 +142,6 @@ extension GitHubSearchViewController: UITableViewDataSource {
 }
 
 extension GitHubSearchViewController: UITableViewDelegate {
-    // TODO: 検索履歴がない場合は表示しないロジックを実装する
     func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader, isShowSearcHistories else {
             return nil
