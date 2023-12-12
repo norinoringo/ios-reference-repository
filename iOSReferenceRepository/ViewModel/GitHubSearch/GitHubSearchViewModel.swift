@@ -89,6 +89,7 @@ class GitHubSearchViewModel {
             }
             .asDriver(onErrorJustReturn: "")
 
+        // TODO: input.tappedSearchとinput.tappedSearchHistoryButtonの戻り値をDriver.mergeしてOutputに渡す
         input.tappedSearch
             .drive(onNext: { [weak self] searchType in
                 self?.gitHubSearchHisotryManagerUseCase.addSearchHistory(type: searchType)
