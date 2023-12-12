@@ -14,13 +14,10 @@ class GitHubSearchViewModel {
     var searchHistories = [String]()
 
     let gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol
-    let githubSearchUseCase: GitHubSearchUseCaseProtocol
 
-    init(gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol = GitHubSearchHisotryManagerUseCase(),
-         githubSearchUseCase: GitHubSearchUseCaseProtocol = GitHubSearchUseCase())
+    init(gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol = GitHubSearchHisotryManagerUseCase())
     {
         self.gitHubSearchHisotryManagerUseCase = gitHubSearchHisotryManagerUseCase
-        self.githubSearchUseCase = githubSearchUseCase
     }
 
     private let disposeBag = DisposeBag()
@@ -93,11 +90,7 @@ class GitHubSearchViewModel {
         input.tappedSearch
             .drive(onNext: { [weak self] searchType in
                 self?.searchHistories = self?.gitHubSearchHisotryManagerUseCase.setSearchHistory(type: searchType) ?? []
-
-                self?.githubSearchUseCase.search(type: searchType)
-                print("githubSearchAPIRepository.get(type:\(searchType)")
                 pushGitHubSearchResutltViewRelay.accept(())
-
             })
             .disposed(by: disposeBag)
 
