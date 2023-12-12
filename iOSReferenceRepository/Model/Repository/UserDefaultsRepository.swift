@@ -8,48 +8,22 @@
 import Foundation
 
 protocol UserDefaultsRepositoryProtocol {
-    func getSearchHistories() -> [String]
-    func addSearchHistory(type: GitHubSearchType)
-    func clearSearchHistory() -> [String]
+    func getSearchHistories() -> [String]?
+    func setSearchHistories(histories: [String]) -> [String]?
+    func clearSearchHistory()
 }
 
 class UserDefaultsRepository: UserDefaultsRepositoryProtocol {
-    // TODO: UserDefaultsからGET/SETする処理を追加
-    private var histories = ["1", "2", "3", "4", "5"]
-
-    func getSearchHistories() -> [String] {
-        getGitHubSearchHistory()
+    func getSearchHistories() -> [String]? {
+        return UserDefaults.standard.stringArray(forKey: UserDefaultsKey.GitHubSearchHistories.key)
     }
 
-    func addSearchHistory(type: GitHubSearchType) {
-        switch type {
-        case let .repositories(searchText):
-            addGitHubSearchHistory(text: searchText)
-        case let .issues(searchText):
-            addGitHubSearchHistory(text: searchText)
-        case let .pullRequests(searchText):
-            addGitHubSearchHistory(text: searchText)
-        case let .users(searchText):
-            addGitHubSearchHistory(text: searchText)
-        case let .organizations(searchText):
-            addGitHubSearchHistory(text: searchText)
-        case let .keyword(searchText):
-            addGitHubSearchHistory(text: searchText)
-        }
+    func setSearchHistories(histories: [String]) -> [String]? {
+        UserDefaults.standard.set(histories, forKey: UserDefaultsKey.GitHubSearchHistories.key)
+        return UserDefaults.standard.stringArray(forKey: UserDefaultsKey.GitHubSearchHistories.key)
     }
 
-    func clearSearchHistory() -> [String] {
-        histories.removeAll()
-        return getGitHubSearchHistory()
-    }
-}
-
-private extension UserDefaultsRepository {
-    private func getGitHubSearchHistory() -> [String] {
-        return histories
-    }
-
-    private func addGitHubSearchHistory(text: String) {
-        histories.append(text)
+    func clearSearchHistory() {
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKey.GitHubSearchHistories.key)
     }
 }

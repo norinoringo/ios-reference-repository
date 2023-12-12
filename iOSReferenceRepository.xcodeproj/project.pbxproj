@@ -47,6 +47,7 @@
 		8690EAC52B244B6500F1DE8E /* GitHubSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC42B244B6500F1DE8E /* GitHubSearchUseCase.swift */; };
 		8690EAC72B244F6B00F1DE8E /* Extension+Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC62B244F6B00F1DE8E /* Extension+Driver.swift */; };
 		8690EAC92B27F71800F1DE8E /* GitHubSearchViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC82B27F71700F1DE8E /* GitHubSearchViewType.swift */; };
+		8690EACB2B280C2F00F1DE8E /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EACA2B280C2F00F1DE8E /* UserDefaultsKey.swift */; };
 		869DCEC829DA49680000A1DD /* UIKitSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */; };
 		86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */; };
 		86C0648D29EB8F2F0019FC77 /* TestUICollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */; };
@@ -125,6 +126,7 @@
 		8690EAC42B244B6500F1DE8E /* GitHubSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchUseCase.swift; sourceTree = "<group>"; };
 		8690EAC62B244F6B00F1DE8E /* Extension+Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Driver.swift"; sourceTree = "<group>"; };
 		8690EAC82B27F71700F1DE8E /* GitHubSearchViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewType.swift; sourceTree = "<group>"; };
+		8690EACA2B280C2F00F1DE8E /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleViewModel.swift; sourceTree = "<group>"; };
 		86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUICollectionViewController.swift; sourceTree = "<group>"; };
 		86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUICollectionView.storyboard; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				8618B4A328CC45D9004810C3 /* AppDelegate.swift */,
 				8618B4C428CDAAB4004810C3 /* R.generated.swift */,
 				8618B4A528CC45D9004810C3 /* SceneDelegate.swift */,
+				8690EACA2B280C2F00F1DE8E /* UserDefaultsKey.swift */,
 				8618B4AC28CC45DC004810C3 /* Assets.xcassets */,
 				86E6C25B2AF5E35F0043F09C /* Localizable.xcstrings */,
 			);
@@ -714,6 +717,7 @@
 				86C0649329EB92050019FC77 /* TestCollectionViewCell.swift in Sources */,
 				865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */,
 				8690EAC52B244B6500F1DE8E /* GitHubSearchUseCase.swift in Sources */,
+				8690EACB2B280C2F00F1DE8E /* UserDefaultsKey.swift in Sources */,
 				86FAFDA729E624AE00327F7F /* TestUITableViewCell.swift in Sources */,
 				86D1200B29E8C66B001F59BD /* TestListView.swift in Sources */,
 				86FAFDAB29E6CD8700327F7F /* NextViewControllerFromTableView.swift in Sources */,

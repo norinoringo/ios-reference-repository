@@ -14,13 +14,10 @@ class GitHubSearchViewModel {
     var searchHistories = [String]()
 
     let gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol
-    let githubSearchUseCase: GitHubSearchUseCaseProtocol
 
-    init(gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol = GitHubSearchHisotryManagerUseCase(),
-         githubSearchUseCase: GitHubSearchUseCaseProtocol = GitHubSearchUseCase())
+    init(gitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtocol = GitHubSearchHisotryManagerUseCase())
     {
         self.gitHubSearchHisotryManagerUseCase = gitHubSearchHisotryManagerUseCase
-        self.githubSearchUseCase = githubSearchUseCase
     }
 
     private let disposeBag = DisposeBag()
@@ -92,13 +89,8 @@ class GitHubSearchViewModel {
         // TODO: input.tappedSearchとinput.tappedSearchHistoryButtonの戻り値をDriver.mergeしてOutputに渡す
         input.tappedSearch
             .drive(onNext: { [weak self] searchType in
-                self?.gitHubSearchHisotryManagerUseCase.addSearchHistory(type: searchType)
-                self?.searchHistories = self?.gitHubSearchHisotryManagerUseCase.getSearchHistories() ?? []
-
-                self?.githubSearchUseCase.search(type: searchType)
-                print("githubSearchAPIRepository.get(type:\(searchType)")
+                self?.searchHistories = self?.gitHubSearchHisotryManagerUseCase.setSearchHistory(type: searchType) ?? []
                 pushGitHubSearchResutltViewRelay.accept(())
-
             })
             .disposed(by: disposeBag)
 
