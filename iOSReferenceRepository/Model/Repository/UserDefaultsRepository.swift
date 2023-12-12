@@ -14,7 +14,6 @@ protocol UserDefaultsRepositoryProtocol {
 }
 
 class UserDefaultsRepository: UserDefaultsRepositoryProtocol {
-
     func getSearchHistories() -> [String]? {
         return UserDefaults.standard.stringArray(forKey: UserDefaultsKey.GitHubSearchHistories.key)
     }

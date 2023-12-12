@@ -29,12 +29,12 @@ class GitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtoc
 
     func setSearchHistory(type: GitHubSearchType) -> [String] {
         switch type {
-        case .repositories(let searchText),
-                .issues(let searchText),
-                .pullRequests(let searchText),
-                .users(let searchText),
-                .organizations(let searchText),
-                .keyword(let searchText):
+        case let .repositories(searchText),
+             let .issues(searchText),
+             let .pullRequests(searchText),
+             let .users(searchText),
+             let .organizations(searchText),
+             let .keyword(searchText):
             print("setSearchHistory(type: \(type)), searchText: \(searchText)")
             let hisotries = makeSearchHistories(searchText: searchText)
             return repository.setSearchHistories(histories: hisotries) ?? []
