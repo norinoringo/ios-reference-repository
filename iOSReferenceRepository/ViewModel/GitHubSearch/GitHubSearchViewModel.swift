@@ -36,36 +36,59 @@ class GitHubSearchViewModel {
     struct Output {
         let searchKeyword: Driver<String?>
         let screenType: Driver<GitHubSearchViewModel.screenType>
+        let pushGitHubSearchResutltView: Driver<Void>
     }
 
     func transform(input: Input) -> Output {
-        let searchKeywordRelay = PublishRelay<String?>()
-        let screenTypeRelay = PublishRelay<GitHubSearchViewModel.screenType>()
+        let pushGitHubSearchResutltViewRelay = PublishRelay<Void>()
 
-        input.viewWillAppear
-            .drive(onNext: { [weak self] _ in
+        let screenTypeWithViewWillAppear = input.viewWillAppear
+            .asObservable()
+            .map { [weak self] _ in
                 guard let self = self else {
-                    return
+                    return GitHubSearchViewModel.screenType.none
                 }
-                let histories = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
-                self.searchHistories = histories
-                histories.isEmpty ? screenTypeRelay.accept(.tutorial) : screenTypeRelay.accept(.searchHistories)
-            })
-            .disposed(by: disposeBag)
+                self.searchHistories = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
+                return self.searchHistories.isEmpty ? GitHubSearchViewModel.screenType.tutorial : GitHubSearchViewModel.screenType.searchHistories
+            }
+            .asDriver(onErrorJustReturn: GitHubSearchViewModel.screenType.none)
 
-        input.searchText
-            .drive(onNext: { [weak self] keyword in
-                guard let keyword = keyword, !keyword.isEmpty else {
-                    searchKeywordRelay.accept("")
-                    if let self = self {
-                        self.gitHubSearchHisotryManagerUseCase.getSearchHistories().isEmpty ? screenTypeRelay.accept(.tutorial) : screenTypeRelay.accept(.searchHistories)
-                    }
-                    return
+        let screenTypeWithSearchText = input.searchText
+            .asObservable()
+            .map { [weak self] keyword in
+                guard let self = self else {
+                    return GitHubSearchViewModel.screenType.none
                 }
-                searchKeywordRelay.accept(keyword)
-                screenTypeRelay.accept(.searchConditions)
-            })
-            .disposed(by: disposeBag)
+                guard let keyword = keyword, keyword.isEmpty else {
+                    return GitHubSearchViewModel.screenType.searchConditions
+                }
+                self.searchHistories = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
+                return self.searchHistories.isEmpty ? GitHubSearchViewModel.screenType.tutorial : GitHubSearchViewModel.screenType.searchHistories
+            }
+            .asDriver(onErrorJustReturn: GitHubSearchViewModel.screenType.none)
+
+        let screenTypeWithTappedClearSearchHisoryButton = input.tappedClearSearchHisoryButton
+            .asObservable()
+            .map { [weak self] _ in
+                guard let self = self else {
+                    return GitHubSearchViewModel.screenType.none
+                }
+                self.searchHistories = self.gitHubSearchHisotryManagerUseCase.clearSearchHistory()
+                return GitHubSearchViewModel.screenType.tutorial
+            }
+            .asDriver(onErrorJustReturn: GitHubSearchViewModel.screenType.none)
+
+        let screenType = Driver.merge(screenTypeWithViewWillAppear, 
+                                      screenTypeWithSearchText,
+                                      screenTypeWithTappedClearSearchHisoryButton)
+
+        let searchText = input.searchText
+            .asObservable()
+            .map { keyword in
+                return keyword
+            }
+            .asDriver(onErrorJustReturn: "")
+
 
         input.tappedSearch
             .drive(onNext: { [weak self] searchType in
@@ -74,18 +97,14 @@ class GitHubSearchViewModel {
 
                 self?.githubSearchUseCase.search(type: searchType)
                 print("githubSearchAPIRepository.get(type:\(searchType)")
+                pushGitHubSearchResutltViewRelay.accept(())
+
             })
             .disposed(by: disposeBag)
 
-        input.tappedClearSearchHisoryButton
-            .drive(onNext: { [weak self] _ in
-                self?.searchHistories = self?.gitHubSearchHisotryManagerUseCase.clearSearchHistory() ?? []
-                screenTypeRelay.accept(.tutorial)
-            })
-            .disposed(by: disposeBag)
-
-        return Output(searchKeyword: searchKeywordRelay.asDriver(onErrorJustReturn: nil),
-                      screenType: screenTypeRelay.asDriver(onErrorJustReturn: .none))
+        return Output(searchKeyword: searchText,
+                      screenType: screenType,
+                      pushGitHubSearchResutltView: pushGitHubSearchResutltViewRelay.asDriver(onErrorJustReturn: ()))
     }
 }
 

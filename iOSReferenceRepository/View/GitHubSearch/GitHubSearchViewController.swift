@@ -63,6 +63,12 @@ class GitHubSearchViewController: UIViewController {
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+
+        output.pushGitHubSearchResutltView
+            .drive(onNext: { _ in
+                // TODO: 画面遷移処理を実装する
+            })
+            .disposed(by: disposeBag)
     }
 
     private func configureTableView() {
