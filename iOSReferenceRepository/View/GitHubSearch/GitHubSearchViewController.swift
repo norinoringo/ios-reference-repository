@@ -15,7 +15,7 @@ class GitHubSearchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
 
     private var searchKeyword: String?
-    private var screenType: GitHubSearchViewModel.screenType = .none
+    private var screenType: GitHubSearchViewType = .none
 
     private let viewModel = GitHubSearchViewModel()
     private let disposeBag = DisposeBag()

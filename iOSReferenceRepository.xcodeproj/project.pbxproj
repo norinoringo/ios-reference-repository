@@ -46,6 +46,7 @@
 		8690EAC32B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC22B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift */; };
 		8690EAC52B244B6500F1DE8E /* GitHubSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC42B244B6500F1DE8E /* GitHubSearchUseCase.swift */; };
 		8690EAC72B244F6B00F1DE8E /* Extension+Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC62B244F6B00F1DE8E /* Extension+Driver.swift */; };
+		8690EAC92B27F71800F1DE8E /* GitHubSearchViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8690EAC82B27F71700F1DE8E /* GitHubSearchViewType.swift */; };
 		869DCEC829DA49680000A1DD /* UIKitSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */; };
 		86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */; };
 		86C0648D29EB8F2F0019FC77 /* TestUICollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */; };
@@ -123,6 +124,7 @@
 		8690EAC22B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchHisotryManagerUseCase.swift; sourceTree = "<group>"; };
 		8690EAC42B244B6500F1DE8E /* GitHubSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchUseCase.swift; sourceTree = "<group>"; };
 		8690EAC62B244F6B00F1DE8E /* Extension+Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Driver.swift"; sourceTree = "<group>"; };
+		8690EAC82B27F71700F1DE8E /* GitHubSearchViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewType.swift; sourceTree = "<group>"; };
 		869DCEC729DA49680000A1DD /* UIKitSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleViewModel.swift; sourceTree = "<group>"; };
 		86C0648A29EB8F1B0019FC77 /* TestUICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUICollectionViewController.swift; sourceTree = "<group>"; };
 		86C0648C29EB8F2F0019FC77 /* TestUICollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUICollectionView.storyboard; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */,
 				865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */,
 				8690EAC02B241E9E00F1DE8E /* GitHubSearchSuggesionsCellData.swift */,
+				8690EAC82B27F71700F1DE8E /* GitHubSearchViewType.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				865510B02B207868007767E1 /* GitHubSearchAPIRepository.swift in Sources */,
 				8618B4C028CDA8C2004810C3 /* UIKitSampleViewController.swift in Sources */,
 				86D1200F29EA4542001F59BD /* NextListView.swift in Sources */,
+				8690EAC92B27F71800F1DE8E /* GitHubSearchViewType.swift in Sources */,
 				8609B80529DF9ABA00453822 /* TestScrollView.swift in Sources */,
 				86C0649329EB92050019FC77 /* TestCollectionViewCell.swift in Sources */,
 				865A100029C3EB56007D9567 /* SwiftUIView.swift in Sources */,

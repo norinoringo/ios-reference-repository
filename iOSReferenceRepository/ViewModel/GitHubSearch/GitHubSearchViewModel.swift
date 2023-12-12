@@ -35,48 +35,48 @@ class GitHubSearchViewModel {
 
     struct Output {
         let searchKeyword: Driver<String?>
-        let screenType: Driver<GitHubSearchViewModel.screenType>
+        let screenType: Driver<GitHubSearchViewType>
         let pushGitHubSearchResutltView: Driver<Void>
     }
 
     func transform(input: Input) -> Output {
         let pushGitHubSearchResutltViewRelay = PublishRelay<Void>()
 
-        let screenTypeWithViewWillAppear = input.viewWillAppear
+        let screenTypeWithViewWillAppear: Driver<GitHubSearchViewType> = input.viewWillAppear
             .asObservable()
             .map { [weak self] _ in
                 guard let self = self else {
-                    return GitHubSearchViewModel.screenType.none
+                    return .none
                 }
                 self.searchHistories = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
-                return self.searchHistories.isEmpty ? GitHubSearchViewModel.screenType.tutorial : GitHubSearchViewModel.screenType.searchHistories
+                return self.searchHistories.isEmpty ? .tutorial : .searchHistories
             }
-            .asDriver(onErrorJustReturn: GitHubSearchViewModel.screenType.none)
+            .asDriver(onErrorJustReturn: GitHubSearchViewType.none)
 
-        let screenTypeWithSearchText = input.searchText
+        let screenTypeWithSearchText: Driver<GitHubSearchViewType> = input.searchText
             .asObservable()
             .map { [weak self] keyword in
                 guard let self = self else {
-                    return GitHubSearchViewModel.screenType.none
+                    return .none
                 }
                 guard let keyword = keyword, keyword.isEmpty else {
-                    return GitHubSearchViewModel.screenType.searchConditions
+                    return .searchConditions
                 }
                 self.searchHistories = self.gitHubSearchHisotryManagerUseCase.getSearchHistories()
-                return self.searchHistories.isEmpty ? GitHubSearchViewModel.screenType.tutorial : GitHubSearchViewModel.screenType.searchHistories
+                return self.searchHistories.isEmpty ? .tutorial : .searchHistories
             }
-            .asDriver(onErrorJustReturn: GitHubSearchViewModel.screenType.none)
+            .asDriver(onErrorJustReturn: .none)
 
-        let screenTypeWithTappedClearSearchHisoryButton = input.tappedClearSearchHisoryButton
+        let screenTypeWithTappedClearSearchHisoryButton: Driver<GitHubSearchViewType> = input.tappedClearSearchHisoryButton
             .asObservable()
             .map { [weak self] _ in
                 guard let self = self else {
-                    return GitHubSearchViewModel.screenType.none
+                    return .none
                 }
                 self.searchHistories = self.gitHubSearchHisotryManagerUseCase.clearSearchHistory()
-                return GitHubSearchViewModel.screenType.tutorial
+                return .tutorial
             }
-            .asDriver(onErrorJustReturn: GitHubSearchViewModel.screenType.none)
+            .asDriver(onErrorJustReturn: .none)
 
         let screenType = Driver.merge(screenTypeWithViewWillAppear,
                                       screenTypeWithSearchText,
@@ -105,14 +105,5 @@ class GitHubSearchViewModel {
         return Output(searchKeyword: searchText,
                       screenType: screenType,
                       pushGitHubSearchResutltView: pushGitHubSearchResutltViewRelay.asDriver(onErrorJustReturn: ()))
-    }
-}
-
-extension GitHubSearchViewModel {
-    enum screenType {
-        case tutorial
-        case searchHistories
-        case searchConditions
-        case none
     }
 }
