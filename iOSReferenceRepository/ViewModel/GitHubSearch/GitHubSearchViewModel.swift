@@ -78,17 +78,16 @@ class GitHubSearchViewModel {
             }
             .asDriver(onErrorJustReturn: GitHubSearchViewModel.screenType.none)
 
-        let screenType = Driver.merge(screenTypeWithViewWillAppear, 
+        let screenType = Driver.merge(screenTypeWithViewWillAppear,
                                       screenTypeWithSearchText,
                                       screenTypeWithTappedClearSearchHisoryButton)
 
         let searchText = input.searchText
             .asObservable()
             .map { keyword in
-                return keyword
+                keyword
             }
             .asDriver(onErrorJustReturn: "")
-
 
         input.tappedSearch
             .drive(onNext: { [weak self] searchType in
