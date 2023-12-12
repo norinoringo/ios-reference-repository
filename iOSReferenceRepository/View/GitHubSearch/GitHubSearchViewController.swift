@@ -1,27 +1,74 @@
 //
 //  GitHubSearchViewController.swift
 //  iOSReferenceRepository
-//  
+//
 //  Created by hisanori on 2023/10/20.
-//  
-
+//
 
 import Foundation
+import RxCocoa
+import RxSwift
 import UIKit
 
 class GitHubSearchViewController: UIViewController {
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var tableView: UITableView!
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    private var searchKeyword: String?
+    private var screenType: GitHubSearchViewType = .none
+
+    private let viewModel = GitHubSearchViewModel()
+    private let disposeBag = DisposeBag()
+    // Input
+    private let searchTextRelay = PublishRelay<String?>()
+    private let tappedSearchHistoryButtonRelay = PublishRelay<String>()
+    private let tappedClearSearchHisoryButtonRelay = PublishRelay<Void>()
+    private let tappedSearchRelay = PublishRelay<GitHubSearchType>()
+
+    private let searchHistoryHeaderHeight: CGFloat = 54
 
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
         configureTableView()
+        // この画面はNavigationBar不要なので、hiddenして上余白を詰めている
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     private func bind() {
-        // TODO: ViewModelとデータバインディングする
+        let viewWillAppear = rx.sentMessage(#selector(viewWillAppear(_:)))
+            .asDriver(onErrorJustReturn: [])
+            .mapToVoid()
+
+        let input = GitHubSearchViewModel.Input(
+            viewWillAppear: viewWillAppear,
+            searchText: searchTextRelay.asDriver(onErrorJustReturn: nil),
+            tappedSearchHistoryButton: tappedSearchHistoryButtonRelay.asDriver(onErrorJustReturn: ""),
+            tappedClearSearchHisoryButton: tappedClearSearchHisoryButtonRelay.asDriver(onErrorJustReturn: ()),
+            tappedSearch: tappedSearchRelay.asDriver(onErrorJustReturn: GitHubSearchType.keyword(searchText: ""))
+        )
+
+        let output = viewModel.transform(input: input)
+
+        output.searchKeyword
+            .drive(onNext: { [weak self] keyword in
+                self?.searchKeyword = keyword
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        output.screenType
+            .drive(onNext: { [weak self] type in
+                self?.screenType = type
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        output.pushGitHubSearchResutltView
+            .drive(onNext: { _ in
+                // TODO: 画面遷移処理を実装する
+            })
+            .disposed(by: disposeBag)
     }
 
     private func configureTableView() {
@@ -33,67 +80,112 @@ class GitHubSearchViewController: UIViewController {
 }
 
 extension GitHubSearchViewController: UITableViewDataSource {
-    // TODO: TableViewのセルとセクションはViewModelから渡されたデータを使う
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+    func numberOfSections(in _: UITableView) -> Int {
+        return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        switch screenType {
+        case .tutorial:
             return 1
-        } else if section == 1 {
-            return 5
-        } else if section == 2 {
-            return 6
-        } else {
+        case .searchHistories:
+            return viewModel.searchHistories.count
+        case .searchConditions:
+            return viewModel.searchSuggesionsCellData.count
+        case .none:
             return 0
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: DATA層でモデルを定義して、その値を指定する
-        if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier:  R.nib.gitHubSearchTutorialLabelCell.identifier, for: indexPath) as? GitHubSearchTutorialLabelCell else {
+        switch screenType {
+        case .tutorial:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchTutorialLabelCell.identifier, for: indexPath) as? GitHubSearchTutorialLabelCell else {
                 return UITableViewCell()
             }
             return cell
-        } else if indexPath.section == 1 {
+        case .searchHistories:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchHistoryCell.identifier, for: indexPath) as? GitHubSearchHistoryCell else {
                 return UITableViewCell()
             }
-            cell.configureView(title: "Swift")
+            cell.configureView(title: viewModel.searchHistories[indexPath.row])
             return cell
-        } else if indexPath.section == 2 {
+        case .searchConditions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.gitHubSearchSuggestionsCell.identifier, for: indexPath) as? GitHubSearchSuggestionsCell else {
                 return UITableViewCell()
             }
+
+            let searchSuggesionsCell = viewModel.searchSuggesionsCellData[indexPath.row]
             cell.configureView(
-                image: UIImage(systemName: "arrow.right") ?? UIImage(),
-                               title: "Swiftへ移動"
+                image: searchSuggesionsCell.image,
+                title: "\"\(searchKeyword ?? "")\"" + searchSuggesionsCell.title
             )
             return cell
-        } else {
+        case .none:
             return UITableViewCell()
         }
     }
 }
 
 extension GitHubSearchViewController: UITableViewDelegate {
-    // TODO: 検索履歴がない場合は表示しないロジックを実装する
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 1 {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+        switch screenType {
+        case .tutorial, .searchConditions, .none:
+            return nil
+        case .searchHistories:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: R.nib.gitHubSearchHistoryHeader.name) as? GitHubSearchHistoryHeader else {
                 return nil
             }
+            header.tappedClearButtonRelay
+                .asDriver(onErrorJustReturn: ())
+                .drive(onNext: { [weak self] _ in
+                    self?.tappedClearSearchHisoryButtonRelay.accept(())
+                })
+                .disposed(by: header.disposeBag)
             return header
-        } else {
-            return nil
+        }
+    }
+
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        switch screenType {
+        case .tutorial, .searchConditions, .none:
+            return .leastNormalMagnitude
+        case .searchHistories:
+            return searchHistoryHeaderHeight
+        }
+    }
+
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch screenType {
+        case .tutorial, .none:
+            return
+        case .searchHistories:
+            tappedSearchHistoryButtonRelay.accept(viewModel.searchHistories[indexPath.row])
+        case .searchConditions:
+            switch viewModel.searchSuggesionsCellData[indexPath.row].type {
+            case .repositories:
+                tappedSearchRelay.accept(.repositories(searchText: searchKeyword ?? ""))
+            case .issues:
+                tappedSearchRelay.accept(.issues(searchText: searchKeyword ?? ""))
+            case .pullRequests:
+                tappedSearchRelay.accept(.pullRequests(searchText: searchKeyword ?? ""))
+            case .users:
+                tappedSearchRelay.accept(.users(searchText: searchKeyword ?? ""))
+            case .organizations:
+                tappedSearchRelay.accept(.organizations(searchText: searchKeyword ?? ""))
+            case .keyword:
+                tappedSearchRelay.accept(.keyword(searchText: searchKeyword ?? ""))
+            }
         }
     }
 }
 
 extension GitHubSearchViewController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
+    func searchBar(_: UISearchBar, textDidChange searchText: String) {
+        searchTextRelay.accept(searchText)
+    }
+
+    func searchBarSearchButtonClicked(_: UISearchBar) {
+        view.endEditing(true)
     }
 }

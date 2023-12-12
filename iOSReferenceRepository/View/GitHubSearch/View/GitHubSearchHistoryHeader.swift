@@ -6,17 +6,27 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 import UIKit
 
 class GitHubSearchHistoryHeader: UITableViewHeaderFooterView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var clearButton: UIButton!
 
-    @IBAction func tappedClearButton(_: Any) {
-        // TODO: ViewModelへイベント伝搬するようにする
-    }
+    let tappedClearButtonRelay = PublishRelay<Void>()
+    let disposeBag = DisposeBag()
 
     override func awakeFromNib() {}
 
     override func prepareForReuse() {}
+
+    override func willMove(toSuperview _: UIView?) {
+        // UITableViewHeaderFooterViewは、非表示になるとUIButtonのtarget/actionが解除される仕様なので、再設定している
+        clearButton.addTarget(self, action: #selector(tappedClearButton), for: .touchUpInside)
+    }
+
+    @objc func tappedClearButton() {
+        tappedClearButtonRelay.accept(())
+    }
 }
