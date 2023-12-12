@@ -9,7 +9,7 @@ import Foundation
 
 protocol UserDefaultsRepositoryProtocol {
     func getSearchHistories() -> [String]?
-    func setSearchHistory(histories: [String]) -> [String]?
+    func setSearchHistories(histories: [String]) -> [String]?
     func clearSearchHistory()
 }
 
@@ -19,7 +19,7 @@ class UserDefaultsRepository: UserDefaultsRepositoryProtocol {
         return UserDefaults.standard.stringArray(forKey: UserDefaultsKey.GitHubSearchHistories.key)
     }
 
-    func setSearchHistory(histories: [String]) -> [String]? {
+    func setSearchHistories(histories: [String]) -> [String]? {
         UserDefaults.standard.set(histories, forKey: UserDefaultsKey.GitHubSearchHistories.key)
         return UserDefaults.standard.stringArray(forKey: UserDefaultsKey.GitHubSearchHistories.key)
     }

@@ -37,7 +37,7 @@ class GitHubSearchHisotryManagerUseCase: GitHubSearchHisotryManagerUseCaseProtoc
                 .keyword(let searchText):
             print("setSearchHistory(type: \(type)), searchText: \(searchText)")
             let hisotries = makeSearchHistories(searchText: searchText)
-            return repository.setSearchHistory(histories: hisotries) ?? []
+            return repository.setSearchHistories(histories: hisotries) ?? []
         }
     }
 
