@@ -9,11 +9,13 @@
 import Foundation
 
 enum GitHubSearchDataMock {
-    case repositories
+    case repositoriesWithSuccess
+    case repositoriesWithError
+    case repositoriesWithErrorWithoutErrorsInfo
 
     var dataString: String {
         switch self {
-        case .repositories:
+        case .repositoriesWithSuccess:
             return """
                     {
                       "total_count": 294501,
@@ -131,6 +133,27 @@ enum GitHubSearchDataMock {
                       ]
                     }
                     """
+        case .repositoriesWithError:
+            return """
+                        {
+                          "message": "Validation Failed",
+                          "errors": [
+                            {
+                              "resource": "Search",
+                              "field": "q",
+                              "code": "missing"
+                            }
+                          ],
+                          "documentation_url": "https://docs.github.com/v3/search"
+                        }
+                        """
+        case .repositoriesWithErrorWithoutErrorsInfo:
+            return """
+            {
+              "message": "Not Found",
+              "documentation_url": "https://docs.github.com/rest"
+            }
+            """
         }
     }
 }

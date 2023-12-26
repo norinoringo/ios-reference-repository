@@ -11,15 +11,22 @@ import RxSwift
 import XCTest
 
 class GitHubSearchUseCaseTest: XCTestCase {
-    private let disposeBag = DisposeBag()
+    private var repository = GitHubAPIRepositoryMock()
+    private var dataString = ""
+    private var disposeBag = DisposeBag()
+
+    override func setUp() {
+        super.setUp()
+        repository = GitHubAPIRepositoryMock()
+        dataString = ""
+        disposeBag = DisposeBag()
+    }
 
     func testGetGitHubSearchResponseWithRepositoryCaseSuccess() {
-        var repository = GitHubAPIRepositoryMock()
-        let dataString = GitHubSearchDataMock.repositories.dataString
+        dataString = GitHubSearchDataMock.repositoriesWithSuccess.dataString
         let data = Data(dataString.utf8)
 
         repository.getGitHubSearchResponse = { () in
-
             guard let response = try? JSONDecoder().decode(GitHubSearchRepositoriesResponse.self, from: data) else {
                 fatalError("decodeエラー")
             }
@@ -37,7 +44,50 @@ class GitHubSearchUseCaseTest: XCTestCase {
 
         repository.get(type: .repositories(searchText: ""))
             .subscribe(onSuccess: { _ in
+            })
+            .disposed(by: disposeBag)
+    }
 
+    func testGetGitHubSearchResponseWithRepositoryCaseError() {
+        dataString = GitHubSearchDataMock.repositoriesWithError.dataString
+        let data = Data(dataString.utf8)
+
+        repository.getGitHubSearchResponse = { () in
+            guard let info = try? JSONDecoder().decode(GitHubSearchAPIError.ErrorInfo.self, from: data) else {
+                fatalError("decodeエラー")
+            }
+
+            XCTAssertEqual(info.message, "Validation Failed")
+            XCTAssertEqual(info.errors?.first?.resource, "Search")
+            XCTAssertEqual(info.errors?.first?.field, "q")
+            XCTAssertEqual(info.errors?.first?.code, "missing")
+            XCTAssertEqual(info.documentationUrl, "https://docs.github.com/v3/search")
+            return .just(.success(Data()))
+        }
+
+        repository.get(type: .repositories(searchText: ""))
+            .subscribe(onSuccess: { _ in
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func testGetGitHubSearchResponseWithRepositoryCaseErrorWithoutErrors() {
+        dataString = GitHubSearchDataMock.repositoriesWithErrorWithoutErrorsInfo.dataString
+        let data = Data(dataString.utf8)
+
+        repository.getGitHubSearchResponse = { () in
+            guard let info = try? JSONDecoder().decode(GitHubSearchAPIError.ErrorInfo.self, from: data) else {
+                fatalError("decodeエラー")
+            }
+
+            XCTAssertEqual(info.message, "Not Found")
+            XCTAssertNil(info.errors)
+            XCTAssertEqual(info.documentationUrl, "https://docs.github.com/rest")
+            return .just(.success(Data()))
+        }
+
+        repository.get(type: .repositories(searchText: ""))
+            .subscribe(onSuccess: { _ in
             })
             .disposed(by: disposeBag)
     }
