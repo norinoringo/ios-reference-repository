@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol GitHubSearchUseCaseProtocol {
-    func search(type: GitHubSearchType)
+    func search(type: GitHubSearchType) -> Single<Result<GitHubSearchResponse, GitHubSearchAPIError>>
 }
 
 class GitHubSearchUseCase: GitHubSearchUseCaseProtocol {
@@ -18,7 +19,15 @@ class GitHubSearchUseCase: GitHubSearchUseCaseProtocol {
         self.repository = repository
     }
 
-    func search(type: GitHubSearchType) {
+    func search(type: GitHubSearchType) -> Single<Result<GitHubSearchResponse, GitHubSearchAPIError>> {
+        // TODO: JSONパース処理の実装
         repository.get(type: type)
+            .subscribe(onSuccess: { result in
+
+            }, onError: { error in
+
+            })
+
+        return .just(.success(GitHubSearchResponse.repositories(repositories: [])))
     }
 }
