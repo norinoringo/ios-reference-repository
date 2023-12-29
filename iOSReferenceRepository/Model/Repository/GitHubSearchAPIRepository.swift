@@ -6,27 +6,36 @@
 //
 
 import Foundation
+import RxSwift
 
-// TODO: APIの実装
 protocol GitHubAPIRepositoryProtocol {
-    func get(type: GitHubSearchType)
+    func get(type: GitHubSearchType) -> Single<Result<Data, GitHubSearchAPIError>>
 }
 
 class GitHubAPIRepository: GitHubAPIRepositoryProtocol {
-    func get(type: GitHubSearchType) {
+    // TODO: PATHとMETHODも実装する
+    private let baseURL = "https://api.github.com"
+
+    // TODO: 各検索結果のレスポンスモデルを定義する
+    func get(type: GitHubSearchType) -> Single<Result<Data, GitHubSearchAPIError>> {
         switch type {
         case let .repositories(searchText: searchText):
-            print(searchText)
+            return .just(getRepositories(searchText: searchText))
         case let .issues(searchText: searchText):
-            print(searchText)
+            return .just(getRepositories(searchText: searchText))
         case let .pullRequests(searchText: searchText):
-            print(searchText)
+            return .just(getRepositories(searchText: searchText))
         case let .users(searchText: searchText):
-            print(searchText)
+            return .just(getRepositories(searchText: searchText))
         case let .organizations(searchText: searchText):
-            print(searchText)
+            return .just(getRepositories(searchText: searchText))
         case let .keyword(searchText: searchText):
-            print(searchText)
+            return .just(getRepositories(searchText: searchText))
         }
+    }
+
+    private func getRepositories(searchText: String) -> Result<Data, GitHubSearchAPIError> {
+        // TODO: 通信処理の実装
+        return .success(.init())
     }
 }
