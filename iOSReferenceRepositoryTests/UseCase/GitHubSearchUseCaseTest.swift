@@ -23,7 +23,7 @@ class GitHubSearchUseCaseTest: XCTestCase {
     }
 
     func testGetGitHubSearchResponseWithRepositoryCaseSuccess() {
-        dataString = GitHubSearchDataMock.repositoriesWithSuccess.dataString
+        dataString = GitHubSearchResponseMock.repositoriesWithSuccess.dataString
         let data = Data(dataString.utf8)
 
         repository.getGitHubSearchResponse = { () in
@@ -49,7 +49,7 @@ class GitHubSearchUseCaseTest: XCTestCase {
     }
 
     func testGetGitHubSearchResponseWithRepositoryCaseError() {
-        dataString = GitHubSearchDataMock.repositoriesWithError.dataString
+        dataString = GitHubSearchResponseMock.repositoriesWithError.dataString
         let data = Data(dataString.utf8)
 
         repository.getGitHubSearchResponse = { () in
@@ -72,7 +72,7 @@ class GitHubSearchUseCaseTest: XCTestCase {
     }
 
     func testGetGitHubSearchResponseWithRepositoryCaseErrorWithoutErrors() {
-        dataString = GitHubSearchDataMock.repositoriesWithErrorWithoutErrorsInfo.dataString
+        dataString = GitHubSearchResponseMock.repositoriesWithErrorWithoutErrorsInfo.dataString
         let data = Data(dataString.utf8)
 
         repository.getGitHubSearchResponse = { () in

@@ -1,5 +1,5 @@
 //
-//  GitHubSearchDataMock.swift
+//  GitHubSearchResponseMock.swift
 //  iOSReferenceRepositoryTests
 //
 //  Created by hisanori on 2023/12/26.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GitHubSearchDataMock {
+enum GitHubSearchResponseMock {
     case repositoriesWithSuccess
     case repositoriesWithError
     case repositoriesWithErrorWithoutErrorsInfo

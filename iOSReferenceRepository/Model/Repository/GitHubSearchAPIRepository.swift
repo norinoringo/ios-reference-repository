@@ -13,6 +13,7 @@ protocol GitHubAPIRepositoryProtocol {
 }
 
 class GitHubAPIRepository: GitHubAPIRepositoryProtocol {
+    // TODO: PATHとMETHODも実装する
     private let baseURL = "https://api.github.com"
 
     // TODO: 各検索結果のレスポンスモデルを定義する
