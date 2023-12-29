@@ -27,7 +27,7 @@ class GitHubSearchUseCaseTest: XCTestCase {
         let data = Data(dataString.utf8)
 
         repository.getGitHubSearchResponse = { () in
-            guard let response = try? JSONDecoder().decode(GitHubSearchRepositoriesResponse.self, from: data) else {
+            guard let response = try? JSONDecoder().decode(GitHubSearchResponse.Repository.self, from: data) else {
                 fatalError("decodeエラー")
             }
 
@@ -53,7 +53,7 @@ class GitHubSearchUseCaseTest: XCTestCase {
         let data = Data(dataString.utf8)
 
         repository.getGitHubSearchResponse = { () in
-            guard let info = try? JSONDecoder().decode(GitHubSearchAPIError.ErrorInfo.self, from: data) else {
+            guard let info = try? JSONDecoder().decode(GitHubSearchAPIError.Info.self, from: data) else {
                 fatalError("decodeエラー")
             }
 
@@ -76,7 +76,7 @@ class GitHubSearchUseCaseTest: XCTestCase {
         let data = Data(dataString.utf8)
 
         repository.getGitHubSearchResponse = { () in
-            guard let info = try? JSONDecoder().decode(GitHubSearchAPIError.ErrorInfo.self, from: data) else {
+            guard let info = try? JSONDecoder().decode(GitHubSearchAPIError.Info.self, from: data) else {
                 fatalError("decodeエラー")
             }
 
