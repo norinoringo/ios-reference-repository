@@ -22,9 +22,9 @@ class GitHubSearchUseCase: GitHubSearchUseCaseProtocol {
     func search(type: GitHubSearchType) -> Single<Result<GitHubSearchResponse, GitHubSearchAPIError>> {
         // TODO: JSONパース処理の実装
         repository.get(type: type)
-            .subscribe(onSuccess: { result in
+            .subscribe(onSuccess: { _ in
 
-            }, onError: { error in
+            }, onError: { _ in
 
             })
 
