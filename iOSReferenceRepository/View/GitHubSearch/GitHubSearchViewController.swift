@@ -65,8 +65,12 @@ class GitHubSearchViewController: UIViewController {
             .disposed(by: disposeBag)
 
         output.pushGitHubSearchResutltView
-            .drive(onNext: { _ in
-                // TODO: 画面遷移処理を実装する
+            .drive(onNext: { [weak self] _ in
+                guard let nextVC = R.storyboard.gitHubRepository.instantiateInitialViewController() else {
+                    return
+                }
+                nextVC.searchText = self?.searchKeyword ?? ""
+                self?.navigationController?.pushViewController(nextVC, animated: true)
             })
             .disposed(by: disposeBag)
     }

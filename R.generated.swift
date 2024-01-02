@@ -440,8 +440,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `GitHubRepositoryCell`.
+    static let gitHubRepositoryCell: Rswift.ReuseIdentifier<GitHubRepositoryCell> = Rswift.ReuseIdentifier(identifier: "GitHubRepositoryCell")
     /// Reuse identifier `GitHubSearchHistoryCell`.
     static let gitHubSearchHistoryCell: Rswift.ReuseIdentifier<GitHubSearchHistoryCell> = Rswift.ReuseIdentifier(identifier: "GitHubSearchHistoryCell")
     /// Reuse identifier `GitHubSearchSuggestionsCell`.
@@ -483,8 +485,11 @@ struct _R: Rswift.Validatable {
       try _TestCollectionViewCell.validate()
     }
 
-    struct _GitHubRepositoryCell: Rswift.NibResourceType {
+    struct _GitHubRepositoryCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = GitHubRepositoryCell
+
       let bundle = R.hostingBundle
+      let identifier = "GitHubRepositoryCell"
       let name = "GitHubRepositoryCell"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubRepositoryCell? {

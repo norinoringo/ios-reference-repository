@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol GitHubSearchUseCaseProtocol {
-    func search(type: GitHubSearchType) -> Single<Result<GitHubSearchResponse, GitHubSearchAPIError>>
+    func search(type: GitHubSearchType) -> Single<Result<GitHubSearchResponse.Repository, GitHubSearchAPIError>>
 }
 
 class GitHubSearchUseCase: GitHubSearchUseCaseProtocol {
@@ -19,15 +19,20 @@ class GitHubSearchUseCase: GitHubSearchUseCaseProtocol {
         self.repository = repository
     }
 
-    func search(type: GitHubSearchType) -> Single<Result<GitHubSearchResponse, GitHubSearchAPIError>> {
-        // TODO: JSONパース処理の実装
-        repository.get(type: type)
-            .subscribe(onSuccess: { _ in
-
-            }, onError: { _ in
-
-            })
-
-        return .just(.success(GitHubSearchResponse.repositories(repositories: [])))
+    func search(type: GitHubSearchType) -> Single<Result<GitHubSearchResponse.Repository, GitHubSearchAPIError>> {
+        return repository.get(type: type)
+            .map { result -> Result<GitHubSearchResponse.Repository, GitHubSearchAPIError> in
+                    switch result {
+                    case .success(let data):
+                        do {
+                            let response = try JSONDecoder().decode(GitHubSearchResponse.Repository.self, from: data)
+                            return .success(response)
+                        } catch {
+                            fatalError()
+                        }
+                    case .failure(let error):
+                        return .failure(.unkown)
+                    }
+                }
     }
 }

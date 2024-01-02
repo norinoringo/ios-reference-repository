@@ -21,39 +21,43 @@ class GitHubRepositoryViewModel {
     }
 
     struct Output {
-        let repositories: Driver<[GitHubSearchResponse.Repository]>
+        let repositories: Driver<GitHubSearchResponse.Repository>
         let alert: Driver<GitHubSearchAPIError>
     }
 
     func tranform(input: Input) -> Output {
         let alert = PublishRelay<GitHubSearchAPIError>()
-        let repositoryRelay = PublishRelay<[GitHubSearchResponse.Repository]>()
 
-        input.searchText
+        let repositories: Driver<GitHubRepository> = input.searchText
             .asObservable()
-            .subscribe(onNext: ({ [weak self] searchText in
-                self?.useCase.search(type: .repositories(searchText: searchText))
-                    .map({ result in
+            .flatMap({ [weak self] searchText -> Observable<GitHubRepository> in
+                guard let self = self else {
+                    return Observable.just(GitHubRepository(items: []))
+                }
+                return self.useCase.search(type: .repositories(searchText: searchText))
+                    .asObservable() // SingleをObserVableに変換する必要があった。SingleってObserVavble型ではないの？
+                    .flatMap({ result -> Observable<GitHubRepository> in
                         switch result {
                         case .success(let response):
-                            if case .repositories(let repositories)  = response {
-                                repositoryRelay.accept(repositories)
-                            } else {
-                                repositoryRelay.accept([])
-                            }
+                            return Observable.just(response)
                         case .failure(let error):
                             alert.accept(error)
+                            return Observable.empty()
                         }
                     })
-                    .catch({ error in
-                        // TODO: Result of call to 'catch' is unusedを解消する
-                        fatalError()
-                    })
-                })
-            )
-            .disposed(by: disposeBag)
+            })
+            .asDriver(onErrorJustReturn: (GitHubRepository(items: [])))
 
-        return Output(repositories: repositoryRelay.asDriver(onErrorJustReturn: []),
+        repositories.drive(onNext: { _ in
+
+        })
+        .disposed(by: disposeBag)
+
+        return Output(repositories: repositories,
                       alert: alert.asDriver(onErrorJustReturn: .unkown))
     }
+}
+
+private extension GitHubRepositoryViewModel {
+    typealias GitHubRepository = GitHubSearchResponse.Repository
 }

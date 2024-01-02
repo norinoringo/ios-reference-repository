@@ -31,8 +31,9 @@ class GitHubRepositoryCell: UITableViewCell {
         self.language.text = nil
     }
 
-    func configure(avatar: UIImage, login: String, name: String, description: String, stargazersCount: Int, language: String) {
-        ownerAvatar.image = avatar
+    func configure(avatar: String, login: String, name: String, description: String, stargazersCount: Int, language: String) {
+        // TODO: 非同期処理でURLから画像を取得してUIImageに変換する
+        ownerAvatar.image = UIImage()
         ownerLogin.text = login
         self.name.text = name
         descriptions.text = description
