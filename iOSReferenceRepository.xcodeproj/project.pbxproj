@@ -29,6 +29,11 @@
 		861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23CE2AD8AF07002935FD /* SplashViewModel.swift */; };
 		861B23D32AE0AA77002935FD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861B23D22AE0AA76002935FD /* Home.storyboard */; };
 		861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23D42AE0ABFA002935FD /* HomeViewController.swift */; };
+		86520C852B3FE8040018E3A7 /* GitHubRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86520C842B3FE8040018E3A7 /* GitHubRepositoryViewController.swift */; };
+		86520C872B3FE81E0018E3A7 /* GitHubRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86520C862B3FE81E0018E3A7 /* GitHubRepositoryViewModel.swift */; };
+		86520C892B3FE82C0018E3A7 /* GitHubRepository.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86520C882B3FE82C0018E3A7 /* GitHubRepository.storyboard */; };
+		86520C8B2B3FE84B0018E3A7 /* GitHubRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86520C8A2B3FE84B0018E3A7 /* GitHubRepositoryCell.swift */; };
+		86520C8D2B3FE8650018E3A7 /* GitHubRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86520C8C2B3FE8650018E3A7 /* GitHubRepositoryCell.xib */; };
 		865510AC2B1FE6F0007767E1 /* GitHubSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */; };
 		865510AE2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */; };
 		865510B02B207868007767E1 /* GitHubSearchAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */; };
@@ -120,6 +125,11 @@
 		861B23CE2AD8AF07002935FD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		861B23D22AE0AA76002935FD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		861B23D42AE0ABFA002935FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		86520C842B3FE8040018E3A7 /* GitHubRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryViewController.swift; sourceTree = "<group>"; };
+		86520C862B3FE81E0018E3A7 /* GitHubRepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryViewModel.swift; sourceTree = "<group>"; };
+		86520C882B3FE82C0018E3A7 /* GitHubRepository.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GitHubRepository.storyboard; sourceTree = "<group>"; };
+		86520C8A2B3FE84B0018E3A7 /* GitHubRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryCell.swift; sourceTree = "<group>"; };
+		86520C8C2B3FE8650018E3A7 /* GitHubRepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubRepositoryCell.xib; sourceTree = "<group>"; };
 		865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchType.swift; sourceTree = "<group>"; };
 		865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchSuggestionModel.swift; sourceTree = "<group>"; };
 		865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchAPIRepository.swift; sourceTree = "<group>"; };
@@ -451,8 +461,28 @@
 				861ABC032AE21F75004D46E1 /* GitHubSearch.storyboard */,
 				861ABC052AE21F89004D46E1 /* GitHubSearchViewController.swift */,
 				86E6C2562AF5DF9D0043F09C /* View */,
+				86520C832B3FE7A50018E3A7 /* Repository */,
 			);
 			path = GitHubSearch;
+			sourceTree = "<group>";
+		};
+		86520C832B3FE7A50018E3A7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				86520C882B3FE82C0018E3A7 /* GitHubRepository.storyboard */,
+				86520C842B3FE8040018E3A7 /* GitHubRepositoryViewController.swift */,
+				86520C8E2B3FE86B0018E3A7 /* Component */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		86520C8E2B3FE86B0018E3A7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				86520C8A2B3FE84B0018E3A7 /* GitHubRepositoryCell.swift */,
+				86520C8C2B3FE8650018E3A7 /* GitHubRepositoryCell.xib */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		865A100129CE713D007D9567 /* UIKit */ = {
@@ -492,6 +522,14 @@
 				860B3029291E9FCC00628191 /* UIKitSampleHeader.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		86A17E212B41B18700F9736D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				86520C862B3FE81E0018E3A7 /* GitHubRepositoryViewModel.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		86A7F20E2B395E3500F7E4FD /* Model */ = {
@@ -594,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				86D852F42B00C83500873B4D /* GitHubSearchViewModel.swift */,
+				86A17E212B41B18700F9736D /* Repository */,
 			);
 			path = GitHubSearch;
 			sourceTree = "<group>";
@@ -725,6 +764,7 @@
 				8618B4AD28CC45DC004810C3 /* Assets.xcassets in Resources */,
 				86FAFDA529E6247A00327F7F /* TestUITableViewCell.xib in Resources */,
 				86FAFDA229E623BD00327F7F /* TestUITableView.storyboard in Resources */,
+				86520C8D2B3FE8650018E3A7 /* GitHubRepositoryCell.xib in Resources */,
 				8675881229E6DA4B0096C92F /* NextViewFromTableView.storyboard in Resources */,
 				86C0649C29EB927F0019FC77 /* TestCollectionFooterView.xib in Resources */,
 				8618B4BA28CD9B55004810C3 /* Splash.storyboard in Resources */,
@@ -734,6 +774,7 @@
 				86D68D1D2AF64810003901C0 /* GitHubSearchHistoryHeader.xib in Resources */,
 				86D68D212AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib in Resources */,
 				86809125291E90B900531ABC /* UIKitSampleCell.xib in Resources */,
+				86520C892B3FE82C0018E3A7 /* GitHubRepository.storyboard in Resources */,
 				860B302A291E9FCC00628191 /* UIKitSampleHeader.xib in Resources */,
 				8618B4C228CDA8FB004810C3 /* UIKitSample.storyboard in Resources */,
 				861ABC092AE221D5004D46E1 /* Settings.storyboard in Resources */,
@@ -821,6 +862,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86520C8B2B3FE84B0018E3A7 /* GitHubRepositoryCell.swift in Sources */,
 				865510B02B207868007767E1 /* GitHubSearchAPIRepository.swift in Sources */,
 				8618B4C028CDA8C2004810C3 /* UIKitSampleViewController.swift in Sources */,
 				86D1200F29EA4542001F59BD /* NextListView.swift in Sources */,
@@ -840,6 +882,7 @@
 				861ABC062AE21F89004D46E1 /* GitHubSearchViewController.swift in Sources */,
 				86C064A129F204FD0019FC77 /* TestLazyGridViewModel.swift in Sources */,
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
+				86520C872B3FE81E0018E3A7 /* GitHubRepositoryViewModel.swift in Sources */,
 				86E6C25A2AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift in Sources */,
 				861ABC0D2AE37E8A004D46E1 /* HomeViewModel.swift in Sources */,
 				868E6F3D2AF5EE7F00C8599F /* GitHubSearchHistoryCell.swift in Sources */,
@@ -862,6 +905,7 @@
 				86C0649F29F204C80019FC77 /* TestLazyGridView.swift in Sources */,
 				861ABC0B2AE221EA004D46E1 /* SettingsViewController.swift in Sources */,
 				865510AE2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift in Sources */,
+				86520C852B3FE8040018E3A7 /* GitHubRepositoryViewController.swift in Sources */,
 				861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */,
 				86C0648F29EB91D00019FC77 /* TestCollectionViewModel.swift in Sources */,
 				86A7F20D2B395D1E00F7E4FD /* GitHubSearchResponse.swift in Sources */,
