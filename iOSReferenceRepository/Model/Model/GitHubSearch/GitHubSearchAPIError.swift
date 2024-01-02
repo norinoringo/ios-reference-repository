@@ -13,6 +13,7 @@ enum GitHubSearchAPIError: Error {
     case resourceNotFound(info: Info) // 404
     case validationFailed(info: Info) // 422
     case serviceUnavailable(info: Info) // 503
+    case unkown
 
     struct Info: Codable {
         let message: String
