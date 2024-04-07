@@ -73,6 +73,7 @@
 		86D68D212AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D68D202AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib */; };
 		86D68D232AF64EF2003901C0 /* GitHubSearchSuggestionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D68D222AF64EF2003901C0 /* GitHubSearchSuggestionsCell.swift */; };
 		86D852F52B00C83500873B4D /* GitHubSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D852F42B00C83500873B4D /* GitHubSearchViewModel.swift */; };
+		86DC6ACB2B5CC213002B1EB8 /* Hydra in Frameworks */ = {isa = PBXBuildFile; productRef = 86DC6ACA2B5CC213002B1EB8 /* Hydra */; };
 		86E03C8A2AF082DD00AAEAC7 /* UIKitSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */; };
 		86E6C2582AF5E02A0043F09C /* GitHubSearchTutorialLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E6C2572AF5E02A0043F09C /* GitHubSearchTutorialLabelCell.xib */; };
 		86E6C25A2AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6C2592AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift */; };
@@ -168,6 +169,7 @@
 		86D68D202AF64EE6003901C0 /* GitHubSearchSuggestionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubSearchSuggestionsCell.xib; sourceTree = "<group>"; };
 		86D68D222AF64EF2003901C0 /* GitHubSearchSuggestionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchSuggestionsCell.swift; sourceTree = "<group>"; };
 		86D852F42B00C83500873B4D /* GitHubSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchViewModel.swift; sourceTree = "<group>"; };
+		86DC6ACE2B5CC25B002B1EB8 /* Promise.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Promise.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		86E03C892AF082DD00AAEAC7 /* UIKitSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitSampleData.swift; sourceTree = "<group>"; };
 		86E6C2572AF5E02A0043F09C /* GitHubSearchTutorialLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubSearchTutorialLabelCell.xib; sourceTree = "<group>"; };
 		86E6C2592AF5E0660043F09C /* GitHubSearchTutorialLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchTutorialLabelCell.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				865A100C29D1166F007D9567 /* RxCocoa.framework in Frameworks */,
+				86DC6ACB2B5CC213002B1EB8 /* Hydra in Frameworks */,
 				865A100A29D11669007D9567 /* RxSwift.framework in Frameworks */,
 				1743F3A07AEDFBB02AFD4928 /* Pods_iOSReferenceRepository.framework in Frameworks */,
 			);
@@ -355,6 +358,7 @@
 			children = (
 				861ABC132AE5F0C9004D46E1 /* Swift */,
 				8663010F2B0F299C003A08C8 /* RxSwift */,
+				86DC6ACC2B5CC21D002B1EB8 /* Promise */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
@@ -598,6 +602,14 @@
 			path = GitHubSearch;
 			sourceTree = "<group>";
 		};
+		86DC6ACC2B5CC21D002B1EB8 /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				86DC6ACE2B5CC25B002B1EB8 /* Promise.playground */,
+			);
+			path = Promise;
+			sourceTree = "<group>";
+		};
 		86E03C882AF082BA00AAEAC7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +664,7 @@
 			);
 			name = iOSReferenceRepository;
 			packageProductDependencies = (
+				86DC6ACA2B5CC213002B1EB8 /* Hydra */,
 			);
 			productName = iOSReferenceRepository;
 			productReference = 8618B4A028CC45D9004810C3 /* iOSReferenceRepository.app */;
@@ -705,6 +718,7 @@
 			);
 			mainGroup = 8618B49728CC45D9004810C3;
 			packageReferences = (
+				86DC6AC92B5CC213002B1EB8 /* XCRemoteSwiftPackageReference "Hydra" */,
 			);
 			productRefGroup = 8618B4A128CC45D9004810C3 /* Products */;
 			projectDirPath = "";
@@ -1148,6 +1162,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86DC6AC92B5CC213002B1EB8 /* XCRemoteSwiftPackageReference "Hydra" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/Hydra";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86DC6ACA2B5CC213002B1EB8 /* Hydra */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86DC6AC92B5CC213002B1EB8 /* XCRemoteSwiftPackageReference "Hydra" */;
+			productName = Hydra;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8618B49828CC45D9004810C3 /* Project object */;
 }
