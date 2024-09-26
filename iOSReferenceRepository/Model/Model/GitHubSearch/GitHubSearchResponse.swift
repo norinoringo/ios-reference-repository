@@ -7,13 +7,13 @@
 
 import Foundation
 // TODO: 各検索結果のレスポンスモデルを定義する
-enum GitHubSearchResponse {
-    case repositories(repositories: [Repository])
-    case issues(issues: [Repository])
-    case pullRequests(pullRequests: [Repository])
-    case users(users: [Repository])
-    case organizations(organizations: [Repository])
-    case keyword(keyword: [Repository])
+enum GitHubSearchResponse: Codable {
+    case repositories(repositories: Repository)
+    case issues(issues: Repository)
+    case pullRequests(pullRequests: Repository)
+    case users(users: Repository)
+    case organizations(organizations: Repository)
+    case keyword(keyword: Repository)
 
     struct Repository: Codable {
         let items: [items]

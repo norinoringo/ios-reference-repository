@@ -89,8 +89,10 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 9 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 10 storyboards.
   struct storyboard {
+    /// Storyboard `GitHubRepository`.
+    static let gitHubRepository = _R.storyboard.gitHubRepository()
     /// Storyboard `GitHubSearch`.
     static let gitHubSearch = _R.storyboard.gitHubSearch()
     /// Storyboard `Home`.
@@ -109,6 +111,13 @@ struct R: Rswift.Validatable {
     static let testUITableView = _R.storyboard.testUITableView()
     /// Storyboard `UIKitSample`.
     static let uiKitSample = _R.storyboard.uiKitSample()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "GitHubRepository", bundle: ...)`
+    static func gitHubRepository(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.gitHubRepository)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "GitHubSearch", bundle: ...)`
@@ -271,8 +280,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 10 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 11 nibs.
   struct nib {
+    /// Nib `GitHubRepositoryCell`.
+    static let gitHubRepositoryCell = _R.nib._GitHubRepositoryCell()
     /// Nib `GitHubSearchHistoryCell`.
     static let gitHubSearchHistoryCell = _R.nib._GitHubSearchHistoryCell()
     /// Nib `GitHubSearchHistoryHeader`.
@@ -293,6 +304,14 @@ struct R: Rswift.Validatable {
     static let uiKitSampleCell = _R.nib._UIKitSampleCell()
     /// Nib `UIKitSampleHeader`.
     static let uiKitSampleHeader = _R.nib._UIKitSampleHeader()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GitHubRepositoryCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.gitHubRepositoryCell) instead")
+    static func gitHubRepositoryCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.gitHubRepositoryCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "GitHubSearchHistoryCell", in: bundle)`
@@ -374,6 +393,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func gitHubRepositoryCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubRepositoryCell? {
+      return R.nib.gitHubRepositoryCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubRepositoryCell
+    }
+
     static func gitHubSearchHistoryCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubSearchHistoryCell? {
       return R.nib.gitHubSearchHistoryCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubSearchHistoryCell
     }
@@ -417,8 +440,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `GitHubRepositoryCell`.
+    static let gitHubRepositoryCell: Rswift.ReuseIdentifier<GitHubRepositoryCell> = Rswift.ReuseIdentifier(identifier: "GitHubRepositoryCell")
     /// Reuse identifier `GitHubSearchHistoryCell`.
     static let gitHubSearchHistoryCell: Rswift.ReuseIdentifier<GitHubSearchHistoryCell> = Rswift.ReuseIdentifier(identifier: "GitHubSearchHistoryCell")
     /// Reuse identifier `GitHubSearchSuggestionsCell`.
@@ -458,6 +483,20 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _TestCollectionViewCell.validate()
+    }
+
+    struct _GitHubRepositoryCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = GitHubRepositoryCell
+
+      let bundle = R.hostingBundle
+      let identifier = "GitHubRepositoryCell"
+      let name = "GitHubRepositoryCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GitHubRepositoryCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GitHubRepositoryCell
+      }
+
+      fileprivate init() {}
     }
 
     struct _GitHubSearchHistoryCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
@@ -596,6 +635,9 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try gitHubRepository.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try gitHubSearch.validate()
       #endif
       #if os(iOS) || os(tvOS)
@@ -623,6 +665,22 @@ struct _R: Rswift.Validatable {
       try uiKitSample.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct gitHubRepository: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = GitHubRepositoryViewController
+
+      let bundle = R.hostingBundle
+      let name = "GitHubRepository"
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct gitHubSearch: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
