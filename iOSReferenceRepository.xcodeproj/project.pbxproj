@@ -29,6 +29,8 @@
 		861B23CF2AD8AF07002935FD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23CE2AD8AF07002935FD /* SplashViewModel.swift */; };
 		861B23D32AE0AA77002935FD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861B23D22AE0AA76002935FD /* Home.storyboard */; };
 		861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23D42AE0ABFA002935FD /* HomeViewController.swift */; };
+		865285EF2E939A9700190BD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865285EE2E939A9600190BD2 /* ContentView.swift */; };
+		865285F02E939A9700190BD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865285EE2E939A9600190BD2 /* ContentView.swift */; };
 		865510AC2B1FE6F0007767E1 /* GitHubSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */; };
 		865510AE2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */; };
 		865510B02B207868007767E1 /* GitHubSearchAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */; };
@@ -121,6 +123,7 @@
 		861B23CE2AD8AF07002935FD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		861B23D22AE0AA76002935FD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		861B23D42AE0ABFA002935FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		865285EE2E939A9600190BD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchType.swift; sourceTree = "<group>"; };
 		865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchSuggestionModel.swift; sourceTree = "<group>"; };
 		865510AF2B207868007767E1 /* GitHubSearchAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchAPIRepository.swift; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 				86C0649D29F204570019FC77 /* LazyGrid */,
 				86D1200929E7816E001F59BD /* List */,
 				8609B80329DF9AA300453822 /* ScrollView */,
+				865285EE2E939A9600190BD2 /* ContentView.swift */,
 			);
 			name = SwiftUI;
 			path = ..;
@@ -777,9 +781,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSReferenceRepository/Pods-iOSReferenceRepository-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -861,6 +869,7 @@
 				869DCEC829DA49680000A1DD /* UIKitSampleViewModel.swift in Sources */,
 				8690EAC32B243E4700F1DE8E /* GitHubSearchHisotryManagerUseCase.swift in Sources */,
 				8690EAC72B244F6B00F1DE8E /* Extension+Driver.swift in Sources */,
+				865285EF2E939A9700190BD2 /* ContentView.swift in Sources */,
 				861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */,
 				8618B4A428CC45D9004810C3 /* AppDelegate.swift in Sources */,
 				86D68D1F2AF64871003901C0 /* GitHubSearchHistoryHeader.swift in Sources */,
@@ -893,6 +902,7 @@
 			files = (
 				86A7F2262B3A9DB000F7E4FD /* GitHubSearchResponseMock.swift in Sources */,
 				86A7F2202B3966C700F7E4FD /* GitHubSearchUseCaseTest.swift in Sources */,
+				865285F02E939A9700190BD2 /* ContentView.swift in Sources */,
 				86A7F2232B39673B00F7E4FD /* GitHubAPIRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,9 +1038,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B4C4BK3TF8;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSReferenceRepository/AppManager/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1046,6 +1056,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noringo.iOSReferenceRepository;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1058,9 +1069,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B4C4BK3TF8;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSReferenceRepository/AppManager/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1076,6 +1087,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.noringo.iOSReferenceRepository;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
