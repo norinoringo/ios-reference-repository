@@ -31,6 +31,8 @@
 		861B23D52AE0ABFA002935FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B23D42AE0ABFA002935FD /* HomeViewController.swift */; };
 		863F72C82E93B97E009E78C7 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F72C72E93B97E009E78C7 /* CircleImage.swift */; };
 		863F72C92E93B97E009E78C7 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F72C72E93B97E009E78C7 /* CircleImage.swift */; };
+		863F72CB2E97AA67009E78C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F72CA2E97AA67009E78C7 /* MapView.swift */; };
+		863F72CC2E97AA67009E78C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863F72CA2E97AA67009E78C7 /* MapView.swift */; };
 		865285EF2E939A9700190BD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865285EE2E939A9600190BD2 /* ContentView.swift */; };
 		865285F02E939A9700190BD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865285EE2E939A9600190BD2 /* ContentView.swift */; };
 		865510AC2B1FE6F0007767E1 /* GitHubSearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */; };
@@ -126,6 +128,7 @@
 		861B23D22AE0AA76002935FD /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		861B23D42AE0ABFA002935FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		863F72C72E93B97E009E78C7 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		863F72CA2E97AA67009E78C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		865285EE2E939A9600190BD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		865510AB2B1FE6F0007767E1 /* GitHubSearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchType.swift; sourceTree = "<group>"; };
 		865510AD2B1FE9F5007767E1 /* GitHubSearchSuggestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchSuggestionModel.swift; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 				8609B80329DF9AA300453822 /* ScrollView */,
 				865285EE2E939A9600190BD2 /* ContentView.swift */,
 				863F72C72E93B97E009E78C7 /* CircleImage.swift */,
+				863F72CA2E97AA67009E78C7 /* MapView.swift */,
 			);
 			name = SwiftUI;
 			path = ..;
@@ -864,6 +868,7 @@
 				863F72C82E93B97E009E78C7 /* CircleImage.swift in Sources */,
 				86FAFDA029E4E5FE00327F7F /* TestUITableViewController.swift in Sources */,
 				86C0648B29EB8F1B0019FC77 /* TestUICollectionViewController.swift in Sources */,
+				863F72CC2E97AA67009E78C7 /* MapView.swift in Sources */,
 				861ABC062AE21F89004D46E1 /* GitHubSearchViewController.swift in Sources */,
 				86C064A129F204FD0019FC77 /* TestLazyGridViewModel.swift in Sources */,
 				865A100429CE7159007D9567 /* ScrollViewController.swift in Sources */,
@@ -906,6 +911,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86A7F2262B3A9DB000F7E4FD /* GitHubSearchResponseMock.swift in Sources */,
+				863F72CB2E97AA67009E78C7 /* MapView.swift in Sources */,
 				86A7F2202B3966C700F7E4FD /* GitHubSearchUseCaseTest.swift in Sources */,
 				865285F02E939A9700190BD2 /* ContentView.swift in Sources */,
 				86A7F2232B39673B00F7E4FD /* GitHubAPIRepositoryMock.swift in Sources */,
