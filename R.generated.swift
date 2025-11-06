@@ -202,10 +202,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
     /// Resource file `Localizable.xcstrings`.
     static let localizableXcstrings = Rswift.FileResource(bundle: R.hostingBundle, name: "Localizable", pathExtension: "xcstrings")
+    /// Resource file `landmarkData.json`.
+    static let landmarkDataJson = Rswift.FileResource(bundle: R.hostingBundle, name: "landmarkData", pathExtension: "json")
 
     /// `bundle.url(forResource: "Localizable", withExtension: "xcstrings")`
     static func localizableXcstrings(_: Void = ()) -> Foundation.URL? {
@@ -213,15 +215,87 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
 
+    /// `bundle.url(forResource: "landmarkData", withExtension: "json")`
+    static func landmarkDataJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.landmarkDataJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
+    /// Image `charleyrivers`.
+    static let charleyrivers = Rswift.ImageResource(bundle: R.hostingBundle, name: "charleyrivers")
+    /// Image `chilkoottrail`.
+    static let chilkoottrail = Rswift.ImageResource(bundle: R.hostingBundle, name: "chilkoottrail")
+    /// Image `chincoteague`.
+    static let chincoteague = Rswift.ImageResource(bundle: R.hostingBundle, name: "chincoteague")
+    /// Image `hiddenlake`.
+    static let hiddenlake = Rswift.ImageResource(bundle: R.hostingBundle, name: "hiddenlake")
+    /// Image `icybay`.
+    static let icybay = Rswift.ImageResource(bundle: R.hostingBundle, name: "icybay")
+    /// Image `lakemcdonald`.
+    static let lakemcdonald = Rswift.ImageResource(bundle: R.hostingBundle, name: "lakemcdonald")
     /// Image `pop_sold_out`.
     static let pop_sold_out = Rswift.ImageResource(bundle: R.hostingBundle, name: "pop_sold_out")
+    /// Image `rainbowlake`.
+    static let rainbowlake = Rswift.ImageResource(bundle: R.hostingBundle, name: "rainbowlake")
     /// Image `sarunori`.
     static let sarunori = Rswift.ImageResource(bundle: R.hostingBundle, name: "sarunori")
+    /// Image `silversalmoncreek`.
+    static let silversalmoncreek = Rswift.ImageResource(bundle: R.hostingBundle, name: "silversalmoncreek")
+    /// Image `stmarylake`.
+    static let stmarylake = Rswift.ImageResource(bundle: R.hostingBundle, name: "stmarylake")
+    /// Image `turtlerock`.
+    static let turtlerock = Rswift.ImageResource(bundle: R.hostingBundle, name: "turtlerock")
+    /// Image `twinlake`.
+    static let twinlake = Rswift.ImageResource(bundle: R.hostingBundle, name: "twinlake")
+    /// Image `umbagog`.
+    static let umbagog = Rswift.ImageResource(bundle: R.hostingBundle, name: "umbagog")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "charleyrivers", bundle: ..., traitCollection: ...)`
+    static func charleyrivers(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.charleyrivers, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "chilkoottrail", bundle: ..., traitCollection: ...)`
+    static func chilkoottrail(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.chilkoottrail, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "chincoteague", bundle: ..., traitCollection: ...)`
+    static func chincoteague(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.chincoteague, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "hiddenlake", bundle: ..., traitCollection: ...)`
+    static func hiddenlake(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.hiddenlake, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "icybay", bundle: ..., traitCollection: ...)`
+    static func icybay(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icybay, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "lakemcdonald", bundle: ..., traitCollection: ...)`
+    static func lakemcdonald(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.lakemcdonald, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "pop_sold_out", bundle: ..., traitCollection: ...)`
@@ -231,9 +305,51 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "rainbowlake", bundle: ..., traitCollection: ...)`
+    static func rainbowlake(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rainbowlake, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "sarunori", bundle: ..., traitCollection: ...)`
     static func sarunori(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.sarunori, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "silversalmoncreek", bundle: ..., traitCollection: ...)`
+    static func silversalmoncreek(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.silversalmoncreek, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "stmarylake", bundle: ..., traitCollection: ...)`
+    static func stmarylake(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.stmarylake, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "turtlerock", bundle: ..., traitCollection: ...)`
+    static func turtlerock(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.turtlerock, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "twinlake", bundle: ..., traitCollection: ...)`
+    static func twinlake(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.twinlake, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "umbagog", bundle: ..., traitCollection: ...)`
+    static func umbagog(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.umbagog, compatibleWith: traitCollection)
     }
     #endif
 
