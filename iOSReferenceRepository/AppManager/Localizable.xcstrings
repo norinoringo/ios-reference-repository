@@ -4,6 +4,9 @@
     "¥%lld" : {
 
     },
+    "About %@" : {
+
+    },
     "About Turtle Rock" : {
 
     },
@@ -39,6 +42,12 @@
       }
     },
     "Joshua Tree National Park" : {
+
+    },
+    "Landmark" : {
+
+    },
+    "Select a Landmark" : {
 
     },
     "Title" : {
