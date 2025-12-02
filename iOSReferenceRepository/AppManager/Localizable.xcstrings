@@ -19,6 +19,9 @@
     "explanation" : {
 
     },
+    "Favorites only" : {
+
+    },
     "GitHubSearchTutorialLabelSubTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -51,6 +54,9 @@
 
     },
     "Title" : {
+
+    },
+    "Toggle Favorite" : {
 
     },
     "Turtle Rock" : {
